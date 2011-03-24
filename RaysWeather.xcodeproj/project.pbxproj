@@ -1,0 +1,479 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		63EB8012133BC66D00A01901 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63EB8011133BC66D00A01901 /* UIKit.framework */; };
+		63EB8014133BC66D00A01901 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63EB8013133BC66D00A01901 /* Foundation.framework */; };
+		63EB8016133BC66D00A01901 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63EB8015133BC66D00A01901 /* CoreGraphics.framework */; };
+		63EB801C133BC66D00A01901 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 63EB801A133BC66D00A01901 /* InfoPlist.strings */; };
+		63EB801F133BC66D00A01901 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EB801E133BC66D00A01901 /* main.m */; };
+		63EB8022133BC66D00A01901 /* RaysWeatherAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EB8021133BC66D00A01901 /* RaysWeatherAppDelegate.m */; };
+		63EB8025133BC66D00A01901 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63EB8023133BC66D00A01901 /* MainWindow.xib */; };
+		63EB8028133BC66D00A01901 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EB8027133BC66D00A01901 /* FirstViewController.m */; };
+		63EB802B133BC66E00A01901 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EB802A133BC66E00A01901 /* SecondViewController.m */; };
+		63EB802E133BC66E00A01901 /* FirstView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63EB802C133BC66E00A01901 /* FirstView.xib */; };
+		63EB8031133BC66E00A01901 /* SecondView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63EB802F133BC66E00A01901 /* SecondView.xib */; };
+		63EB8038133BC66E00A01901 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63EB8011133BC66D00A01901 /* UIKit.framework */; };
+		63EB8039133BC66E00A01901 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63EB8013133BC66D00A01901 /* Foundation.framework */; };
+		63EB803A133BC66E00A01901 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63EB8015133BC66D00A01901 /* CoreGraphics.framework */; };
+		63EB8042133BC66E00A01901 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 63EB8040133BC66E00A01901 /* InfoPlist.strings */; };
+		63EB8045133BC66E00A01901 /* RaysWeatherTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 63EB8044133BC66E00A01901 /* RaysWeatherTests.h */; };
+		63EB8047133BC66E00A01901 /* RaysWeatherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EB8046133BC66E00A01901 /* RaysWeatherTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		63EB803B133BC66E00A01901 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63EB8004133BC66C00A01901 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 63EB800C133BC66D00A01901;
+			remoteInfo = RaysWeather;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		63EB800D133BC66D00A01901 /* RaysWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RaysWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		63EB8011133BC66D00A01901 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		63EB8013133BC66D00A01901 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		63EB8015133BC66D00A01901 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		63EB8019133BC66D00A01901 /* RaysWeather-Info.plist */ = {isa = PBXFileReference; path = "RaysWeather-Info.plist"; sourceTree = "<group>"; };
+		63EB801B133BC66D00A01901 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		63EB801D133BC66D00A01901 /* RaysWeather-Prefix.pch */ = {isa = PBXFileReference; path = "RaysWeather-Prefix.pch"; sourceTree = "<group>"; };
+		63EB801E133BC66D00A01901 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		63EB8020133BC66D00A01901 /* RaysWeatherAppDelegate.h */ = {isa = PBXFileReference; path = RaysWeatherAppDelegate.h; sourceTree = "<group>"; };
+		63EB8021133BC66D00A01901 /* RaysWeatherAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RaysWeatherAppDelegate.m; sourceTree = "<group>"; };
+		63EB8024133BC66D00A01901 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		63EB8026133BC66D00A01901 /* FirstViewController.h */ = {isa = PBXFileReference; path = FirstViewController.h; sourceTree = "<group>"; };
+		63EB8027133BC66D00A01901 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		63EB8029133BC66E00A01901 /* SecondViewController.h */ = {isa = PBXFileReference; path = SecondViewController.h; sourceTree = "<group>"; };
+		63EB802A133BC66E00A01901 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		63EB802D133BC66E00A01901 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FirstView.xib; sourceTree = "<group>"; };
+		63EB8030133BC66E00A01901 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SecondView.xib; sourceTree = "<group>"; };
+		63EB8037133BC66E00A01901 /* RaysWeatherTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RaysWeatherTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		63EB803F133BC66E00A01901 /* RaysWeatherTests-Info.plist */ = {isa = PBXFileReference; path = "RaysWeatherTests-Info.plist"; sourceTree = "<group>"; };
+		63EB8041133BC66E00A01901 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		63EB8043133BC66E00A01901 /* RaysWeatherTests-Prefix.pch */ = {isa = PBXFileReference; path = "RaysWeatherTests-Prefix.pch"; sourceTree = "<group>"; };
+		63EB8044133BC66E00A01901 /* RaysWeatherTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RaysWeatherTests.h; sourceTree = "<group>"; };
+		63EB8046133BC66E00A01901 /* RaysWeatherTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RaysWeatherTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		63EB800A133BC66D00A01901 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63EB8012133BC66D00A01901 /* UIKit.framework in Frameworks */,
+				63EB8014133BC66D00A01901 /* Foundation.framework in Frameworks */,
+				63EB8016133BC66D00A01901 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		63EB8033133BC66E00A01901 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63EB8038133BC66E00A01901 /* UIKit.framework in Frameworks */,
+				63EB8039133BC66E00A01901 /* Foundation.framework in Frameworks */,
+				63EB803A133BC66E00A01901 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		63EB8002133BC66C00A01901 = {
+			isa = PBXGroup;
+			children = (
+				63EB8017133BC66D00A01901 /* RaysWeather */,
+				63EB803D133BC66E00A01901 /* RaysWeatherTests */,
+				63EB8010133BC66D00A01901 /* Frameworks */,
+				63EB800E133BC66D00A01901 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		63EB800E133BC66D00A01901 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				63EB800D133BC66D00A01901 /* RaysWeather.app */,
+				63EB8037133BC66E00A01901 /* RaysWeatherTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		63EB8010133BC66D00A01901 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				63EB8011133BC66D00A01901 /* UIKit.framework */,
+				63EB8013133BC66D00A01901 /* Foundation.framework */,
+				63EB8015133BC66D00A01901 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		63EB8017133BC66D00A01901 /* RaysWeather */ = {
+			isa = PBXGroup;
+			children = (
+				63EB8020133BC66D00A01901 /* RaysWeatherAppDelegate.h */,
+				63EB8021133BC66D00A01901 /* RaysWeatherAppDelegate.m */,
+				63EB8023133BC66D00A01901 /* MainWindow.xib */,
+				63EB8026133BC66D00A01901 /* FirstViewController.h */,
+				63EB8027133BC66D00A01901 /* FirstViewController.m */,
+				63EB8029133BC66E00A01901 /* SecondViewController.h */,
+				63EB802A133BC66E00A01901 /* SecondViewController.m */,
+				63EB802C133BC66E00A01901 /* FirstView.xib */,
+				63EB802F133BC66E00A01901 /* SecondView.xib */,
+				63EB8018133BC66D00A01901 /* Supporting Files */,
+			);
+			path = RaysWeather;
+			sourceTree = "<group>";
+		};
+		63EB8018133BC66D00A01901 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				63EB8019133BC66D00A01901 /* RaysWeather-Info.plist */,
+				63EB801A133BC66D00A01901 /* InfoPlist.strings */,
+				63EB801D133BC66D00A01901 /* RaysWeather-Prefix.pch */,
+				63EB801E133BC66D00A01901 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		63EB803D133BC66E00A01901 /* RaysWeatherTests */ = {
+			isa = PBXGroup;
+			children = (
+				63EB8044133BC66E00A01901 /* RaysWeatherTests.h */,
+				63EB8046133BC66E00A01901 /* RaysWeatherTests.m */,
+				63EB803E133BC66E00A01901 /* Supporting Files */,
+			);
+			path = RaysWeatherTests;
+			sourceTree = "<group>";
+		};
+		63EB803E133BC66E00A01901 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				63EB803F133BC66E00A01901 /* RaysWeatherTests-Info.plist */,
+				63EB8040133BC66E00A01901 /* InfoPlist.strings */,
+				63EB8043133BC66E00A01901 /* RaysWeatherTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		63EB800C133BC66D00A01901 /* RaysWeather */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 63EB804A133BC66E00A01901 /* Build configuration list for PBXNativeTarget "RaysWeather" */;
+			buildPhases = (
+				63EB8009133BC66D00A01901 /* Sources */,
+				63EB800A133BC66D00A01901 /* Frameworks */,
+				63EB800B133BC66D00A01901 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RaysWeather;
+			productName = RaysWeather;
+			productReference = 63EB800D133BC66D00A01901 /* RaysWeather.app */;
+			productType = "com.apple.product-type.application";
+		};
+		63EB8036133BC66E00A01901 /* RaysWeatherTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 63EB804D133BC66E00A01901 /* Build configuration list for PBXNativeTarget "RaysWeatherTests" */;
+			buildPhases = (
+				63EB8032133BC66E00A01901 /* Sources */,
+				63EB8033133BC66E00A01901 /* Frameworks */,
+				63EB8034133BC66E00A01901 /* Resources */,
+				63EB8035133BC66E00A01901 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				63EB803C133BC66E00A01901 /* PBXTargetDependency */,
+			);
+			name = RaysWeatherTests;
+			productName = RaysWeatherTests;
+			productReference = 63EB8037133BC66E00A01901 /* RaysWeatherTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		63EB8004133BC66C00A01901 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "Appalachian State University";
+			};
+			buildConfigurationList = 63EB8007133BC66C00A01901 /* Build configuration list for PBXProject "RaysWeather" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 63EB8002133BC66C00A01901;
+			productRefGroup = 63EB800E133BC66D00A01901 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				63EB800C133BC66D00A01901 /* RaysWeather */,
+				63EB8036133BC66E00A01901 /* RaysWeatherTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		63EB800B133BC66D00A01901 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63EB801C133BC66D00A01901 /* InfoPlist.strings in Resources */,
+				63EB8025133BC66D00A01901 /* MainWindow.xib in Resources */,
+				63EB802E133BC66E00A01901 /* FirstView.xib in Resources */,
+				63EB8031133BC66E00A01901 /* SecondView.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		63EB8034133BC66E00A01901 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63EB8042133BC66E00A01901 /* InfoPlist.strings in Resources */,
+				63EB8045133BC66E00A01901 /* RaysWeatherTests.h in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		63EB8035133BC66E00A01901 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		63EB8009133BC66D00A01901 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63EB801F133BC66D00A01901 /* main.m in Sources */,
+				63EB8022133BC66D00A01901 /* RaysWeatherAppDelegate.m in Sources */,
+				63EB8028133BC66D00A01901 /* FirstViewController.m in Sources */,
+				63EB802B133BC66E00A01901 /* SecondViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		63EB8032133BC66E00A01901 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63EB8047133BC66E00A01901 /* RaysWeatherTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		63EB803C133BC66E00A01901 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 63EB800C133BC66D00A01901 /* RaysWeather */;
+			targetProxy = 63EB803B133BC66E00A01901 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		63EB801A133BC66D00A01901 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				63EB801B133BC66D00A01901 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		63EB8023133BC66D00A01901 /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				63EB8024133BC66D00A01901 /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		63EB802C133BC66E00A01901 /* FirstView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				63EB802D133BC66E00A01901 /* en */,
+			);
+			name = FirstView.xib;
+			sourceTree = "<group>";
+		};
+		63EB802F133BC66E00A01901 /* SecondView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				63EB8030133BC66E00A01901 /* en */,
+			);
+			name = SecondView.xib;
+			sourceTree = "<group>";
+		};
+		63EB8040133BC66E00A01901 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				63EB8041133BC66E00A01901 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		63EB8048133BC66E00A01901 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		63EB8049133BC66E00A01901 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		63EB804B133BC66E00A01901 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RaysWeather/RaysWeather-Prefix.pch";
+				INFOPLIST_FILE = "RaysWeather/RaysWeather-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		63EB804C133BC66E00A01901 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RaysWeather/RaysWeather-Prefix.pch";
+				INFOPLIST_FILE = "RaysWeather/RaysWeather-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		63EB804E133BC66E00A01901 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/RaysWeather.app/RaysWeather";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RaysWeatherTests/RaysWeatherTests-Prefix.pch";
+				INFOPLIST_FILE = "RaysWeatherTests/RaysWeatherTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		63EB804F133BC66E00A01901 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/RaysWeather.app/RaysWeather";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RaysWeatherTests/RaysWeatherTests-Prefix.pch";
+				INFOPLIST_FILE = "RaysWeatherTests/RaysWeatherTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		63EB8007133BC66C00A01901 /* Build configuration list for PBXProject "RaysWeather" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				63EB8048133BC66E00A01901 /* Debug */,
+				63EB8049133BC66E00A01901 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		63EB804A133BC66E00A01901 /* Build configuration list for PBXNativeTarget "RaysWeather" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				63EB804B133BC66E00A01901 /* Debug */,
+				63EB804C133BC66E00A01901 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		63EB804D133BC66E00A01901 /* Build configuration list for PBXNativeTarget "RaysWeatherTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				63EB804E133BC66E00A01901 /* Debug */,
+				63EB804F133BC66E00A01901 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 63EB8004133BC66C00A01901 /* Project object */;
+}
