@@ -10,7 +10,7 @@
 
 
 @implementation MyXMLParser
-@synthesize parser, weatherData, item, currentElement, currentHumidity, currentWindSpeed, currentConditionIcon, currentTemperature, currentBarometer, currentWindDirection, currentHiTemp, currentLoTemp, day1hi, day1lo, day1icon, day2hi, day2lo, day2icon, day3hi, day3lo, day3icon, day_of_week1, day_of_week2, day_of_week3;
+@synthesize parser, weatherData, item, currentElement, currentHumidity, currentWindSpeed, currentConditionIcon, currentTemperature, currentBarometer, currentWindDirection, currentHiTemp, currentLoTemp, day1hi, day1lo, day1icon, day2hi, day2lo, day2icon, day3hi, day3lo, day3icon, day_of_week1, day_of_week2, day_of_week3, currentIntro;
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict{			
 	//NSLog(@"found this element: %@", elementName);
@@ -28,7 +28,7 @@
 	}
     if ([elementName isEqualToString:@"forecast"]){
         item = [[NSMutableDictionary alloc] init];
-        
+        currentIntro = [[NSMutableString alloc] init];
     }
 	
 }
@@ -57,6 +57,9 @@
 		[item setObject:currentLoTemp forKey:@"lo_temp"];
 		[weatherData addObject:[item copy]];
 	}
+    if ([elementName isEqualToString:@"forecast"]){
+        [item setObject:currentIntro forKey:@"introduction"];
+    }
 }
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
@@ -84,6 +87,9 @@
     }
     else if([currentElement isEqualToString:@"lo_temp"]){
         [currentLoTemp appendString:string];
+    }
+    else if([currentElement isEqualToString:@"introduction"]){
+        [currentIntro appendString:string];
     }
     //NSLog(@"found characters: %@", string);
 }

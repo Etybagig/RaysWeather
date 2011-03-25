@@ -20,7 +20,7 @@
         IBOutlet UILabel *windDirection;
         IBOutlet UILabel *currentHi;
         IBOutlet UILabel *currentLo;
-        IBOutlet UIScrollView *todaysSummary;
+        IBOutlet UITextView *todaysSummary;
     }
     
     @property (nonatomic, retain) UIImageView *currentConditionImage;
@@ -33,6 +33,6 @@
     @property (nonatomic, retain) UILabel *windDirection;
     @property (nonatomic, retain) UILabel *currentHi;
     @property (nonatomic, retain) UILabel *currentLo;
-    @property (nonatomic, retain) UIScrollView *todaysSummary;
+    @property (nonatomic, retain) UITextView *todaysSummary;
     
 @end

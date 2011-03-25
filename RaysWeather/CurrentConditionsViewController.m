@@ -5,6 +5,10 @@
 //  Created by Bobby Lunceford on 3/24/11.
 //  Copyright 2011 Appalachian State University. All rights reserved.
 //
+// http://raysweather.com/mobile/stations
+// http://raysweather.com/mobile/conditions/?station=n
+// http://raysweather.com/mobile/forecast/?station=n
+// http://raysweather.com/images/icons/n
 
 #import "CurrentConditionsViewController.h"
 #import "MyXMLParser.h"
@@ -36,7 +40,9 @@
 	currentHi.text = parser.currentHiTemp;
 	currentLo.text = parser.currentLoTemp;
 	
-
+    NSString *path2 = @"http://raysweather.com/mobile/forecast/?station=1";
+	[parser parseXMLFileAtURL:path2];
+    todaysSummary.text = parser.currentIntro;
 }
 
 
