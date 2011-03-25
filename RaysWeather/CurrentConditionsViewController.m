@@ -26,7 +26,6 @@
     NSString *path = @"http://raysweather.com/mobile/conditions/?station=1";
 	[parser parseXMLFileAtURL:path];
 	humidity.text = parser.currentHumidity;
-	wind.text = parser.currentWindSpeed;
 	NSString *imageString = [NSString stringWithFormat:@"http://raysweather.com/images/icons/%@.png", parser.currentConditionIcon];
 	//NSLog(imageString);
 	NSString *trimmedString = [imageString stringByReplacingOccurrencesOfString:@"\n" withString:@""];
@@ -36,7 +35,12 @@
 	currentConditionImage.image = downloadedImage;
 	barometer.text = parser.currentBarometer;
 	currentTemp.text = parser.currentTemperature;
-	windDirection.text = parser.currentWindDirection;
+    
+    NSString *windString = [NSString stringWithFormat:@"%@ %@ mph", parser.currentWindDirection, parser.currentWindSpeed];
+    NSString *trimmedWindString = [windString stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    trimmedWindString = [trimmedWindString stringByReplacingOccurrencesOfString:@"\t" withString:@""];
+    wind.text = trimmedWindString;
+    
 	currentHi.text = parser.currentHiTemp;
 	currentLo.text = parser.currentLoTemp;
 	

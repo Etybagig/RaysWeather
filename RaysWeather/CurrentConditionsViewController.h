@@ -17,7 +17,6 @@
         IBOutlet UILabel *barometer;
         IBOutlet UILabel *warning;
         IBOutlet UILabel *currentTemp;
-        IBOutlet UILabel *windDirection;
         IBOutlet UILabel *currentHi;
         IBOutlet UILabel *currentLo;
         IBOutlet UITextView *todaysSummary;
