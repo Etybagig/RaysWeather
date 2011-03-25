@@ -1,16 +1,15 @@
 //
-//  RaysWeatherTests.h
-//  RaysWeatherTests
+//  ForecastViewController.h
+//  RaysWeather
 //
 //  Created by Bobby Lunceford on 3/24/11.
 //  Copyright 2011 Appalachian State University. All rights reserved.
 //
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <UIKit/UIKit.h>
 
 
-@interface RaysWeatherTests : SenTestCase {
-@private
+@interface ForecastViewController : UIViewController {
     
 }
 
