@@ -10,7 +10,7 @@
 #import "MyXMLParser.h"
 
 @implementation CurrentConditionsViewController
-@synthesize currentConditionImage, dayOneImage, dayTwoImage, dayThreeImage, station, wind, humidity, barometer, windDirection, warning, firstDay, secondDay, thirdDay, currentTemp, firstDay_hi, firstDay_lo, secondDay_hi, secondDay_lo, thirdDay_hi, thirdDay_lo, currentHi, currentLo;
+@synthesize currentConditionImage, station, wind, humidity, barometer, windDirection, warning, currentHi, currentLo, todaysSummary, currentTemp;
 
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
@@ -36,27 +36,7 @@
 	currentHi.text = parser.currentHiTemp;
 	currentLo.text = parser.currentLoTemp;
 	
-    //NSString *forecastPath = @"http://raysweather.com/mobile/forecast/?station=1";
-    //[self parseXMLFileAtURL:forecastPath];
-	//fake out info
-	firstDay_hi.text = @"62.02";
-	firstDay_lo.text = @"41.08";
-	secondDay_hi.text = @"49.80";
-	secondDay_lo.text = @"41.28";
-	thirdDay_hi.text = @"62.03";
-	thirdDay_lo.text = @"45.73";
-	NSString *dayOne = @"http://raysweather.com/images/icons/11.png";
-	NSData *imageData1 = [NSData dataWithContentsOfURL:[NSURL URLWithString:dayOne]];
-	UIImage *downloadedImageOne = [UIImage imageWithData:imageData1];
-	dayOneImage.image = downloadedImageOne;
-	NSString *dayTwo = @"http://raysweather.com/images/icons/40.png";
-	NSData *imageData2 = [NSData dataWithContentsOfURL:[NSURL URLWithString:dayTwo]];
-	UIImage *downloadedImageTwo = [UIImage imageWithData:imageData2];
-	dayTwoImage.image = downloadedImageTwo;
-	NSString *dayThree = @"http://raysweather.com/images/icons/26.png";
-	NSData *imageData3 = [NSData dataWithContentsOfURL:[NSURL URLWithString:dayThree]];
-	UIImage *downloadedImageThree = [UIImage imageWithData:imageData3];
-	dayThreeImage.image = downloadedImageThree;
+
 }
 
 
