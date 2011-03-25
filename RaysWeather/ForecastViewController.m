@@ -10,7 +10,7 @@
 #import "MyXMLParser.h"
 
 @implementation ForecastViewController
-@synthesize firstDay, firstDay_hi, firstDay_lo, secondDay, secondDay_hi, secondDay_lo, thirdDay, thirdDay_hi, thirdDay_lo, dayOneImage, dayTwoImage, dayThreeImage, dayOneDictionary, dayTwoDictionary, dayThreeDictionary, dayOneIconString, charsToTrim;
+@synthesize firstDay, firstDay_hi, firstDay_lo, secondDay, secondDay_hi, secondDay_lo, thirdDay, thirdDay_hi, thirdDay_lo, dayOneImage, dayTwoImage, dayThreeImage, dayOneDictionary, dayTwoDictionary, dayThreeDictionary, dayOneIconString, dayTwoIconString, dayThreeIconString, charsToTrim;
 
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
@@ -28,26 +28,35 @@
     charsToTrim = [NSCharacterSet characterSetWithCharactersInString:@" \n\t"];
     
 	dayOneDictionary = [parser.day1 objectAtIndex:0];
-    firstDay_hi.text = [dayOneDictionary objectForKey:@"high_temperature"];
-	firstDay_lo.text = [dayOneDictionary objectForKey:@"low_temperature"];
-    dayOneIconString = [dayOneDictionary objectForKey:@"sky_condition"];
+    firstDay.text = [dayOneDictionary objectForKey:@"day_of_week"];
+    firstDay_hi.text = [dayOneDictionary objectForKey:@"hi"];
+	firstDay_lo.text = [dayOneDictionary objectForKey:@"lo"];
+    dayOneIconString = [dayOneDictionary objectForKey:@"icon"];
+    dayOneDescript.text = [dayOneDictionary objectForKey:@"descrip"];
     NSData *dayOneImageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:[dayOneIconString stringByTrimmingCharactersInSet:charsToTrim]]];
     UIImage *downloadedImageOne = [UIImage imageWithData:dayOneImageData];
     dayOneImage.image = downloadedImageOne;
     
-	secondDay_hi.text = @"49.80";
-	secondDay_lo.text = @"41.28";
-	thirdDay_hi.text = @"62.03";
-	thirdDay_lo.text = @"45.73";
-
-	NSString *dayTwo = @"http://raysweather.com/images/icons/40.png";
-	NSData *imageData2 = [NSData dataWithContentsOfURL:[NSURL URLWithString:dayTwo]];
-	UIImage *downloadedImageTwo = [UIImage imageWithData:imageData2];
-	dayTwoImage.image = downloadedImageTwo;
-	NSString *dayThree = @"http://raysweather.com/images/icons/26.png";
-	NSData *imageData3 = [NSData dataWithContentsOfURL:[NSURL URLWithString:dayThree]];
-	UIImage *downloadedImageThree = [UIImage imageWithData:imageData3];
-	dayThreeImage.image = downloadedImageThree;}
+    dayTwoDictionary = [parser.day2 objectAtIndex:0];
+    secondDay.text = [dayTwoDictionary objectForKey:@"day_of_week"];
+    secondDay_hi.text = [dayTwoDictionary objectForKey:@"hi"];
+	secondDay_lo.text = [dayTwoDictionary objectForKey:@"lo"];
+    dayTwoIconString = [dayTwoDictionary objectForKey:@"icon"];
+    dayTwoDescript.text = [dayTwoDictionary objectForKey:@"descrip"];
+    NSData *dayTwoImageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:[dayTwoIconString stringByTrimmingCharactersInSet:charsToTrim]]];
+    UIImage *downloadedImageTwo = [UIImage imageWithData:dayTwoImageData];
+    dayTwoImage.image = downloadedImageTwo;
+    
+    dayThreeDictionary = [parser.day3 objectAtIndex:0];
+    thirdDay.text = [dayThreeDictionary objectForKey:@"day_of_week"];
+    thirdDay_hi.text = [dayThreeDictionary objectForKey:@"hi"];
+    thirdDay_lo.text = [dayThreeDictionary objectForKey:@"lo"];
+    dayThreeIconString = [dayThreeDictionary objectForKey:@"icon"];
+    dayThreeDescript.text = [dayThreeDictionary objectForKey:@"descrip"];
+    NSData *dayThreeImageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:[dayThreeIconString stringByTrimmingCharactersInSet:charsToTrim]]];
+    UIImage *downloadedImageThree = [UIImage imageWithData:dayThreeImageData];
+    dayThreeImage.image = downloadedImageThree;
+}
 
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

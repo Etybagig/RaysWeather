@@ -10,7 +10,7 @@
 
 
 @implementation MyXMLParser
-@synthesize parser, weatherData, item, currentElement, currentHumidity, currentWindSpeed, currentConditionIcon, currentTemperature, currentBarometer, currentWindDirection, currentHiTemp, currentLoTemp, currentIntro, day1, day2, day3, hi, lo, icon, day_of_week;
+@synthesize parser, weatherData, item, currentElement, currentHumidity, currentWindSpeed, currentConditionIcon, currentTemperature, currentBarometer, currentWindDirection, currentHiTemp, currentLoTemp, currentIntro, day1, day2, day3, hi, lo, icon, day_of_week, description;
 
 - (void)parseXMLFileAtURL:(NSString *)URL {
 	NSURL *xmlUrl = [NSURL URLWithString:URL];
@@ -47,6 +47,7 @@
         hi = [[NSMutableString alloc] init];
         lo = [[NSMutableString alloc] init];
         icon = [[NSMutableString alloc] init];
+        description = [[NSMutableString alloc] init];
         day_of_week = [[NSMutableString alloc] init];
     }
     if ([elementName isEqualToString:@"day2"]){
@@ -54,6 +55,7 @@
         hi = [[NSMutableString alloc] init];
         lo = [[NSMutableString alloc] init];
         icon = [[NSMutableString alloc] init];
+        description = [[NSMutableString alloc] init];
         day_of_week = [[NSMutableString alloc] init];        
     }
     if ([elementName isEqualToString:@"day3"]){
@@ -61,6 +63,7 @@
         hi = [[NSMutableString alloc] init];
         lo = [[NSMutableString alloc] init];
         icon = [[NSMutableString alloc] init];
+        description = [[NSMutableString alloc] init];
         day_of_week = [[NSMutableString alloc] init];
     }
 	
@@ -84,24 +87,27 @@
         [item setObject:currentIntro forKey:@"introduction"];
     }
     if ([elementName isEqualToString:@"day1"]){
-        [item setObject:hi forKey:@"high_temperature"];
-        [item setObject:lo forKey:@"low_temperature"];
-        [item setObject:icon forKey:@"sky_condition"];
+        [item setObject:hi forKey:@"hi"];
+        [item setObject:lo forKey:@"lo"];
+        [item setObject:icon forKey:@"icon"];
         [item setObject:day_of_week forKey:@"day_of_week"];
+        [item setObject:description forKey:@"descrip"];
         [day1 addObject:[item copy]];
     }
     if ([elementName isEqualToString:@"day2"]){
-        [item setObject:hi forKey:@"high_temperature"];
-        [item setObject:lo forKey:@"low_temperature"];
-        [item setObject:icon forKey:@"sky_condition"];
+        [item setObject:hi forKey:@"hi"];
+        [item setObject:lo forKey:@"lo"];
+        [item setObject:icon forKey:@"icon"];
         [item setObject:day_of_week forKey:@"day_of_week"];
+        [item setObject:description forKey:@"descrip"];
         [day2 addObject:[item copy]];
     }
     if ([elementName isEqualToString:@"day3"]){
-        [item setObject:hi forKey:@"high_temperature"];
-        [item setObject:lo forKey:@"low_temperature"];
-        [item setObject:icon forKey:@"sky_condition"];
+        [item setObject:hi forKey:@"hi"];
+        [item setObject:lo forKey:@"lo"];
+        [item setObject:icon forKey:@"icon"];
         [item setObject:day_of_week forKey:@"day_of_week"];
+        [item setObject:description forKey:@"descrip"];
         [day3 addObject:[item copy]];
     }
 }
@@ -138,7 +144,7 @@
     else if([currentElement isEqualToString:@"high_temperature"]){
         [hi appendString:string];
     }
-    else if([currentElement isEqualToString:@"low_temperture"]){
+    else if([currentElement isEqualToString:@"low_temperature"]){
         [lo appendString:string];
     }
     else if([currentElement isEqualToString:@"sky_condition"]){
@@ -146,6 +152,9 @@
     }
     else if([currentElement isEqualToString:@"day_of_week"]){
         [day_of_week appendString:string];
+    }
+    else if([currentElement isEqualToString:@"forecast_text"]){
+        [description appendString:string];
     }
     //NSLog(@"found characters: %@", string);
 }

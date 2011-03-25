@@ -32,6 +32,7 @@
     NSMutableString *lo;
     NSMutableString *icon;
     NSMutableString *day_of_week;
+    NSMutableString *description;
     NSMutableArray *day1;
     NSMutableArray *day2;
     NSMutableArray *day3;
@@ -55,6 +56,7 @@
 @property (nonatomic, retain) NSMutableString *hi;
 @property (nonatomic, retain) NSMutableString *lo;
 @property (nonatomic, retain) NSMutableString *icon;
+@property (nonatomic, retain) NSMutableString *description;
 @property (nonatomic, retain) NSMutableArray *day1;
 @property (nonatomic, retain) NSMutableArray *day2;
 @property (nonatomic, retain) NSMutableArray *day3;
