@@ -4,7 +4,6 @@
 //
 //  Created by Bobby Lunceford on 3/24/11.
 //  Copyright 2011 Appalachian State University. All rights reserved.
-// Hobson
 //
 
 #import "RaysWeatherAppDelegate.h"
