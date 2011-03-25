@@ -22,6 +22,13 @@
     IBOutlet UIImageView *dayOneImage;
     IBOutlet UIImageView *dayTwoImage;
     IBOutlet UIImageView *dayThreeImage;
+    
+    NSCharacterSet *charsToTrim;
+    NSMutableString *dayOneIconString;
+    
+    NSMutableDictionary *dayOneDictionary;
+    NSMutableDictionary *dayTwoDictionary;
+    NSMutableDictionary *dayThreeDictionary;
 }
 
 @property (nonatomic, retain) UIImageView *dayOneImage;
@@ -36,5 +43,12 @@
 @property (nonatomic, retain) UILabel *secondDay_lo;
 @property (nonatomic, retain) UILabel *thirdDay_hi;
 @property (nonatomic, retain) UILabel *thirdDay_lo;
+
+@property (nonatomic, retain) NSCharacterSet *charsToTrim;
+@property (nonatomic, retain) NSMutableString *dayOneIconString;
+
+@property (nonatomic, retain) NSMutableDictionary *dayOneDictionary;
+@property (nonatomic, retain) NSMutableDictionary *dayTwoDictionary;
+@property (nonatomic, retain) NSMutableDictionary *dayThreeDictionary;
 
 @end

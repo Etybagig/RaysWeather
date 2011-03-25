@@ -10,7 +10,18 @@
 
 
 @implementation MyXMLParser
-@synthesize parser, weatherData, item, currentElement, currentHumidity, currentWindSpeed, currentConditionIcon, currentTemperature, currentBarometer, currentWindDirection, currentHiTemp, currentLoTemp, day1hi, day1lo, day1icon, day2hi, day2lo, day2icon, day3hi, day3lo, day3icon, day_of_week1, day_of_week2, day_of_week3, currentIntro;
+@synthesize parser, weatherData, item, currentElement, currentHumidity, currentWindSpeed, currentConditionIcon, currentTemperature, currentBarometer, currentWindDirection, currentHiTemp, currentLoTemp, currentIntro, day1, day2, day3, hi, lo, icon, day_of_week;
+
+- (void)parseXMLFileAtURL:(NSString *)URL {
+	NSURL *xmlUrl = [NSURL URLWithString:URL];
+	parser = [[NSXMLParser alloc] initWithContentsOfURL:xmlUrl];
+	[parser setDelegate:self];
+	[parser setShouldProcessNamespaces:NO];
+	[parser setShouldReportNamespacePrefixes:NO];
+	[parser setShouldResolveExternalEntities:NO];
+	[parser parse];
+}
+
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict{			
 	//NSLog(@"found this element: %@", elementName);
@@ -25,24 +36,36 @@
 		currentWindDirection = [[NSMutableString alloc] init];
 		currentHiTemp = [[NSMutableString alloc] init];
 		currentLoTemp = [[NSMutableString alloc] init];
+        weatherData = [[NSMutableArray alloc] init];
 	}
     if ([elementName isEqualToString:@"forecast"]){
         item = [[NSMutableDictionary alloc] init];
         currentIntro = [[NSMutableString alloc] init];
     }
+    if ([elementName isEqualToString:@"day1"]){
+        day1 = [[NSMutableArray alloc] init];
+        hi = [[NSMutableString alloc] init];
+        lo = [[NSMutableString alloc] init];
+        icon = [[NSMutableString alloc] init];
+        day_of_week = [[NSMutableString alloc] init];
+    }
+    if ([elementName isEqualToString:@"day2"]){
+        day2 = [[NSMutableArray alloc] init];
+        hi = [[NSMutableString alloc] init];
+        lo = [[NSMutableString alloc] init];
+        icon = [[NSMutableString alloc] init];
+        day_of_week = [[NSMutableString alloc] init];        
+    }
+    if ([elementName isEqualToString:@"day3"]){
+        day3 = [[NSMutableArray alloc] init];
+        hi = [[NSMutableString alloc] init];
+        lo = [[NSMutableString alloc] init];
+        icon = [[NSMutableString alloc] init];
+        day_of_week = [[NSMutableString alloc] init];
+    }
 	
 }
 
-- (void)parseXMLFileAtURL:(NSString *)URL {
-	weatherData = [[NSMutableArray alloc] init];
-	NSURL *xmlUrl = [NSURL URLWithString:URL];
-	parser = [[NSXMLParser alloc] initWithContentsOfURL:xmlUrl];
-	[parser setDelegate:self];
-	[parser setShouldProcessNamespaces:NO];
-	[parser setShouldReportNamespacePrefixes:NO];
-	[parser setShouldResolveExternalEntities:NO];
-	[parser parse];
-}
 
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName{     
 	
@@ -59,6 +82,27 @@
 	}
     if ([elementName isEqualToString:@"forecast"]){
         [item setObject:currentIntro forKey:@"introduction"];
+    }
+    if ([elementName isEqualToString:@"day1"]){
+        [item setObject:hi forKey:@"high_temperature"];
+        [item setObject:lo forKey:@"low_temperature"];
+        [item setObject:icon forKey:@"sky_condition"];
+        [item setObject:day_of_week forKey:@"day_of_week"];
+        [day1 addObject:[item copy]];
+    }
+    if ([elementName isEqualToString:@"day2"]){
+        [item setObject:hi forKey:@"high_temperature"];
+        [item setObject:lo forKey:@"low_temperature"];
+        [item setObject:icon forKey:@"sky_condition"];
+        [item setObject:day_of_week forKey:@"day_of_week"];
+        [day2 addObject:[item copy]];
+    }
+    if ([elementName isEqualToString:@"day3"]){
+        [item setObject:hi forKey:@"high_temperature"];
+        [item setObject:lo forKey:@"low_temperature"];
+        [item setObject:icon forKey:@"sky_condition"];
+        [item setObject:day_of_week forKey:@"day_of_week"];
+        [day3 addObject:[item copy]];
     }
 }
 
@@ -90,6 +134,18 @@
     }
     else if([currentElement isEqualToString:@"introduction"]){
         [currentIntro appendString:string];
+    }
+    else if([currentElement isEqualToString:@"high_temperature"]){
+        [hi appendString:string];
+    }
+    else if([currentElement isEqualToString:@"low_temperture"]){
+        [lo appendString:string];
+    }
+    else if([currentElement isEqualToString:@"sky_condition"]){
+        [icon appendString:string];
+    }
+    else if([currentElement isEqualToString:@"day_of_week"]){
+        [day_of_week appendString:string];
     }
     //NSLog(@"found characters: %@", string);
 }

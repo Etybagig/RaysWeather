@@ -28,18 +28,13 @@
     NSMutableString *currentIntro;
     
     //Forecast Elements
-    NSMutableString *day_of_week1;
-    NSMutableString *day_of_week2;
-    NSMutableString *day_of_week3;
-    NSMutableString *day1hi;
-    NSMutableString *day1lo;
-    NSMutableString *day2hi;
-    NSMutableString *day2lo;
-    NSMutableString *day3hi;
-    NSMutableString *day3lo;
-    NSMutableString *day1icon;
-    NSMutableString *day2icon;
-    NSMutableString *day3icon;
+    NSMutableString *hi;
+    NSMutableString *lo;
+    NSMutableString *icon;
+    NSMutableString *day_of_week;
+    NSMutableArray *day1;
+    NSMutableArray *day2;
+    NSMutableArray *day3;
 }
 
 @property (nonatomic, retain) NSXMLParser *parser;
@@ -56,18 +51,13 @@
 @property (nonatomic, retain) NSMutableString *currentLoTemp;
 @property (nonatomic, retain) NSMutableString *currentIntro;
 
-@property (nonatomic, retain) NSMutableString *day_of_week1;
-@property (nonatomic, retain) NSMutableString *day_of_week2;
-@property (nonatomic, retain) NSMutableString *day_of_week3;
-@property (nonatomic, retain) NSMutableString *day1hi;
-@property (nonatomic, retain) NSMutableString *day1lo;
-@property (nonatomic, retain) NSMutableString *day1icon;
-@property (nonatomic, retain) NSMutableString *day2hi;
-@property (nonatomic, retain) NSMutableString *day2lo;
-@property (nonatomic, retain) NSMutableString *day2icon;
-@property (nonatomic, retain) NSMutableString *day3hi;
-@property (nonatomic, retain) NSMutableString *day3lo;
-@property (nonatomic, retain) NSMutableString *day3icon;
+@property (nonatomic, retain) NSMutableString *day_of_week;
+@property (nonatomic, retain) NSMutableString *hi;
+@property (nonatomic, retain) NSMutableString *lo;
+@property (nonatomic, retain) NSMutableString *icon;
+@property (nonatomic, retain) NSMutableArray *day1;
+@property (nonatomic, retain) NSMutableArray *day2;
+@property (nonatomic, retain) NSMutableArray *day3;
 
 - (void)parseXMLFileAtURL:(NSString *)URL;
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict;
