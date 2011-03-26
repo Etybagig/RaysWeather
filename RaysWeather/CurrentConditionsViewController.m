@@ -14,7 +14,6 @@
 #import "MyXMLParser.h"
 
 @implementation CurrentConditionsViewController
-@synthesize currentConditionImage, station, wind, humidity, barometer, windDirection,  currentHi, currentLo, todaysSummary, currentTemp;
 
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
@@ -22,37 +21,44 @@
 {
     [super viewDidLoad];
     
-    //Untill we get the location stuff working, station will be set to boone
+    //Create Parser
+    MyXMLParser *parser = [MyXMLParser new];
+    
+    //Until we get the location stuff working, station will be set to boone
     station.text = @"Boone, NC";
     
-    MyXMLParser *parser = [MyXMLParser new];
+    //Parse first site
     NSString *path = @"http://raysweather.com/mobile/conditions/?station=1";
 	[parser parseXMLFileAtURL:path];
-	humidity.text = parser.currentHumidity;
-	NSString *imageString = [NSString stringWithFormat:@"http://raysweather.com/images/icons/%@.png", parser.currentConditionIcon];
-	//NSLog(imageString);
-	NSString *trimmedString = [imageString stringByReplacingOccurrencesOfString:@"\n" withString:@""];
-	NSString *trimmedString2 = [trimmedString stringByReplacingOccurrencesOfString:@"\t" withString:@""];
-	NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:trimmedString2]];
+    weatherDictionary = [parser.weatherData objectAtIndex:0];
+    
+    //Set information that was parsed, trimming all strings
+	humidity.text = [self trimWhitespace:[weatherDictionary objectForKey:@"humidity"]];
+	NSMutableString *imageString = [NSString stringWithFormat:@"http://raysweather.com/images/icons/%@.png", [weatherDictionary objectForKey:@"condition_icon"]];
+	NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:[self trimWhitespace:imageString]]];
 	UIImage *downloadedImage = [UIImage imageWithData:imageData];
 	currentConditionImage.image = downloadedImage;
-	barometer.text = parser.currentBarometer;
-	currentTemp.text = parser.currentTemperature;
-    
-    NSString *windString = [NSString stringWithFormat:@"%@ %@ mph", parser.currentWindDirection, parser.currentWindSpeed];
-    NSString *trimmedWindString = [windString stringByReplacingOccurrencesOfString:@"\n" withString:@""];
-    trimmedWindString = [trimmedWindString stringByReplacingOccurrencesOfString:@"\t" withString:@""];
-    wind.text = trimmedWindString;
-    
-	currentHi.text = parser.currentHiTemp;
-	currentLo.text = parser.currentLoTemp;
+	barometer.text = [self trimWhitespace:[weatherDictionary objectForKey:@"barometer"]];
+	currentTemp.text = [self trimWhitespace:[weatherDictionary objectForKey:@"temperature"]];
+    NSMutableString *windString = [NSString stringWithFormat:@"%@ %@ mph", [weatherDictionary objectForKey:@"wind_direction"], [weatherDictionary objectForKey:@"wind_speed"]];
+    wind.text = [self trimWhitespace:windString];
+	currentHi.text = [self trimWhitespace:[weatherDictionary objectForKey:@"hi_temp"]];
+	currentLo.text = [self trimWhitespace:[weatherDictionary objectForKey:@"lo_temp"]];
 	
+    //Parse second site
     NSString *path2 = @"http://raysweather.com/mobile/forecast/?station=1";
 	[parser parseXMLFileAtURL:path2];
+    
+    //Set information that was parsed, trimming all strings
     todaysSummary.text = parser.currentIntro;
     todaysSummaryTitle.text = parser.currentIntroTitle;
 }
 
+- (NSString *)trimWhitespace:(NSMutableString *)stringToTrim{
+    NSString *removeNewLine = [stringToTrim stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    NSString *removeTab = [removeNewLine stringByReplacingOccurrencesOfString:@"\t" withString:@""];
+    return removeTab;
+}
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
@@ -73,7 +79,7 @@
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-
+    
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
