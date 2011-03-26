@@ -48,10 +48,11 @@
     //Parse second site
     NSString *path2 = @"http://raysweather.com/mobile/forecast/?station=1";
 	[parser parseXMLFileAtURL:path2];
+    weatherDictionary = [parser.weatherData objectAtIndex:1];
     
     //Set information that was parsed, trimming all strings
-    todaysSummary.text = parser.currentIntro;
-    todaysSummaryTitle.text = parser.currentIntroTitle;
+    todaysSummary.text = [self trimWhitespace:[weatherDictionary objectForKey:@"introduction"]];
+    todaysSummaryTitle.text = [self trimWhitespace:[weatherDictionary objectForKey:@"title"]];
 }
 
 - (NSString *)trimWhitespace:(NSMutableString *)stringToTrim{

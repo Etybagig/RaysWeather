@@ -10,7 +10,7 @@
 #import "MyXMLParser.h"
 
 @implementation ForecastViewController
-@synthesize firstDay, firstDay_hi, firstDay_lo, secondDay, secondDay_hi, secondDay_lo, thirdDay, thirdDay_hi, thirdDay_lo, dayOneImage, dayTwoImage, dayThreeImage, dayOneDictionary, dayTwoDictionary, dayThreeDictionary, dayOneIconString, dayTwoIconString, dayThreeIconString, charsToTrim;
+@synthesize dayOneDictionary, dayTwoDictionary, dayThreeDictionary;
 
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
@@ -28,36 +28,41 @@
     charsToTrim = [NSCharacterSet characterSetWithCharactersInString:@" \n\t"];
     
 	dayOneDictionary = [parser.day1 objectAtIndex:0];
-    firstDay.text = [dayOneDictionary objectForKey:@"day_of_week"];
-    firstDay_hi.text = [dayOneDictionary objectForKey:@"hi"];
-	firstDay_lo.text = [dayOneDictionary objectForKey:@"lo"];
+    firstDay.text = [self trimWhitespace:[dayOneDictionary objectForKey:@"day_of_week"]];
+    firstDay_hi.text = [self trimWhitespace:[dayOneDictionary objectForKey:@"hi"]];
+	firstDay_lo.text = [self trimWhitespace:[dayOneDictionary objectForKey:@"lo"]];
     dayOneIconString = [dayOneDictionary objectForKey:@"icon"];
-    dayOneDescript.text = [dayOneDictionary objectForKey:@"descrip"];
-    NSData *dayOneImageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:[dayOneIconString stringByTrimmingCharactersInSet:charsToTrim]]];
+    dayOneDescript.text = [self trimWhitespace:[dayOneDictionary objectForKey:@"descrip"]];
+    NSData *dayOneImageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:[self trimWhitespace:dayOneIconString]]];
     UIImage *downloadedImageOne = [UIImage imageWithData:dayOneImageData];
     dayOneImage.image = downloadedImageOne;
     
     dayTwoDictionary = [parser.day2 objectAtIndex:0];
-    secondDay.text = [dayTwoDictionary objectForKey:@"day_of_week"];
-    secondDay_hi.text = [dayTwoDictionary objectForKey:@"hi"];
-	secondDay_lo.text = [dayTwoDictionary objectForKey:@"lo"];
+    secondDay.text = [self trimWhitespace:[dayTwoDictionary objectForKey:@"day_of_week"]];
+    secondDay_hi.text = [self trimWhitespace:[dayTwoDictionary objectForKey:@"hi"]];
+	secondDay_lo.text = [self trimWhitespace:[dayTwoDictionary objectForKey:@"lo"]];
     dayTwoIconString = [dayTwoDictionary objectForKey:@"icon"];
-    dayTwoDescript.text = [dayTwoDictionary objectForKey:@"descrip"];
-    NSData *dayTwoImageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:[dayTwoIconString stringByTrimmingCharactersInSet:charsToTrim]]];
+    dayTwoDescript.text = [self trimWhitespace:[dayTwoDictionary objectForKey:@"descrip"]];
+    NSData *dayTwoImageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:[self trimWhitespace:dayTwoIconString]]];
     UIImage *downloadedImageTwo = [UIImage imageWithData:dayTwoImageData];
     dayTwoImage.image = downloadedImageTwo;
     
     dayThreeDictionary = [parser.day3 objectAtIndex:0];
-    thirdDay.text = [dayThreeDictionary objectForKey:@"day_of_week"];
-    thirdDay_hi.text = [dayThreeDictionary objectForKey:@"hi"];
-    thirdDay_lo.text = [dayThreeDictionary objectForKey:@"lo"];
+    thirdDay.text = [self trimWhitespace:[dayThreeDictionary objectForKey:@"day_of_week"]];
+    thirdDay_hi.text = [self trimWhitespace:[dayThreeDictionary objectForKey:@"hi"]];
+    thirdDay_lo.text = [self trimWhitespace:[dayThreeDictionary objectForKey:@"lo"]];
     dayThreeIconString = [dayThreeDictionary objectForKey:@"icon"];
-    dayThreeDescript.text = [dayThreeDictionary objectForKey:@"descrip"];
-    NSData *dayThreeImageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:[dayThreeIconString stringByTrimmingCharactersInSet:charsToTrim]]];
+    dayThreeDescript.text = [self trimWhitespace:[dayThreeDictionary objectForKey:@"descrip"]];
+    NSData *dayThreeImageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:[self trimWhitespace:dayThreeIconString]]];
     UIImage *downloadedImageThree = [UIImage imageWithData:dayThreeImageData];
     dayThreeImage.image = downloadedImageThree;
 }
 
+- (NSString *)trimWhitespace:(NSMutableString *)stringToTrim{
+    NSString *removeNewLine = [stringToTrim stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    NSString *removeTab = [removeNewLine stringByReplacingOccurrencesOfString:@"\t" withString:@""];
+    return removeTab;
+}
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
