@@ -25,6 +25,7 @@
 		63EB8045133BC66E00A01901 /* RaysWeatherTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 63EB8044133BC66E00A01901 /* RaysWeatherTests.h */; };
 		63EB8047133BC66E00A01901 /* RaysWeatherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EB8046133BC66E00A01901 /* RaysWeatherTests.m */; };
 		9A8A6787133C3E1F00188AC5 /* MyXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A8A6786133C3E1F00188AC5 /* MyXMLParser.m */; };
+		9AC4CBFA133D7BC4005C99E3 /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AC4CBF9133D7BC4005C99E3 /* test.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		63EB8046133BC66E00A01901 /* RaysWeatherTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RaysWeatherTests.m; sourceTree = "<group>"; };
 		9A8A6785133C3E1F00188AC5 /* MyXMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyXMLParser.h; sourceTree = "<group>"; };
 		9A8A6786133C3E1F00188AC5 /* MyXMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyXMLParser.m; sourceTree = "<group>"; };
+		9AC4CBF9133D7BC4005C99E3 /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 		63EB8017133BC66D00A01901 /* RaysWeather */ = {
 			isa = PBXGroup;
 			children = (
+				9AC4CBEF133D70F6005C99E3 /* Assets */,
 				63EB8020133BC66D00A01901 /* RaysWeatherAppDelegate.h */,
 				63EB8021133BC66D00A01901 /* RaysWeatherAppDelegate.m */,
 				9A8A678A133C3F1D00188AC5 /* Views */,
@@ -182,6 +185,14 @@
 				63EB802A133BC66E00A01901 /* ForecastViewController.m */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		9AC4CBEF133D70F6005C99E3 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				9AC4CBF9133D7BC4005C99E3 /* test.png */,
+			);
+			name = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,6 +269,7 @@
 				63EB8025133BC66D00A01901 /* MainWindow.xib in Resources */,
 				63EB802E133BC66E00A01901 /* CurrentConditionsView.xib in Resources */,
 				63EB8031133BC66E00A01901 /* ForecastView.xib in Resources */,
+				9AC4CBFA133D7BC4005C99E3 /* test.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

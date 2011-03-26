@@ -25,6 +25,7 @@
     NSMutableString *currentWindDirection;
     NSMutableString *currentHiTemp;
     NSMutableString *currentLoTemp;
+    NSMutableString *currentIntroTitle;
     NSMutableString *currentIntro;
     
     //Forecast Elements
@@ -50,6 +51,7 @@
 @property (nonatomic, retain) NSMutableString *currentWindDirection;
 @property (nonatomic, retain) NSMutableString *currentHiTemp;
 @property (nonatomic, retain) NSMutableString *currentLoTemp;
+@property (nonatomic, retain) NSMutableString *currentIntroTitle;
 @property (nonatomic, retain) NSMutableString *currentIntro;
 
 @property (nonatomic, retain) NSMutableString *day_of_week;

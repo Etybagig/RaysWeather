@@ -14,13 +14,16 @@
 #import "MyXMLParser.h"
 
 @implementation CurrentConditionsViewController
-@synthesize currentConditionImage, station, wind, humidity, barometer, windDirection, warning, currentHi, currentLo, todaysSummary, currentTemp;
+@synthesize currentConditionImage, station, wind, humidity, barometer, windDirection,  currentHi, currentLo, todaysSummary, currentTemp;
 
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    //Untill we get the location stuff working, station will be set to boone
+    station.text = @"Boone, NC";
     
     MyXMLParser *parser = [MyXMLParser new];
     NSString *path = @"http://raysweather.com/mobile/conditions/?station=1";
@@ -47,6 +50,7 @@
     NSString *path2 = @"http://raysweather.com/mobile/forecast/?station=1";
 	[parser parseXMLFileAtURL:path2];
     todaysSummary.text = parser.currentIntro;
+    todaysSummaryTitle.text = parser.currentIntroTitle;
 }
 
 
