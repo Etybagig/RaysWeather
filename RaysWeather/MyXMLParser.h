@@ -22,6 +22,7 @@
     NSMutableString *currentConditionIcon;
     NSMutableString *currentTemperature;
     NSMutableString *currentBarometer;
+    NSMutableString *currentBaroTrend;
     NSMutableString *currentWindDirection;
     NSMutableString *currentHiTemp;
     NSMutableString *currentLoTemp;

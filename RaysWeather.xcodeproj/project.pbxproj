@@ -27,6 +27,7 @@
 		9008F9E7133DA047000CB0D3 /* WarningsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9008F9E5133DA047000CB0D3 /* WarningsViewController.m */; };
 		9008F9E8133DA047000CB0D3 /* WarningsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9008F9E6133DA047000CB0D3 /* WarningsView.xib */; };
 		9A8A6787133C3E1F00188AC5 /* MyXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A8A6786133C3E1F00188AC5 /* MyXMLParser.m */; };
+		9ABAB853133EA2F4003244E5 /* face.png in Resources */ = {isa = PBXBuildFile; fileRef = 9ABAB852133EA2F4003244E5 /* face.png */; };
 		9AC4CBFA133D7BC4005C99E3 /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AC4CBF9133D7BC4005C99E3 /* test.png */; };
 		9AC4CC10133DAA6A005C99E3 /* current.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AC4CC0F133DAA6A005C99E3 /* current.png */; };
 		9AC4CC13133DAA70005C99E3 /* forecast.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AC4CC12133DAA70005C99E3 /* forecast.png */; };
@@ -72,6 +73,7 @@
 		9008F9E6133DA047000CB0D3 /* WarningsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WarningsView.xib; sourceTree = "<group>"; };
 		9A8A6785133C3E1F00188AC5 /* MyXMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyXMLParser.h; sourceTree = "<group>"; };
 		9A8A6786133C3E1F00188AC5 /* MyXMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyXMLParser.m; sourceTree = "<group>"; };
+		9ABAB852133EA2F4003244E5 /* face.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = face.png; sourceTree = "<group>"; };
 		9AC4CBF9133D7BC4005C99E3 /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test.png; sourceTree = "<group>"; };
 		9AC4CC0F133DAA6A005C99E3 /* current.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = current.png; sourceTree = "<group>"; };
 		9AC4CC12133DAA70005C99E3 /* forecast.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = forecast.png; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 		9AC4CBEF133D70F6005C99E3 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				9ABAB852133EA2F4003244E5 /* face.png */,
 				9AC4CC16133DB9AE005C99E3 /* Warning.png */,
 				9AC4CC12133DAA70005C99E3 /* forecast.png */,
 				9AC4CC0F133DAA6A005C99E3 /* current.png */,
@@ -291,6 +294,7 @@
 				9AC4CC10133DAA6A005C99E3 /* current.png in Resources */,
 				9AC4CC13133DAA70005C99E3 /* forecast.png in Resources */,
 				9AC4CC17133DB9AE005C99E3 /* Warning.png in Resources */,
+				9ABAB853133EA2F4003244E5 /* face.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

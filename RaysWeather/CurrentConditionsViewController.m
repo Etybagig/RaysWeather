@@ -12,6 +12,7 @@
 
 #import "CurrentConditionsViewController.h"
 #import "MyXMLParser.h"
+#include <math.h>
 
 @implementation CurrentConditionsViewController
 
@@ -38,8 +39,19 @@
 	NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:[self trimWhitespace:imageString]]];
 	UIImage *downloadedImage = [UIImage imageWithData:imageData];
 	currentConditionImage.image = downloadedImage;
-	barometer.text = [self trimWhitespace:[weatherDictionary objectForKey:@"barometer"]];
-	currentTemp.text = [self trimWhitespace:[weatherDictionary objectForKey:@"temperature"]];
+    
+	/*barometer.text = [self trimWhitespace:[weatherDictionary objectForKey:@"barometer"]];
+	int myint = [barometer.text intValue];
+    NSString *mystring = [[NSNumber numberWithInt:myint] stringValue];
+    barometer.text = mystring;*/
+    NSMutableString *barometerText = [NSString stringWithFormat:@"%@ %@", [weatherDictionary objectForKey:@"barometer"], [weatherDictionary objectForKey:@"baroTrend"]];
+    barometer.text = [self trimWhitespace:barometerText];
+    
+    double currentTempDouble = [[weatherDictionary objectForKey:@"temperature"] doubleValue];
+    int currentTempInt = round(currentTempDouble);
+    currentTemp.text = [[NSNumber numberWithInt:currentTempInt] stringValue];
+    
+    //currentTemp.text = [self trimWhitespace:[weatherDictionary objectForKey:@"temperature"]];
     NSMutableString *windString = [NSString stringWithFormat:@"%@ %@ mph", [weatherDictionary objectForKey:@"wind_direction"], [weatherDictionary objectForKey:@"wind_speed"]];
     wind.text = [self trimWhitespace:windString];
 	currentHi.text = [self trimWhitespace:[weatherDictionary objectForKey:@"hi_temp"]];
@@ -52,7 +64,7 @@
     
     //Set information that was parsed, trimming all strings
     //Lines 55-58 add rounded corners and a border to UITextView
-    [[todaysSummary layer] setBorderColor:[[UIColor lightGrayColor] CGColor]];
+    [[todaysSummary layer] setBorderColor:[[UIColor blackColor] CGColor]];
     [[todaysSummary layer] setBorderWidth:2.3];
     [[todaysSummary layer] setCornerRadius:15];
     [todaysSummary setClipsToBounds: YES];

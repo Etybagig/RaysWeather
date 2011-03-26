@@ -33,6 +33,7 @@
 		currentConditionIcon = [[NSMutableString alloc] init];
 		currentTemperature = [[NSMutableString alloc] init];
 		currentBarometer = [[NSMutableString alloc] init];
+        currentBaroTrend = [[NSMutableString alloc] init];
 		currentWindDirection = [[NSMutableString alloc] init];
 		currentHiTemp = [[NSMutableString alloc] init];
 		currentLoTemp = [[NSMutableString alloc] init];
@@ -79,6 +80,7 @@
 		[item setObject:currentConditionIcon forKey:@"condition_icon"];
 		[item setObject:currentTemperature forKey:@"temperature"];
 		[item setObject:currentBarometer forKey:@"barometer"];
+        [item setObject:currentBaroTrend forKey:@"baroTrend"];
 		[item setObject:currentWindDirection forKey:@"wind_direction"];
 		[item setObject:currentHiTemp forKey:@"hi_temp"];
 		[item setObject:currentLoTemp forKey:@"lo_temp"];
@@ -130,6 +132,9 @@
         [currentTemperature appendString:string];
     }
     else if([currentElement isEqualToString:@"barometer"]){
+        [currentBarometer appendString:string];
+    }
+    else if([currentElement isEqualToString:@"barotrend"]){
         [currentBarometer appendString:string];
     }
     else if([currentElement isEqualToString:@"wind_direction"]){
