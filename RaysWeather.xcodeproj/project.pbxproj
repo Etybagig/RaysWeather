@@ -30,6 +30,7 @@
 		9AC4CBFA133D7BC4005C99E3 /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AC4CBF9133D7BC4005C99E3 /* test.png */; };
 		9AC4CC10133DAA6A005C99E3 /* current.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AC4CC0F133DAA6A005C99E3 /* current.png */; };
 		9AC4CC13133DAA70005C99E3 /* forecast.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AC4CC12133DAA70005C99E3 /* forecast.png */; };
+		9AC4CC17133DB9AE005C99E3 /* Warning.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AC4CC16133DB9AE005C99E3 /* Warning.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		9AC4CBF9133D7BC4005C99E3 /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test.png; sourceTree = "<group>"; };
 		9AC4CC0F133DAA6A005C99E3 /* current.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = current.png; sourceTree = "<group>"; };
 		9AC4CC12133DAA70005C99E3 /* forecast.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = forecast.png; sourceTree = "<group>"; };
+		9AC4CC16133DB9AE005C99E3 /* Warning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Warning.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +204,7 @@
 		9AC4CBEF133D70F6005C99E3 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				9AC4CC16133DB9AE005C99E3 /* Warning.png */,
 				9AC4CC12133DAA70005C99E3 /* forecast.png */,
 				9AC4CC0F133DAA6A005C99E3 /* current.png */,
 				9AC4CBF9133D7BC4005C99E3 /* test.png */,
@@ -287,6 +290,7 @@
 				9008F9E8133DA047000CB0D3 /* WarningsView.xib in Resources */,
 				9AC4CC10133DAA6A005C99E3 /* current.png in Resources */,
 				9AC4CC13133DAA70005C99E3 /* forecast.png in Resources */,
+				9AC4CC17133DB9AE005C99E3 /* Warning.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
