@@ -24,6 +24,8 @@
 		63EB8042133BC66E00A01901 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 63EB8040133BC66E00A01901 /* InfoPlist.strings */; };
 		63EB8045133BC66E00A01901 /* RaysWeatherTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 63EB8044133BC66E00A01901 /* RaysWeatherTests.h */; };
 		63EB8047133BC66E00A01901 /* RaysWeatherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EB8046133BC66E00A01901 /* RaysWeatherTests.m */; };
+		9008F9E7133DA047000CB0D3 /* WarningsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9008F9E5133DA047000CB0D3 /* WarningsViewController.m */; };
+		9008F9E8133DA047000CB0D3 /* WarningsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9008F9E6133DA047000CB0D3 /* WarningsView.xib */; };
 		9A8A6787133C3E1F00188AC5 /* MyXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A8A6786133C3E1F00188AC5 /* MyXMLParser.m */; };
 		9AC4CBFA133D7BC4005C99E3 /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AC4CBF9133D7BC4005C99E3 /* test.png */; };
 /* End PBXBuildFile section */
@@ -62,6 +64,9 @@
 		63EB8043133BC66E00A01901 /* RaysWeatherTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RaysWeatherTests-Prefix.pch"; sourceTree = "<group>"; };
 		63EB8044133BC66E00A01901 /* RaysWeatherTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RaysWeatherTests.h; sourceTree = "<group>"; };
 		63EB8046133BC66E00A01901 /* RaysWeatherTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RaysWeatherTests.m; sourceTree = "<group>"; };
+		9008F9E4133DA047000CB0D3 /* WarningsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WarningsViewController.h; sourceTree = "<group>"; };
+		9008F9E5133DA047000CB0D3 /* WarningsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WarningsViewController.m; sourceTree = "<group>"; };
+		9008F9E6133DA047000CB0D3 /* WarningsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WarningsView.xib; sourceTree = "<group>"; };
 		9A8A6785133C3E1F00188AC5 /* MyXMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyXMLParser.h; sourceTree = "<group>"; };
 		9A8A6786133C3E1F00188AC5 /* MyXMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyXMLParser.m; sourceTree = "<group>"; };
 		9AC4CBF9133D7BC4005C99E3 /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test.png; sourceTree = "<group>"; };
@@ -172,6 +177,7 @@
 				63EB8023133BC66D00A01901 /* MainWindow.xib */,
 				63EB802C133BC66E00A01901 /* CurrentConditionsView.xib */,
 				63EB802F133BC66E00A01901 /* ForecastView.xib */,
+				9008F9E6133DA047000CB0D3 /* WarningsView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -183,6 +189,8 @@
 				63EB8027133BC66D00A01901 /* CurrentConditionsViewController.m */,
 				63EB8029133BC66E00A01901 /* ForecastViewController.h */,
 				63EB802A133BC66E00A01901 /* ForecastViewController.m */,
+				9008F9E4133DA047000CB0D3 /* WarningsViewController.h */,
+				9008F9E5133DA047000CB0D3 /* WarningsViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -270,6 +278,7 @@
 				63EB802E133BC66E00A01901 /* CurrentConditionsView.xib in Resources */,
 				63EB8031133BC66E00A01901 /* ForecastView.xib in Resources */,
 				9AC4CBFA133D7BC4005C99E3 /* test.png in Resources */,
+				9008F9E8133DA047000CB0D3 /* WarningsView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,6 +319,7 @@
 				63EB8028133BC66D00A01901 /* CurrentConditionsViewController.m in Sources */,
 				63EB802B133BC66E00A01901 /* ForecastViewController.m in Sources */,
 				9A8A6787133C3E1F00188AC5 /* MyXMLParser.m in Sources */,
+				9008F9E7133DA047000CB0D3 /* WarningsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
