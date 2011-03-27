@@ -14,6 +14,7 @@
     NSXMLParser *parser;
     NSMutableArray *weatherData;
     NSMutableDictionary *item;
+    NSMutableString *currentType;
     
     //Current Conditions Elements
     NSString *currentElement;
@@ -38,6 +39,18 @@
     NSMutableArray *day1;
     NSMutableArray *day2;
     NSMutableArray *day3;
+    
+    //Warnings Elements
+    NSMutableArray *warningData;
+    NSMutableString *linkToPage;
+    NSMutableString *linkToEntry;
+    NSMutableString *updated;
+    NSMutableString *published;
+    NSMutableString *title;
+    NSMutableString *summary;
+    NSMutableString *effective;
+    NSMutableString *expires;
+    NSMutableString *severity;
 }
 
 @property (nonatomic, retain) NSXMLParser *parser;
@@ -63,6 +76,7 @@
 @property (nonatomic, retain) NSMutableArray *day1;
 @property (nonatomic, retain) NSMutableArray *day2;
 @property (nonatomic, retain) NSMutableArray *day3;
+@property (nonatomic, retain) NSMutableArray *warningData;
 
 - (void)parseXMLFileAtURL:(NSString *)URL;
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict;

@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MyXMLParser.h"
 
 
 @interface WarningsViewController : UIViewController {
-    
+    IBOutlet UITextView *warningText;
+    MyXMLParser *parser;
 }
+
+- (NSString *)trimWhitespace:(NSMutableString *)stringToTrim;
 
 @end

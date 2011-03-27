@@ -10,7 +10,7 @@
 
 
 @implementation MyXMLParser
-@synthesize parser, weatherData, item, currentElement, currentHumidity, currentWindSpeed, currentConditionIcon, currentTemperature, currentBarometer, currentWindDirection, currentHiTemp, currentLoTemp, currentIntro, day1, day2, day3, hi, lo, icon, day_of_week, description, currentIntroTitle;
+@synthesize parser, weatherData, item, currentElement, currentHumidity, currentWindSpeed, currentConditionIcon, currentTemperature, currentBarometer, currentWindDirection, currentHiTemp, currentLoTemp, currentIntro, day1, day2, day3, hi, lo, icon, day_of_week, description, currentIntroTitle, warningData;
 
 - (void)parseXMLFileAtURL:(NSString *)URL {
 	NSURL *xmlUrl = [NSURL URLWithString:URL];
@@ -38,11 +38,13 @@
 		currentHiTemp = [[NSMutableString alloc] init];
 		currentLoTemp = [[NSMutableString alloc] init];
         weatherData = [[NSMutableArray alloc] init];
+        currentType = [NSMutableString stringWithString:@"conditions"];
 	}
     if ([elementName isEqualToString:@"forecast"]){
         item = [[NSMutableDictionary alloc] init];
         currentIntro = [[NSMutableString alloc] init];
         currentIntroTitle = [[NSMutableString alloc] init];
+        currentType = [NSMutableString stringWithString:@"forecast"];
     }
     if ([elementName isEqualToString:@"day1"]){
         day1 = [[NSMutableArray alloc] init];
@@ -51,6 +53,7 @@
         icon = [[NSMutableString alloc] init];
         description = [[NSMutableString alloc] init];
         day_of_week = [[NSMutableString alloc] init];
+        currentType = [NSMutableString stringWithString:@"forecast"];
     }
     if ([elementName isEqualToString:@"day2"]){
         day2 = [[NSMutableArray alloc] init];
@@ -58,7 +61,8 @@
         lo = [[NSMutableString alloc] init];
         icon = [[NSMutableString alloc] init];
         description = [[NSMutableString alloc] init];
-        day_of_week = [[NSMutableString alloc] init];        
+        day_of_week = [[NSMutableString alloc] init];
+        currentType = [NSMutableString stringWithString:@"forecast"];
     }
     if ([elementName isEqualToString:@"day3"]){
         day3 = [[NSMutableArray alloc] init];
@@ -67,8 +71,25 @@
         icon = [[NSMutableString alloc] init];
         description = [[NSMutableString alloc] init];
         day_of_week = [[NSMutableString alloc] init];
+        currentType = [NSMutableString stringWithString:@"forecast"];
     }
-	
+	if ([elementName isEqualToString:@"feed"]){
+        item = [[NSMutableDictionary alloc] init];
+        warningData = [[NSMutableArray alloc] init];
+        linkToPage = [[NSMutableString alloc] init];
+        currentType = [NSMutableString stringWithString:@"feed"];
+    }
+    if ([elementName isEqualToString:@"entry"]){
+        linkToEntry = [[NSMutableString alloc] init];
+        updated = [[NSMutableString alloc] init];
+        published = [[NSMutableString alloc] init];
+        title = [[NSMutableString alloc] init];
+        summary = [[NSMutableString alloc] init];
+        effective = [[NSMutableString alloc] init];
+        expires = [[NSMutableString alloc] init];
+        severity = [[NSMutableString alloc] init];
+        currentType = [NSMutableString stringWithString:@"entry"];
+    }
 }
 
 
@@ -115,59 +136,103 @@
         [item setObject:description forKey:@"descrip"];
         [day3 addObject:[item copy]];
     }
+    if ([elementName isEqualToString:@"entry"]){
+        [item setObject:linkToEntry forKey:@"entryLink"];
+        [item setObject:updated forKey:@"updated"];
+        [item setObject:published forKey:@"published"];
+        [item setObject:title forKey:@"title"];
+        [item setObject:summary forKey:@"summary"];
+        [item setObject:effective forKey:@"effective"];
+        [item setObject:expires forKey:@"expires"];
+        [item setObject:severity forKey:@"severity"];
+        [warningData addObject:[item copy]];
+    }
 }
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
-    
-    if ([currentElement isEqualToString:@"humidity"]) {
-        [currentHumidity appendString:string];
+    if([currentType isEqualToString:@"conditions"]){
+        if([currentElement isEqualToString:@"humidity"]) {
+            [currentHumidity appendString:string];
+        }
+        else if([currentElement isEqualToString:@"wind_speed"]) {
+            [currentWindSpeed appendString:string];
+        }
+        else if([currentElement isEqualToString:@"condition_icon"]){
+            [currentConditionIcon appendString:string];
+        }
+        else if([currentElement isEqualToString:@"temperature"]){
+            [currentTemperature appendString:string];
+        }
+        else if([currentElement isEqualToString:@"barometer"]){
+            [currentBarometer appendString:string];
+        }
+        else if([currentElement isEqualToString:@"barotrend"]){
+            [currentBaroTrend appendString:string];
+        }
+        else if([currentElement isEqualToString:@"wind_direction"]){
+            [currentWindDirection appendString:string];
+        }
+        else if([currentElement isEqualToString:@"hi_temp"]){
+            [currentHiTemp appendString:string];
+        }
+        else if([currentElement isEqualToString:@"lo_temp"]){
+            [currentLoTemp appendString:string];
+        }
     }
-    else if ([currentElement isEqualToString:@"wind_speed"]) {
-        [currentWindSpeed appendString:string];
+    else if([currentType isEqualToString:@"forecast"]){
+        if([currentElement isEqualToString:@"introduction"]){
+            [currentIntro appendString:string];
+        }
+        else if([currentElement isEqualToString:@"high_temperature"]){
+            [hi appendString:string];
+        }
+        else if([currentElement isEqualToString:@"low_temperature"]){
+            [lo appendString:string];
+        }
+        else if([currentElement isEqualToString:@"sky_condition"]){
+            [icon appendString:string];
+        }
+        else if([currentElement isEqualToString:@"day_of_week"]){
+            [day_of_week appendString:string];
+        }
+        else if([currentElement isEqualToString:@"forecast_text"]){
+            [description appendString:string];
+        }
+        else if([currentElement isEqualToString:@"title"]){
+            [currentIntroTitle appendString:string];
+        }
     }
-    else if ([currentElement isEqualToString:@"condition_icon"]){
-        [currentConditionIcon appendString:string];
+    else if([currentType isEqualToString:@"feed"]){
+        if([currentElement isEqualToString:@"id"]){
+            [linkToPage appendString:string];
+        }
     }
-    else if([currentElement isEqualToString:@"temperature"]){
-        [currentTemperature appendString:string];
+    else if([currentType isEqualToString:@"entry"]){
+        if([currentElement isEqualToString:@"id"]){
+            [linkToEntry appendString:string];
+        }
+        else if([currentElement isEqualToString:@"updated"]){
+            [updated appendString:string];
+        }
+        else if([currentElement isEqualToString:@"published"]){
+            [published appendString:string];
+        }
+        else if([currentElement isEqualToString:@"title"]){
+            [title appendString:string];
+        }
+        else if([currentElement isEqualToString:@"summary"]){
+            [summary appendString:string];
+        }
+        else if([currentElement isEqualToString:@"cap:effective"]){
+            [effective appendString:string];
+        }
+        else if([currentElement isEqualToString:@"cap:expires"]){
+            [expires appendString:string];
+        }
+        else if([currentElement isEqualToString:@"cap:severity"]){
+            [severity appendString:string];
+        }
     }
-    else if([currentElement isEqualToString:@"barometer"]){
-        [currentBarometer appendString:string];
-    }
-    else if([currentElement isEqualToString:@"barotrend"]){
-        [currentBaroTrend appendString:string];
-    }
-    else if([currentElement isEqualToString:@"wind_direction"]){
-        [currentWindDirection appendString:string];
-    }
-    else if([currentElement isEqualToString:@"hi_temp"]){
-        [currentHiTemp appendString:string];
-    }
-    else if([currentElement isEqualToString:@"lo_temp"]){
-        [currentLoTemp appendString:string];
-    }
-    else if([currentElement isEqualToString:@"introduction"]){
-        [currentIntro appendString:string];
-    }
-    else if([currentElement isEqualToString:@"high_temperature"]){
-        [hi appendString:string];
-    }
-    else if([currentElement isEqualToString:@"low_temperature"]){
-        [lo appendString:string];
-    }
-    else if([currentElement isEqualToString:@"sky_condition"]){
-        [icon appendString:string];
-    }
-    else if([currentElement isEqualToString:@"day_of_week"]){
-        [day_of_week appendString:string];
-    }
-    else if([currentElement isEqualToString:@"forecast_text"]){
-        [description appendString:string];
-    }
-    else if([currentElement isEqualToString:@"title"]){
-        [currentIntroTitle appendString:string];
-    }
-    //NSLog(@"found characters: %@", string);
 }
 
 @end

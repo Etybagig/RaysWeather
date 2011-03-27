@@ -7,9 +7,57 @@
 //
 
 #import "WarningsViewController.h"
-#import "MyXMLParser.h"
 
 @implementation WarningsViewController
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    parser = [MyXMLParser new];
+    
+    NSString *path = @"http://alerts.weather.gov/cap/wwaatmget.php?x=NCZ018";
+    [parser parseXMLFileAtURL:path];
+    
+    NSMutableDictionary *dict = [parser.warningData objectAtIndex:0];
+    NSString *summary = [dict objectForKey:@"summary"];
+    warningText.text = summary;
+}
+
+- (NSString *)trimWhitespace:(NSMutableString *)stringToTrim{
+    NSString *removeNewLine = [stringToTrim stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    NSString *removeTab = [removeNewLine stringByReplacingOccurrencesOfString:@"\t" withString:@""];
+    return removeTab;
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    // Return YES for supported orientations
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+
+- (void)didReceiveMemoryWarning
+{
+    // Releases the view if it doesn't have a superview.
+    [super didReceiveMemoryWarning];
+    
+    // Release any cached data, images, etc. that aren't in use.
+}
+
+
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+    
+    // Release any retained subviews of the main view.
+    // e.g. self.myOutlet = nil;
+}
+
+
+- (void)dealloc
+{
+    [super dealloc];
+}
 
 @end
