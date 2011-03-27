@@ -135,7 +135,7 @@
         [currentBarometer appendString:string];
     }
     else if([currentElement isEqualToString:@"barotrend"]){
-        [currentBarometer appendString:string];
+        [currentBaroTrend appendString:string];
     }
     else if([currentElement isEqualToString:@"wind_direction"]){
         [currentWindDirection appendString:string];

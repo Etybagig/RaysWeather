@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
+#import "MyXMLParser.h"
 
 
 @interface CurrentConditionsViewController : UIViewController {
@@ -21,10 +22,12 @@
     IBOutlet UILabel *currentLo;
     IBOutlet UILabel *todaysSummaryTitle;
     IBOutlet UITextView *todaysSummary;
+    MyXMLParser *parser;
     NSMutableDictionary *weatherDictionary;
     
 }
 
 - (NSString *)trimWhitespace:(NSMutableString *)stringToTrim;
+- (NSString *)roundAndSnap:(NSString *)stringToRound;
 
 @end
