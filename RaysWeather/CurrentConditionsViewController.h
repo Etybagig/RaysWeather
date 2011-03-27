@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
+#include <math.h>
 #import "MyXMLParser.h"
 
 

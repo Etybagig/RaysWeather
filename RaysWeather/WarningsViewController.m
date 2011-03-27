@@ -19,8 +19,8 @@
     NSString *path = @"http://alerts.weather.gov/cap/wwaatmget.php?x=NCZ018";
     [parser parseXMLFileAtURL:path];
     
-    NSMutableDictionary *dict = [parser.warningData objectAtIndex:0];
-    NSString *summary = [dict objectForKey:@"summary"];
+    NSMutableDictionary *warningsDict = [parser.warningData objectAtIndex:0];
+    NSString *summary = [self trimWhitespace:[warningsDict objectForKey:@"title"]];
     warningText.text = summary;
 }
 

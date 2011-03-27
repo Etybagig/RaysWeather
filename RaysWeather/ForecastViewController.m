@@ -7,7 +7,6 @@
 //
 
 #import "ForecastViewController.h"
-#import "MyXMLParser.h"
 
 @implementation ForecastViewController
 @synthesize dayOneDictionary, dayTwoDictionary, dayThreeDictionary;

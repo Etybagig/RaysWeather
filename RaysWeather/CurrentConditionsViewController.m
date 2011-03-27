@@ -11,8 +11,6 @@
 // http://raysweather.com/images/icons/n
 
 #import "CurrentConditionsViewController.h"
-#import "MyXMLParser.h"
-#include <math.h>
 
 @implementation CurrentConditionsViewController
 
