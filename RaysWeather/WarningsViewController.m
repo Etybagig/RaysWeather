@@ -12,19 +12,71 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    
     parser = [MyXMLParser new];
-    
     NSString *path = @"http://alerts.weather.gov/cap/wwaatmget.php?x=NCZ018";
     [parser parseXMLFileAtURL:path];
     
-    NSMutableDictionary *warningsDict = [parser.warningData objectAtIndex:0];
-    NSString *summary = [self trimWhitespace:[warningsDict objectForKey:@"title"]];
-    warningText.text = summary;
+    bool finished = NO;
+    int index = 0;
+    while (!finished){
+        @try{
+            warnings = [parser.warningData objectAtIndex:index];
+            index++;
+        }@catch(NSException *e){
+            finished = YES;
+        }
+    }
+    numberOfWarnings = index--;
+    currentCell = 0;
+    
+    table = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+    [table setDelegate:self];
+    [table setDataSource:self];
+    
+
+    
+    [super viewDidLoad];
 }
 
-- (NSString *)trimWhitespace:(NSMutableString *)stringToTrim{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    NSLog(@"%d", numberOfWarnings);
+    return numberOfWarnings;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"Cell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if(cell == nil){
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+    }
+    
+    int row = [indexPath row];
+    if(row<numberOfWarnings){
+        warnings = [parser.warningData objectAtIndex:currentCell++];
+        [[cell textLabel] setText:[warnings objectForKey:@"title"]];
+    }
+    return cell;
+}
+
+
+
+- (NSString *)addEntry:(NSString *)warning dictionary:(NSMutableDictionary *)dict
+{
+    NSString *title = [dict objectForKey:@"title"];
+    NSString *summary = [dict objectForKey:@"summary"];
+    warning = [NSString stringWithFormat:@"%@ \n %@ \n %@ \n", warning, title, summary];
+    return warning;
+}
+
+- (NSString *)trimWhitespace:(NSMutableString *)stringToTrim
+{
     NSString *removeNewLine = [stringToTrim stringByReplacingOccurrencesOfString:@"\n" withString:@""];
     NSString *removeTab = [removeNewLine stringByReplacingOccurrencesOfString:@"\t" withString:@""];
     return removeTab;

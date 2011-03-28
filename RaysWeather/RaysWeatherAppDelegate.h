@@ -16,4 +16,6 @@
 
 @property (nonatomic, retain) IBOutlet UITabBarController *tabBarController;
 
+//- (bool)isWarnings;---------3
+
 @end

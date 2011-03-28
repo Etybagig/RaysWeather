@@ -10,11 +10,16 @@
 #import "MyXMLParser.h"
 
 
-@interface WarningsViewController : UIViewController {
-    IBOutlet UITextView *warningText;
+@interface WarningsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
+    
+    IBOutlet UITableView *table;
+    NSMutableDictionary *warnings;
     MyXMLParser *parser;
+    NSInteger numberOfWarnings;
+    NSInteger currentCell;
 }
 
 - (NSString *)trimWhitespace:(NSMutableString *)stringToTrim;
+- (NSString *)addEntry:(NSString *)warning dictionary:(NSMutableDictionary *)dict;
 
 @end

@@ -33,9 +33,6 @@
 		9ABAB853133EA2F4003244E5 /* face.png in Resources */ = {isa = PBXBuildFile; fileRef = 9ABAB852133EA2F4003244E5 /* face.png */; };
 		9ABAB855133ECE2F003244E5 /* forecastBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 9ABAB854133ECE2F003244E5 /* forecastBack.png */; };
 		9ABAB857133EF620003244E5 /* currentBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 9ABAB856133EF620003244E5 /* currentBack.png */; };
-		9AC4CC10133DAA6A005C99E3 /* current.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AC4CC0F133DAA6A005C99E3 /* current.png */; };
-		9AC4CC13133DAA70005C99E3 /* forecast.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AC4CC12133DAA70005C99E3 /* forecast.png */; };
-		9AC4CC17133DB9AE005C99E3 /* Warning.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AC4CC16133DB9AE005C99E3 /* Warning.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,9 +80,6 @@
 		9ABAB852133EA2F4003244E5 /* face.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = face.png; sourceTree = "<group>"; };
 		9ABAB854133ECE2F003244E5 /* forecastBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = forecastBack.png; sourceTree = "<group>"; };
 		9ABAB856133EF620003244E5 /* currentBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = currentBack.png; sourceTree = "<group>"; };
-		9AC4CC0F133DAA6A005C99E3 /* current.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = current.png; sourceTree = "<group>"; };
-		9AC4CC12133DAA70005C99E3 /* forecast.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = forecast.png; sourceTree = "<group>"; };
-		9AC4CC16133DB9AE005C99E3 /* Warning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Warning.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,9 +214,6 @@
 				9ABAB856133EF620003244E5 /* currentBack.png */,
 				9ABAB854133ECE2F003244E5 /* forecastBack.png */,
 				9ABAB852133EA2F4003244E5 /* face.png */,
-				9AC4CC16133DB9AE005C99E3 /* Warning.png */,
-				9AC4CC12133DAA70005C99E3 /* forecast.png */,
-				9AC4CC0F133DAA6A005C99E3 /* current.png */,
 			);
 			name = Assets;
 			sourceTree = "<group>";
@@ -302,9 +293,6 @@
 				63EB802E133BC66E00A01901 /* CurrentConditionsView.xib in Resources */,
 				63EB8031133BC66E00A01901 /* ForecastView.xib in Resources */,
 				9008F9E8133DA047000CB0D3 /* WarningsView.xib in Resources */,
-				9AC4CC10133DAA6A005C99E3 /* current.png in Resources */,
-				9AC4CC13133DAA70005C99E3 /* forecast.png in Resources */,
-				9AC4CC17133DB9AE005C99E3 /* Warning.png in Resources */,
 				9ABAB853133EA2F4003244E5 /* face.png in Resources */,
 				9ABAB855133ECE2F003244E5 /* forecastBack.png in Resources */,
 				9ABAB857133EF620003244E5 /* currentBack.png in Resources */,

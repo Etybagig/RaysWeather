@@ -7,9 +7,10 @@
 //
 
 #import "RaysWeatherAppDelegate.h"
+#include "MyXMLParser.h"
+//#include "MyXMLParser.h"--------1
 
 @implementation RaysWeatherAppDelegate
-
 
 @synthesize window=_window;
 
@@ -19,10 +20,41 @@
 {
     // Override point for customization after application launch.
     // Add the tab bar controller's current view as a subview of the window
+    MyXMLParser *parser = [MyXMLParser new];
+    NSString *path = @"http://alerts.weather.gov/cap/wwaatmget.php?x=NCZ018";
+    [parser parseXMLFileAtURL:path];
+    NSMutableDictionary *warnings;
+    bool finished = NO;
+    int index = 0;
+    while (!finished){
+        @try{
+            warnings = [parser.warningData objectAtIndex:index];
+            index++;
+            if([[warnings objectForKey:@"summary"] isEqualToString:@""]){
+                index--;
+                finished = YES;
+            }
+        }@catch(NSException *e){
+            finished = YES;
+        }
+    }
+    NSInteger numberOfWarnings = index--;
+    if(numberOfWarnings>0){
+    [[[[[self tabBarController] tabBar] items] objectAtIndex:2] setBadgeValue:@"!"];
+    }
+    
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
     return YES;
 }
+
+/*- (bool)isWarnings{-------------2
+    MyXMLParser *parser = [MyXMLParser new];
+    NSString *path = @"http://alerts.weather.gov/cap/wwaatmget.php?x=GAC079";
+    [parser parseXMLFileAtURL:path];
+    
+    
+} */
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
