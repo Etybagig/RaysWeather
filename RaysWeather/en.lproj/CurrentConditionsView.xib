@@ -51,7 +51,7 @@
 					<object class="IBUITextView" id="756687683">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{29, 205}, {259, 174}}</string>
+						<string key="NSFrame">{{29, 218}, {259, 161}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="405278201"/>
@@ -78,7 +78,7 @@
 					<object class="IBUILabel" id="157052392">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{48, 181}, {240, 21}}</string>
+						<string key="NSFrame">{{29, 179}, {259, 38}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="756687683"/>
@@ -87,7 +87,7 @@
 						<int key="IBUIContentMode">7</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<string key="IBUIText">Label</string>
+						<string key="IBUIText">[title]</string>
 						<object class="NSFont" key="IBUIFont" id="451876167">
 							<string key="NSName">Helvetica-Bold</string>
 							<double key="NSSize">14</double>
@@ -105,6 +105,7 @@
 						<string key="IBUIShadowOffset">{1, 1}</string>
 						<int key="IBUIBaselineAdjustment">1</int>
 						<float key="IBUIMinimumFontSize">10</float>
+						<int key="IBUINumberOfLines">2</int>
 						<int key="IBUITextAlignment">2</int>
 						<int key="IBUILineBreakMode">5</int>
 					</object>
@@ -145,7 +146,6 @@
 						<string key="NSFrame">{{20, 7413}, {60, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
@@ -561,8 +561,6 @@
 							<reference ref="676207702"/>
 							<reference ref="470441876"/>
 							<reference ref="208323228"/>
-							<reference ref="920000968"/>
-							<reference ref="157052392"/>
 							<reference ref="727164216"/>
 							<reference ref="27536555"/>
 							<reference ref="802427921"/>
@@ -571,6 +569,8 @@
 							<reference ref="424152760"/>
 							<reference ref="867707356"/>
 							<reference ref="576518310"/>
+							<reference ref="920000968"/>
+							<reference ref="157052392"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
