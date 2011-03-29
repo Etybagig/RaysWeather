@@ -41,6 +41,7 @@
 				<object class="NSPSMatrix" key="NSFrameMatrix"/>
 				<string key="NSFrameSize">{320, 480}</string>
 				<reference key="NSSuperview"/>
+				<reference key="NSNextKeyView"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">1</int>
 					<bytes key="NSRGB">MSAxIDEAA</bytes>
@@ -62,7 +63,7 @@
 				<bool key="IBUIHorizontal">NO</bool>
 				<object class="IBUIViewController" key="IBUISelectedViewController" id="620226435">
 					<object class="IBUITabBarItem" key="IBUITabBarItem" id="879721424">
-						<string key="IBUITitle">Warnings</string>
+						<string key="IBUITitle">NWS Alerts</string>
 						<object class="NSCustomResource" key="IBUIImage">
 							<string key="NSClassName">NSImage</string>
 							<string key="NSResourceName">warning2.png</string>
@@ -122,6 +123,7 @@
 					<int key="NSvFlags">266</int>
 					<string key="NSFrame">{{0, 431}, {320, 49}}</string>
 					<reference key="NSSuperview"/>
+					<reference key="NSNextKeyView"/>
 					<object class="NSColor" key="IBUIBackgroundColor">
 						<int key="NSColorSpace">3</int>
 						<bytes key="NSWhite">MCAwAA</bytes>

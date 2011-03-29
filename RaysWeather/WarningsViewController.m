@@ -22,6 +22,14 @@
         @try{
             warnings = [parser.warningData objectAtIndex:index];
             index++;
+            if(warnings == Nil){
+                index--;
+                finished = YES;
+            }
+            else if([[warnings objectForKey:@"summary"] isEqualToString:@""]){
+                index--;
+                finished = YES;
+            }
         }@catch(NSException *e){
             finished = YES;
         }

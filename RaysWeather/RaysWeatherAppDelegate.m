@@ -23,14 +23,18 @@
     MyXMLParser *parser = [MyXMLParser new];
     NSString *path = @"http://alerts.weather.gov/cap/wwaatmget.php?x=NCZ018";
     [parser parseXMLFileAtURL:path];
-    NSMutableDictionary *warnings;
+    NSMutableDictionary *warnings = [[NSMutableDictionary alloc] init];
     bool finished = NO;
     int index = 0;
     while (!finished){
         @try{
             warnings = [parser.warningData objectAtIndex:index];
             index++;
-            if([[warnings objectForKey:@"summary"] isEqualToString:@""]){
+            if(warnings == Nil){
+                index--;
+                finished = YES;
+            }
+            else if([[warnings objectForKey:@"summary"] isEqualToString:@""]){
                 index--;
                 finished = YES;
             }

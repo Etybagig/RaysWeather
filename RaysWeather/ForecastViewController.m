@@ -42,8 +42,8 @@
     dayOneImage.image = downloadedImageOne;
     
     //Description
-    [[dayOneDescript layer] setBorderColor:[[UIColor blackColor] CGColor]];
-    [[dayOneDescript layer] setBorderWidth:2];
+    //[[dayOneDescript layer] setBorderColor:[[UIColor whiteColor] CGColor]];
+    //[[dayOneDescript layer] setBorderWidth:2];
     [[dayOneDescript layer] setCornerRadius:10];
     [dayOneDescript setClipsToBounds: YES];
     dayOneDescript.text = [self trimWhitespace:[dayOneDictionary objectForKey:@"descrip"]];
@@ -69,8 +69,8 @@
     dayTwoImage.image = downloadedImageTwo;
     
     //Description
-    [[dayTwoDescript layer] setBorderColor:[[UIColor blackColor] CGColor]];
-    [[dayTwoDescript layer] setBorderWidth:2];
+    //[[dayTwoDescript layer] setBorderColor:[[UIColor whiteColor] CGColor]];
+    //[[dayTwoDescript layer] setBorderWidth:2];
     [[dayTwoDescript layer] setCornerRadius:10];
     [dayTwoDescript setClipsToBounds: YES];
     dayTwoDescript.text = [self trimWhitespace:[dayTwoDictionary objectForKey:@"descrip"]];
@@ -96,8 +96,8 @@
     dayThreeImage.image = downloadedImageThree;
     
     //Description
-    [[dayThreeDescript layer] setBorderColor:[[UIColor blackColor] CGColor]];
-    [[dayThreeDescript layer] setBorderWidth:2];
+    //[[dayThreeDescript layer] setBorderColor:[[UIColor whiteColor] CGColor]];
+    //[[dayThreeDescript layer] setBorderWidth:2];
     [[dayThreeDescript layer] setCornerRadius:10];
     [dayThreeDescript setClipsToBounds: YES];
     dayThreeDescript.text = [self trimWhitespace:[dayThreeDictionary objectForKey:@"descrip"]];
