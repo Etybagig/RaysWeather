@@ -79,10 +79,8 @@
     weatherDictionary = [parser.weatherData objectAtIndex:1];
     
     //Set information that was parsed, trimming all strings
-    //Lines 55-58 add rounded corners and a border to UITextView
+    //Lines 55-58 add rounded corners and background color
     //Today's Summary
-    //[[todaysSummary layer] setBorderColor:[[UIColor clearColor] CGColor]];
-    //[[todaysSummary layer] setBorderWidth:2];
     [[todaysSummary layer] setCornerRadius:10];
     [todaysSummary setClipsToBounds: YES];
     todaysSummary.text = [self trimWhitespace:[weatherDictionary objectForKey:@"introduction"]];
