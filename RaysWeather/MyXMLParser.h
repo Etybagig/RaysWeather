@@ -40,43 +40,27 @@
     NSMutableArray *day2;
     NSMutableArray *day3;
     
-    //Warnings Elements
+    //Alert Table Elements
     NSMutableArray *warningData;
-    NSMutableString *linkToPage;
     NSMutableString *linkToEntry;
-    NSMutableString *updated;
-    NSMutableString *published;
     NSMutableString *title;
-    NSMutableString *summary;
-    NSMutableString *effective;
-    NSMutableString *expires;
+    
+    //Alert Elements
+    NSMutableArray *alert;
+    NSMutableString *headline;
+    NSMutableString *alertDescription;
+    NSMutableString *instruction;
     NSMutableString *severity;
 }
 
 @property (nonatomic, retain) NSXMLParser *parser;
 @property (nonatomic, retain) NSMutableArray *weatherData;
 @property (nonatomic, retain) NSMutableDictionary *item;
-@property (nonatomic, retain) NSString *currentElement;
-@property (nonatomic, retain) NSMutableString *currentHumidity;
-@property (nonatomic, retain) NSMutableString *currentWindSpeed;
-@property (nonatomic, retain) NSMutableString *currentConditionIcon;
-@property (nonatomic, retain) NSMutableString *currentTemperature;
-@property (nonatomic, retain) NSMutableString *currentBarometer;
-@property (nonatomic, retain) NSMutableString *currentWindDirection;
-@property (nonatomic, retain) NSMutableString *currentHiTemp;
-@property (nonatomic, retain) NSMutableString *currentLoTemp;
-@property (nonatomic, retain) NSMutableString *currentIntroTitle;
-@property (nonatomic, retain) NSMutableString *currentIntro;
-
-@property (nonatomic, retain) NSMutableString *day_of_week;
-@property (nonatomic, retain) NSMutableString *hi;
-@property (nonatomic, retain) NSMutableString *lo;
-@property (nonatomic, retain) NSMutableString *icon;
-@property (nonatomic, retain) NSMutableString *description;
 @property (nonatomic, retain) NSMutableArray *day1;
 @property (nonatomic, retain) NSMutableArray *day2;
 @property (nonatomic, retain) NSMutableArray *day3;
 @property (nonatomic, retain) NSMutableArray *warningData;
+@property (nonatomic, retain) NSMutableArray *alert;
 
 - (void)parseXMLFileAtURL:(NSString *)URL;
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict;

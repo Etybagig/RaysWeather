@@ -8,18 +8,22 @@
 
 #import <UIKit/UIKit.h>
 #import "MyXMLParser.h"
+#import "AlertViewController.h"
+#import "RaysWeatherAppDelegate.h"
 
-
-@interface WarningsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
+@interface WarningsViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource> {
     
     IBOutlet UITableView *table;
     NSMutableDictionary *warnings;
     MyXMLParser *parser;
     NSInteger numberOfWarnings;
     NSInteger currentCell;
+    
+    AlertViewController *alertView;
 }
 
+@property (nonatomic, retain) AlertViewController *alertView;
+
 - (NSString *)trimWhitespace:(NSMutableString *)stringToTrim;
-- (NSString *)addEntry:(NSString *)warning dictionary:(NSMutableDictionary *)dict;
 
 @end

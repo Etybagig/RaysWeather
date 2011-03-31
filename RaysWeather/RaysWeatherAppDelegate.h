@@ -7,14 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AlertNavController.h"
+
+@class AlertNavController;
 
 @interface RaysWeatherAppDelegate : NSObject <UIApplicationDelegate, UITabBarControllerDelegate> {
-
+    IBOutlet AlertNavController *alertNavController;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 
 @property (nonatomic, retain) IBOutlet UITabBarController *tabBarController;
+
+@property (nonatomic, retain) IBOutlet AlertNavController *alertNavController;
 
 //- (bool)isWarnings;---------3
 

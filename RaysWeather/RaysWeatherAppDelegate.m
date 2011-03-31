@@ -16,6 +16,8 @@
 
 @synthesize tabBarController=_tabBarController;
 
+@synthesize alertNavController;
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.

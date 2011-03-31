@@ -10,6 +10,8 @@
 
 @implementation WarningsViewController
 
+@synthesize alertView;
+
 - (void)viewDidLoad
 {
     parser = [MyXMLParser new];
@@ -66,7 +68,7 @@
     }
     
     int row = [indexPath row];
-    if(row<numberOfWarnings){
+    if(row<numberOfWarnings && numberOfWarnings!=currentCell){
         warnings = [parser.warningData objectAtIndex:currentCell++];
         [[cell textLabel] setText:[warnings objectForKey:@"title"]];
     }
@@ -75,15 +77,21 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-}
+    NSInteger row = [indexPath row];
+    NSLog(@"%d", row);
+    if(self.alertView == nil){
+        AlertViewController *anAlertView = [[AlertViewController alloc] initWithNibName:@"AlertView" bundle:nil];
+        self.alertView = anAlertView;
+        [anAlertView release];
+    }
 
-- (NSString *)addEntry:(NSString *)warning dictionary:(NSMutableDictionary *)dict
-{
-    NSString *title = [dict objectForKey:@"title"];
-    NSString *summary = [dict objectForKey:@"summary"];
-    warning = [NSString stringWithFormat:@"%@ \n %@ \n %@ \n", warning, title, summary];
-    return warning;
+    warnings = [parser.warningData objectAtIndex:row];
+    NSMutableString *entryURL = [warnings objectForKey:@"entryLink"];
+    alertView.uRL = [self trimWhitespace:entryURL];
+    
+    RaysWeatherAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    [delegate.alertNavController pushViewController:alertView animated:YES];
+    
 }
 
 - (NSString *)trimWhitespace:(NSMutableString *)stringToTrim

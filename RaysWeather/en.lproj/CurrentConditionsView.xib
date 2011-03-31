@@ -62,6 +62,7 @@
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<bool key="IBUIMultipleTouchEnabled">YES</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+						<int key="IBUIIndicatorStyle">2</int>
 						<bool key="IBUIEditable">NO</bool>
 						<string key="IBUIText">[today's introduction]</string>
 						<object class="NSColor" key="IBUITextColor" id="986767402">
