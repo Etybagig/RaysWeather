@@ -29,15 +29,18 @@
 		90A81D56133F8167000CF563 /* sun.png in Resources */ = {isa = PBXBuildFile; fileRef = 90A81D55133F8167000CF563 /* sun.png */; };
 		90A81D59133F8188000CF563 /* telescope.png in Resources */ = {isa = PBXBuildFile; fileRef = 90A81D58133F8188000CF563 /* telescope.png */; };
 		90A81D5B133F81D4000CF563 /* warning2.png in Resources */ = {isa = PBXBuildFile; fileRef = 90A81D5A133F81D4000CF563 /* warning2.png */; };
+		9A083AA213452F8B00C17E5D /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A083AA013452F8B00C17E5D /* MoreViewController.m */; };
+		9A083AA313452F8B00C17E5D /* MoreView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A083AA113452F8B00C17E5D /* MoreView.xib */; };
+		9A083AA71345484800C17E5D /* POTDController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A083AA51345484800C17E5D /* POTDController.m */; };
+		9A083AA81345484800C17E5D /* POTD.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A083AA61345484800C17E5D /* POTD.xib */; };
 		9A5329CA13417EA6005EB60C /* currentBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A5329C913417EA6005EB60C /* currentBack.png */; };
 		9A8A6787133C3E1F00188AC5 /* MyXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A8A6786133C3E1F00188AC5 /* MyXMLParser.m */; };
 		9ABAB853133EA2F4003244E5 /* face.png in Resources */ = {isa = PBXBuildFile; fileRef = 9ABAB852133EA2F4003244E5 /* face.png */; };
 		9ABAB855133ECE2F003244E5 /* forecastBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 9ABAB854133ECE2F003244E5 /* forecastBack.png */; };
-		9AD3C0831343D39700BE2091 /* ExtrasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AD3C0811343D39700BE2091 /* ExtrasViewController.m */; };
-		9AD3C0841343D39700BE2091 /* ExtrasView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AD3C0821343D39700BE2091 /* ExtrasView.xib */; };
 		9AD3C12913440C0600BE2091 /* AlertNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AD3C12713440C0600BE2091 /* AlertNavController.m */; };
 		9AD3C12E1344277600BE2091 /* AlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AD3C12C1344277500BE2091 /* AlertViewController.m */; };
 		9AD3C12F1344277600BE2091 /* AlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AD3C12D1344277600BE2091 /* AlertView.xib */; };
+		9AE6012B1344E1430091C168 /* MoreNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AE6012A1344E1430091C168 /* MoreNavController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,19 +83,24 @@
 		90A81D55133F8167000CF563 /* sun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sun.png; sourceTree = "<group>"; };
 		90A81D58133F8188000CF563 /* telescope.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = telescope.png; sourceTree = "<group>"; };
 		90A81D5A133F81D4000CF563 /* warning2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = warning2.png; sourceTree = "<group>"; };
+		9A083A9F13452F8B00C17E5D /* MoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreViewController.h; sourceTree = "<group>"; };
+		9A083AA013452F8B00C17E5D /* MoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreViewController.m; sourceTree = "<group>"; };
+		9A083AA113452F8B00C17E5D /* MoreView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreView.xib; sourceTree = "<group>"; };
+		9A083AA41345484800C17E5D /* POTDController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POTDController.h; sourceTree = "<group>"; };
+		9A083AA51345484800C17E5D /* POTDController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POTDController.m; sourceTree = "<group>"; };
+		9A083AA61345484800C17E5D /* POTD.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = POTD.xib; sourceTree = "<group>"; };
 		9A5329C913417EA6005EB60C /* currentBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = currentBack.png; sourceTree = "<group>"; };
 		9A8A6785133C3E1F00188AC5 /* MyXMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyXMLParser.h; sourceTree = "<group>"; };
 		9A8A6786133C3E1F00188AC5 /* MyXMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyXMLParser.m; sourceTree = "<group>"; };
 		9ABAB852133EA2F4003244E5 /* face.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = face.png; sourceTree = "<group>"; };
 		9ABAB854133ECE2F003244E5 /* forecastBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = forecastBack.png; sourceTree = "<group>"; };
-		9AD3C0801343D39600BE2091 /* ExtrasViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtrasViewController.h; sourceTree = "<group>"; };
-		9AD3C0811343D39700BE2091 /* ExtrasViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExtrasViewController.m; sourceTree = "<group>"; };
-		9AD3C0821343D39700BE2091 /* ExtrasView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExtrasView.xib; sourceTree = "<group>"; };
 		9AD3C12613440C0600BE2091 /* AlertNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertNavController.h; sourceTree = "<group>"; };
 		9AD3C12713440C0600BE2091 /* AlertNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertNavController.m; sourceTree = "<group>"; };
 		9AD3C12B1344277400BE2091 /* AlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertViewController.h; sourceTree = "<group>"; };
 		9AD3C12C1344277500BE2091 /* AlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertViewController.m; sourceTree = "<group>"; };
 		9AD3C12D1344277600BE2091 /* AlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlertView.xib; sourceTree = "<group>"; };
+		9AE601291344E1430091C168 /* MoreNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreNavController.h; sourceTree = "<group>"; };
+		9AE6012A1344E1430091C168 /* MoreNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreNavController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,8 +205,9 @@
 			isa = PBXGroup;
 			children = (
 				63EB8023133BC66D00A01901 /* MainWindow.xib */,
+				9A083AA113452F8B00C17E5D /* MoreView.xib */,
+				9A083AA61345484800C17E5D /* POTD.xib */,
 				63EB802C133BC66E00A01901 /* CurrentConditionsView.xib */,
-				9AD3C0821343D39700BE2091 /* ExtrasView.xib */,
 				63EB802F133BC66E00A01901 /* ForecastView.xib */,
 				9008F9E6133DA047000CB0D3 /* WarningsView.xib */,
 				9AD3C12D1344277600BE2091 /* AlertView.xib */,
@@ -209,6 +218,10 @@
 		9A8A678B133C3FBC00188AC5 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				9A083AA41345484800C17E5D /* POTDController.h */,
+				9A083AA51345484800C17E5D /* POTDController.m */,
+				9A083A9F13452F8B00C17E5D /* MoreViewController.h */,
+				9A083AA013452F8B00C17E5D /* MoreViewController.m */,
 				9AD3C12B1344277400BE2091 /* AlertViewController.h */,
 				9AD3C12C1344277500BE2091 /* AlertViewController.m */,
 				63EB8026133BC66D00A01901 /* CurrentConditionsViewController.h */,
@@ -217,8 +230,6 @@
 				63EB802A133BC66E00A01901 /* ForecastViewController.m */,
 				9008F9E4133DA047000CB0D3 /* WarningsViewController.h */,
 				9008F9E5133DA047000CB0D3 /* WarningsViewController.m */,
-				9AD3C0801343D39600BE2091 /* ExtrasViewController.h */,
-				9AD3C0811343D39700BE2091 /* ExtrasViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -241,8 +252,10 @@
 			children = (
 				9A8A6785133C3E1F00188AC5 /* MyXMLParser.h */,
 				9A8A6786133C3E1F00188AC5 /* MyXMLParser.m */,
-				9AD3C12713440C0600BE2091 /* AlertNavController.m */,
 				9AD3C12613440C0600BE2091 /* AlertNavController.h */,
+				9AD3C12713440C0600BE2091 /* AlertNavController.m */,
+				9AE601291344E1430091C168 /* MoreNavController.h */,
+				9AE6012A1344E1430091C168 /* MoreNavController.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -328,8 +341,9 @@
 				90A81D59133F8188000CF563 /* telescope.png in Resources */,
 				90A81D5B133F81D4000CF563 /* warning2.png in Resources */,
 				9A5329CA13417EA6005EB60C /* currentBack.png in Resources */,
-				9AD3C0841343D39700BE2091 /* ExtrasView.xib in Resources */,
 				9AD3C12F1344277600BE2091 /* AlertView.xib in Resources */,
+				9A083AA313452F8B00C17E5D /* MoreView.xib in Resources */,
+				9A083AA81345484800C17E5D /* POTD.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,9 +385,11 @@
 				63EB802B133BC66E00A01901 /* ForecastViewController.m in Sources */,
 				9A8A6787133C3E1F00188AC5 /* MyXMLParser.m in Sources */,
 				9008F9E7133DA047000CB0D3 /* WarningsViewController.m in Sources */,
-				9AD3C0831343D39700BE2091 /* ExtrasViewController.m in Sources */,
 				9AD3C12913440C0600BE2091 /* AlertNavController.m in Sources */,
 				9AD3C12E1344277600BE2091 /* AlertViewController.m in Sources */,
+				9AE6012B1344E1430091C168 /* MoreNavController.m in Sources */,
+				9A083AA213452F8B00C17E5D /* MoreViewController.m in Sources */,
+				9A083AA71345484800C17E5D /* POTDController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

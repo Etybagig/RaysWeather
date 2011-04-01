@@ -12,11 +12,13 @@
 
 @implementation RaysWeatherAppDelegate
 
-@synthesize window=_window;
+@synthesize window;
 
-@synthesize tabBarController=_tabBarController;
+@synthesize tabBarController;
 
 @synthesize alertNavController;
+
+@synthesize moreNavController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -49,8 +51,9 @@
     [[[[[self tabBarController] tabBar] items] objectAtIndex:2] setBadgeValue:@"!"];
     }
     
-    self.window.rootViewController = self.tabBarController;
-    [self.window makeKeyAndVisible];
+    
+    [window addSubview:tabBarController.view];
+    [window makeKeyAndVisible];
     return YES;
 }
 
@@ -103,8 +106,8 @@
 
 - (void)dealloc
 {
-    [_window release];
-    [_tabBarController release];
+    [window release];
+    [tabBarController release];
     [super dealloc];
 }
 

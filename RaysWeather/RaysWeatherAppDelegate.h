@@ -8,11 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "AlertNavController.h"
+#import "MoreNavController.h"
 
 @class AlertNavController;
+@class MoreNavController;
 
-@interface RaysWeatherAppDelegate : NSObject <UIApplicationDelegate, UITabBarControllerDelegate> {
+@interface RaysWeatherAppDelegate : NSObject <UIApplicationDelegate> {
+    IBOutlet UITabBarController *tabBarController;
     IBOutlet AlertNavController *alertNavController;
+    IBOutlet MoreNavController *moreNavController;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
@@ -21,6 +25,7 @@
 
 @property (nonatomic, retain) IBOutlet AlertNavController *alertNavController;
 
-//- (bool)isWarnings;---------3
+@property (nonatomic, retain) IBOutlet MoreNavController *moreNavController;
+
 
 @end
