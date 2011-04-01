@@ -159,13 +159,13 @@
 		63EB8017133BC66D00A01901 /* RaysWeather */ = {
 			isa = PBXGroup;
 			children = (
-				9AC4CBEF133D70F6005C99E3 /* Assets */,
 				63EB8020133BC66D00A01901 /* RaysWeatherAppDelegate.h */,
 				63EB8021133BC66D00A01901 /* RaysWeatherAppDelegate.m */,
 				9A8A678A133C3F1D00188AC5 /* Views */,
-				9A8A678B133C3FBC00188AC5 /* Controllers */,
+				9A083AAA13455D4500C17E5D /* Controllers */,
 				9AD3C130134427A800BE2091 /* Helpers */,
 				63EB8018133BC66D00A01901 /* Supporting Files */,
+				9AC4CBEF133D70F6005C99E3 /* Assets */,
 			);
 			path = RaysWeather;
 			sourceTree = "<group>";
@@ -201,25 +201,9 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		9A8A678A133C3F1D00188AC5 /* Views */ = {
+		9A083AA913455CF100C17E5D /* MainTabControllers */ = {
 			isa = PBXGroup;
 			children = (
-				63EB8023133BC66D00A01901 /* MainWindow.xib */,
-				9A083AA113452F8B00C17E5D /* MoreView.xib */,
-				9A083AA61345484800C17E5D /* POTD.xib */,
-				63EB802C133BC66E00A01901 /* CurrentConditionsView.xib */,
-				63EB802F133BC66E00A01901 /* ForecastView.xib */,
-				9008F9E6133DA047000CB0D3 /* WarningsView.xib */,
-				9AD3C12D1344277600BE2091 /* AlertView.xib */,
-			);
-			name = Views;
-			sourceTree = "<group>";
-		};
-		9A8A678B133C3FBC00188AC5 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				9A083AA41345484800C17E5D /* POTDController.h */,
-				9A083AA51345484800C17E5D /* POTDController.m */,
 				9A083A9F13452F8B00C17E5D /* MoreViewController.h */,
 				9A083AA013452F8B00C17E5D /* MoreViewController.m */,
 				9AD3C12B1344277400BE2091 /* AlertViewController.h */,
@@ -228,10 +212,58 @@
 				63EB8027133BC66D00A01901 /* CurrentConditionsViewController.m */,
 				63EB8029133BC66E00A01901 /* ForecastViewController.h */,
 				63EB802A133BC66E00A01901 /* ForecastViewController.m */,
+			);
+			name = MainTabControllers;
+			sourceTree = "<group>";
+		};
+		9A083AAA13455D4500C17E5D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9A083AA913455CF100C17E5D /* MainTabControllers */,
+				9A8A678B133C3FBC00188AC5 /* PushedControllers */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		9A083AAB13455D7B00C17E5D /* MainTabViews */ = {
+			isa = PBXGroup;
+			children = (
+				9008F9E6133DA047000CB0D3 /* WarningsView.xib */,
+				63EB802F133BC66E00A01901 /* ForecastView.xib */,
+				63EB802C133BC66E00A01901 /* CurrentConditionsView.xib */,
+				9A083AA113452F8B00C17E5D /* MoreView.xib */,
+			);
+			name = MainTabViews;
+			sourceTree = "<group>";
+		};
+		9A083AAC13455D8F00C17E5D /* PushedViews */ = {
+			isa = PBXGroup;
+			children = (
+				9AD3C12D1344277600BE2091 /* AlertView.xib */,
+				9A083AA61345484800C17E5D /* POTD.xib */,
+			);
+			name = PushedViews;
+			sourceTree = "<group>";
+		};
+		9A8A678A133C3F1D00188AC5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				63EB8023133BC66D00A01901 /* MainWindow.xib */,
+				9A083AAB13455D7B00C17E5D /* MainTabViews */,
+				9A083AAC13455D8F00C17E5D /* PushedViews */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		9A8A678B133C3FBC00188AC5 /* PushedControllers */ = {
+			isa = PBXGroup;
+			children = (
+				9A083AA41345484800C17E5D /* POTDController.h */,
+				9A083AA51345484800C17E5D /* POTDController.m */,
 				9008F9E4133DA047000CB0D3 /* WarningsViewController.h */,
 				9008F9E5133DA047000CB0D3 /* WarningsViewController.m */,
 			);
-			name = Controllers;
+			name = PushedControllers;
 			sourceTree = "<group>";
 		};
 		9AC4CBEF133D70F6005C99E3 /* Assets */ = {
