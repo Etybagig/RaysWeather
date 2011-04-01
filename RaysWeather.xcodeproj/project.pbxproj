@@ -26,6 +26,8 @@
 		63EB8047133BC66E00A01901 /* RaysWeatherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EB8046133BC66E00A01901 /* RaysWeatherTests.m */; };
 		9008F9E7133DA047000CB0D3 /* WarningsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9008F9E5133DA047000CB0D3 /* WarningsViewController.m */; };
 		9008F9E8133DA047000CB0D3 /* WarningsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9008F9E6133DA047000CB0D3 /* WarningsView.xib */; };
+		90726335134567A300AEB3B0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90726334134567A300AEB3B0 /* CoreLocation.framework */; };
+		907263391345682E00AEB3B0 /* MyCLController.m in Sources */ = {isa = PBXBuildFile; fileRef = 907263381345682D00AEB3B0 /* MyCLController.m */; };
 		90A81D56133F8167000CF563 /* sun.png in Resources */ = {isa = PBXBuildFile; fileRef = 90A81D55133F8167000CF563 /* sun.png */; };
 		90A81D59133F8188000CF563 /* telescope.png in Resources */ = {isa = PBXBuildFile; fileRef = 90A81D58133F8188000CF563 /* telescope.png */; };
 		90A81D5B133F81D4000CF563 /* warning2.png in Resources */ = {isa = PBXBuildFile; fileRef = 90A81D5A133F81D4000CF563 /* warning2.png */; };
@@ -81,6 +83,9 @@
 		9008F9E4133DA047000CB0D3 /* WarningsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WarningsViewController.h; sourceTree = "<group>"; };
 		9008F9E5133DA047000CB0D3 /* WarningsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WarningsViewController.m; sourceTree = "<group>"; };
 		9008F9E6133DA047000CB0D3 /* WarningsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WarningsView.xib; sourceTree = "<group>"; };
+		90726334134567A300AEB3B0 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		907263371345682D00AEB3B0 /* MyCLController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCLController.h; sourceTree = "<group>"; };
+		907263381345682D00AEB3B0 /* MyCLController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCLController.m; sourceTree = "<group>"; };
 		90A81D55133F8167000CF563 /* sun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sun.png; sourceTree = "<group>"; };
 		90A81D58133F8188000CF563 /* telescope.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = telescope.png; sourceTree = "<group>"; };
 		90A81D5A133F81D4000CF563 /* warning2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = warning2.png; sourceTree = "<group>"; };
@@ -110,6 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90726335134567A300AEB3B0 /* CoreLocation.framework in Frameworks */,
 				63EB8012133BC66D00A01901 /* UIKit.framework in Frameworks */,
 				63EB8014133BC66D00A01901 /* Foundation.framework in Frameworks */,
 				63EB8016133BC66D00A01901 /* CoreGraphics.framework in Frameworks */,
@@ -151,6 +157,7 @@
 		63EB8010133BC66D00A01901 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				90726334134567A300AEB3B0 /* CoreLocation.framework */,
 				63EB8011133BC66D00A01901 /* UIKit.framework */,
 				63EB8013133BC66D00A01901 /* Foundation.framework */,
 				63EB8015133BC66D00A01901 /* CoreGraphics.framework */,
@@ -285,6 +292,8 @@
 		9AD3C130134427A800BE2091 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				907263371345682D00AEB3B0 /* MyCLController.h */,
+				907263381345682D00AEB3B0 /* MyCLController.m */,
 				9A8A6785133C3E1F00188AC5 /* MyXMLParser.h */,
 				9A8A6786133C3E1F00188AC5 /* MyXMLParser.m */,
 				9AD3C12613440C0600BE2091 /* AlertNavController.h */,
@@ -426,6 +435,7 @@
 				9AE6012B1344E1430091C168 /* MoreNavController.m in Sources */,
 				9A083AA213452F8B00C17E5D /* MoreViewController.m in Sources */,
 				9A083AA71345484800C17E5D /* POTDController.m in Sources */,
+				907263391345682E00AEB3B0 /* MyCLController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
