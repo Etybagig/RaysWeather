@@ -33,6 +33,7 @@
 		9A083AA313452F8B00C17E5D /* MoreView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A083AA113452F8B00C17E5D /* MoreView.xib */; };
 		9A083AA71345484800C17E5D /* POTDController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A083AA51345484800C17E5D /* POTDController.m */; };
 		9A083AA81345484800C17E5D /* POTD.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A083AA61345484800C17E5D /* POTD.xib */; };
+		9A083AAE134587A800C17E5D /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A083AAD134587A800C17E5D /* Default.png */; };
 		9A5329CA13417EA6005EB60C /* currentBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A5329C913417EA6005EB60C /* currentBack.png */; };
 		9A8A6787133C3E1F00188AC5 /* MyXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A8A6786133C3E1F00188AC5 /* MyXMLParser.m */; };
 		9ABAB853133EA2F4003244E5 /* face.png in Resources */ = {isa = PBXBuildFile; fileRef = 9ABAB852133EA2F4003244E5 /* face.png */; };
@@ -89,6 +90,7 @@
 		9A083AA41345484800C17E5D /* POTDController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POTDController.h; sourceTree = "<group>"; };
 		9A083AA51345484800C17E5D /* POTDController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POTDController.m; sourceTree = "<group>"; };
 		9A083AA61345484800C17E5D /* POTD.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = POTD.xib; sourceTree = "<group>"; };
+		9A083AAD134587A800C17E5D /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		9A5329C913417EA6005EB60C /* currentBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = currentBack.png; sourceTree = "<group>"; };
 		9A8A6785133C3E1F00188AC5 /* MyXMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyXMLParser.h; sourceTree = "<group>"; };
 		9A8A6786133C3E1F00188AC5 /* MyXMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyXMLParser.m; sourceTree = "<group>"; };
@@ -269,6 +271,7 @@
 		9AC4CBEF133D70F6005C99E3 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				9A083AAD134587A800C17E5D /* Default.png */,
 				9A5329C913417EA6005EB60C /* currentBack.png */,
 				90A81D5A133F81D4000CF563 /* warning2.png */,
 				90A81D58133F8188000CF563 /* telescope.png */,
@@ -376,6 +379,7 @@
 				9AD3C12F1344277600BE2091 /* AlertView.xib in Resources */,
 				9A083AA313452F8B00C17E5D /* MoreView.xib in Resources */,
 				9A083AA81345484800C17E5D /* POTD.xib in Resources */,
+				9A083AAE134587A800C17E5D /* Default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
