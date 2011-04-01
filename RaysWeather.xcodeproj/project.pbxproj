@@ -213,10 +213,10 @@
 		9A083AA913455CF100C17E5D /* MainTabControllers */ = {
 			isa = PBXGroup;
 			children = (
+				9008F9E4133DA047000CB0D3 /* WarningsViewController.h */,
+				9008F9E5133DA047000CB0D3 /* WarningsViewController.m */,
 				9A083A9F13452F8B00C17E5D /* MoreViewController.h */,
 				9A083AA013452F8B00C17E5D /* MoreViewController.m */,
-				9AD3C12B1344277400BE2091 /* AlertViewController.h */,
-				9AD3C12C1344277500BE2091 /* AlertViewController.m */,
 				63EB8026133BC66D00A01901 /* CurrentConditionsViewController.h */,
 				63EB8027133BC66D00A01901 /* CurrentConditionsViewController.m */,
 				63EB8029133BC66E00A01901 /* ForecastViewController.h */,
@@ -267,10 +267,10 @@
 		9A8A678B133C3FBC00188AC5 /* PushedControllers */ = {
 			isa = PBXGroup;
 			children = (
+				9AD3C12B1344277400BE2091 /* AlertViewController.h */,
+				9AD3C12C1344277500BE2091 /* AlertViewController.m */,
 				9A083AA41345484800C17E5D /* POTDController.h */,
 				9A083AA51345484800C17E5D /* POTDController.m */,
-				9008F9E4133DA047000CB0D3 /* WarningsViewController.h */,
-				9008F9E5133DA047000CB0D3 /* WarningsViewController.m */,
 			);
 			name = PushedControllers;
 			sourceTree = "<group>";

@@ -70,7 +70,10 @@
     int row = [indexPath row];
     if(row<numberOfWarnings && numberOfWarnings!=currentCell){
         warnings = [parser.warningData objectAtIndex:currentCell++];
-        [[cell textLabel] setText:[warnings objectForKey:@"title"]];
+        NSString *title = [self trimWhitespace:[warnings objectForKey:@"title"]];
+        if([title isEqualToString:@"There are no active watches, warnings or advisories"])
+           title = @"There are no current alerts.";
+        [[cell textLabel] setText:title];
     }
     return cell;
 }
@@ -86,11 +89,14 @@
     }
 
     warnings = [parser.warningData objectAtIndex:row];
-    NSMutableString *entryURL = [warnings objectForKey:@"entryLink"];
-    alertView.uRL = [self trimWhitespace:entryURL];
     
-    RaysWeatherAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
-    [delegate.alertNavController pushViewController:alertView animated:YES];
+    NSMutableString *entryURL = [warnings objectForKey:@"entryLink"];
+    NSString *title = [self trimWhitespace:[warnings objectForKey:@"title"]];
+    if(!([title isEqualToString:@"There are no active watches, warnings or advisories"])){
+        alertView.uRL = [self trimWhitespace:entryURL];
+        RaysWeatherAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+        [delegate.alertNavController pushViewController:alertView animated:YES];
+    }
     
 }
 
@@ -98,7 +104,8 @@
 {
     NSString *removeNewLine = [stringToTrim stringByReplacingOccurrencesOfString:@"\n" withString:@""];
     NSString *removeTab = [removeNewLine stringByReplacingOccurrencesOfString:@"\t" withString:@""];
-    return removeTab;
+    NSString *removeLeadingSpaces = [removeTab stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    return removeLeadingSpaces;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
