@@ -1,15 +1,17 @@
 //
-//  POTDController.m
+//  WebcamViewController.m
 //  RaysWeather
 //
-//  Created by Bobby Lunceford on 3/31/11.
+//  Created by Bobby Lunceford on 4/1/11.
 //  Copyright 2011 Appalachian State University. All rights reserved.
 //
 
-#import "POTDController.h"
+#import "WebcamViewController.h"
 
 
-@implementation POTDController
+@implementation WebcamViewController
+
+@synthesize name, extension;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -39,19 +41,16 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    NSDate *date = [NSDate date];
-    NSDateFormatter *format = [[NSDateFormatter alloc] init];
-    [format setDateFormat:@"yyyyMMdd"];
-    NSString *dateString = [format stringFromDate:date];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    self.title = name;
     
-    NSMutableString *imageString = [NSString stringWithFormat:@"http://raysweather.com/photo_of_the_day/lg/%@.jpg", dateString];
+    NSMutableString *imageString = [NSString stringWithFormat:@"http://raysweather.com/images/webcams/%@.jpg", extension];
     NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:imageString]];
     UIImage *downloadedImage = [UIImage imageWithData:imageData];
-    potdView.image = downloadedImage;
-    
-    [format setDateStyle:NSDateFormatterShortStyle];
-    dateString = [format stringFromDate:date];
-    self.title = [NSString stringWithFormat:@"Photo for %@", dateString];
+    webcamView.image = downloadedImage;
 }
 
 - (void)viewDidUnload

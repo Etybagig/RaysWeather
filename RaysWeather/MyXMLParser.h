@@ -44,6 +44,7 @@
     NSMutableArray *warningData;
     NSMutableString *linkToEntry;
     NSMutableString *title;
+    NSMutableString *summary;
     
     //Alert Elements
     NSMutableArray *alert;

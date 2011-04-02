@@ -38,7 +38,7 @@
                 index--;
                 finished = YES;
             }
-            else if([warnings objectForKey:@"summary"]==Nil){
+            else if([[warnings objectForKey:@"summary"] isEqualToString:@""]){
                 index--;
                 finished = YES;
             }

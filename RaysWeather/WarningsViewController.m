@@ -81,7 +81,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSInteger row = [indexPath row];
-    NSLog(@"%d", row);
     if(self.alertView == nil){
         AlertViewController *anAlertView = [[AlertViewController alloc] initWithNibName:@"AlertView" bundle:nil];
         self.alertView = anAlertView;
@@ -107,6 +106,7 @@
     NSString *removeLeadingSpaces = [removeTab stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     return removeLeadingSpaces;
 }
+
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {

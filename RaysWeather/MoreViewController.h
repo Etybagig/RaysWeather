@@ -9,12 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "RaysWeatherAppDelegate.h"
 #import "POTDController.h"
+#import "WebcamListController.h"
 
 @interface MoreViewController : UIViewController {
     IBOutlet UIButton *potd;
     IBOutlet UIButton *webcams;
 }
 
-- (void)potdButtonTouched:sender;
+- (void)potdButtonTouched:(id)sender;
+- (void)webcamsButtonTouched:(id)sender;
 
 @end

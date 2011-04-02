@@ -81,6 +81,7 @@
     if ([elementName isEqualToString:@"entry"]){
         linkToEntry = [[NSMutableString alloc] init];
         title = [[NSMutableString alloc] init];
+        summary = [[NSMutableString alloc] init];
         currentType = [NSMutableString stringWithString:@"entry"];
     }
     if ([elementName isEqualToString:@"alert"]){
@@ -141,6 +142,7 @@
     if ([elementName isEqualToString:@"entry"]){
         [item setObject:linkToEntry forKey:@"entryLink"];
         [item setObject:title forKey:@"title"];
+        [item setObject:summary forKey:@"summary"];
         [warningData addObject:[item copy]];
     }
     if ([elementName isEqualToString:@"alert"]){
@@ -194,6 +196,8 @@
             [linkToEntry appendString:string];
         else if([currentElement isEqualToString:@"title"])
             [title appendString:string];
+        else if([currentElement isEqualToString:@"summary"])
+            [summary appendString:string];
     }
     else if([currentType isEqualToString:@"alert"]){
         if([currentElement isEqualToString:@"headline"])

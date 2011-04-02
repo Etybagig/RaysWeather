@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>ext</key>
+		<string>105westcam</string>
+		<key>name</key>
+		<string>HWY 105 - Southwest</string>
+	</dict>
+	<dict>
+		<key>ext</key>
+		<string>105eastcam</string>
+		<key>name</key>
+		<string>HWY 105 - Northeast</string>
+	</dict>
+	<dict>
+		<key>ext</key>
+		<string>321northcam</string>
+		<key>name</key>
+		<string>HWY 321 - Northwest</string>
+	</dict>
+	<dict>
+		<key>ext</key>
+		<string>321southcam</string>
+		<key>name</key>
+		<string>HWY 321 - Southeast</string>
+	</dict>
+	<dict>
+		<key>ext</key>
+		<string>linvilleridgeclub</string>
+		<key>name</key>
+		<string>Linville Ridge Club</string>
+	</dict>
+	<dict>
+		<key>ext</key>
+		<string>linvilleridgebelvedere</string>
+		<key>name</key>
+		<string>Linville Ridge Belvedere</string>
+	</dict>
+	<dict>
+		<key>ext</key>
+		<string>turkeyknob</string>
+		<key>name</key>
+		<string>Turkey Knob</string>
+	</dict>
+	<dict>
+		<key>ext</key>
+		<string>canyonscam</string>
+		<key>name</key>
+		<string>Canyons</string>
+	</dict>
+	<dict>
+		<key>ext</key>
+		<string>laurelridgecam</string>
+		<key>name</key>
+		<string>Laurel Ridge</string>
+	</dict>
+	<dict>
+		<key>ext</key>
+		<string>waynesvillestreetcam</string>
+		<key>name</key>
+		<string>Waynesville Street View</string>
+	</dict>
+	<dict>
+		<key>ext</key>
+		<string>waynesvillemountaincam</string>
+		<key>name</key>
+		<string>Waynesville Mountain View</string>
+	</dict>
+	<dict>
+		<key>ext</key>
+		<string>elkriverrunwaycam</string>
+		<key>name</key>
+		<string>Elk River Runway</string>
+	</dict>
+	<dict>
+		<key>ext</key>
+		<string>elkriverbeechcam</string>
+		<key>name</key>
+		<string>Elk River Beech Mountain</string>
+	</dict>
+	<dict>
+		<key>ext</key>
+		<string>wolflaurelmtn</string>
+		<key>name</key>
+		<string>Wolf Laurel Mountain View</string>
+	</dict>
+	<dict>
+		<key>ext</key>
+		<string>wolflaurelclub</string>
+		<key>name</key>
+		<string>Wolf Laurel Country Club View</string>
+	</dict>
+	<dict>
+		<key>ext</key>
+		<string>tourists</string>
+		<key>name</key>
+		<string>Asheville Tourists</string>
+	</dict>
+	<dict>
+		<key>ext</key>
+		<string>OwenHighSchool</string>
+		<key>name</key>
+		<string>Owen High School</string>
+	</dict>
+	<dict>
+		<key>ext</key>
+		<string>crestwood</string>
+		<key>name</key>
+		<string>Crestwood</string>
+	</dict>
+	<dict>
+		<key>ext</key>
+		<string>rutherwoodcam</string>
+		<key>name</key>
+		<string>Rutherwood</string>
+	</dict>
+	<dict>
+		<key>ext</key>
+		<string>ashemedicalassoccam</string>
+		<key>name</key>
+		<string>Mount Jefferson</string>
+	</dict>
+	<dict>
+		<key>ext</key>
+		<string>boonegolfcam</string>
+		<key>name</key>
+		<string>Boone Golf Club</string>
+	</dict>
+	<dict>
+		<key>ext</key>
+		<string>roaringgapcam</string>
+		<key>name</key>
+		<string>Roaring Gap</string>
+	</dict>
+	<dict>
+		<key>ext</key>
+		<string>critchervillecam</string>
+		<key>name</key>
+		<string>Critcherville</string>
+	</dict>
+	<dict>
+		<key>ext</key>
+		<string>appskimtncam</string>
+		<key>name</key>
+		<string>App Ski Mtn</string>
+	</dict>
+</array>
+</plist>

@@ -35,7 +35,12 @@
 		9A083AA313452F8B00C17E5D /* MoreView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A083AA113452F8B00C17E5D /* MoreView.xib */; };
 		9A083AA71345484800C17E5D /* POTDController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A083AA51345484800C17E5D /* POTDController.m */; };
 		9A083AA81345484800C17E5D /* POTD.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A083AA61345484800C17E5D /* POTD.xib */; };
-		9A083AAE134587A800C17E5D /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A083AAD134587A800C17E5D /* Default.png */; };
+		9A0BACFE13469B8E00570FA1 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A0BACFD13469B8E00570FA1 /* Default.png */; };
+		9A0BAD0213469C0800570FA1 /* WebcamListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A0BAD0013469C0800570FA1 /* WebcamListController.m */; };
+		9A0BAD0313469C0800570FA1 /* WebcamList.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A0BAD0113469C0800570FA1 /* WebcamList.xib */; };
+		9A0BAD0713469C9200570FA1 /* WebcamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A0BAD0513469C9200570FA1 /* WebcamViewController.m */; };
+		9A0BAD0813469C9200570FA1 /* WebcamView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A0BAD0613469C9200570FA1 /* WebcamView.xib */; };
+		9A0BAD0A13469D1F00570FA1 /* Webcams.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9A0BAD0913469D1F00570FA1 /* Webcams.plist */; };
 		9A5329CA13417EA6005EB60C /* currentBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A5329C913417EA6005EB60C /* currentBack.png */; };
 		9A8A6787133C3E1F00188AC5 /* MyXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A8A6786133C3E1F00188AC5 /* MyXMLParser.m */; };
 		9ABAB853133EA2F4003244E5 /* face.png in Resources */ = {isa = PBXBuildFile; fileRef = 9ABAB852133EA2F4003244E5 /* face.png */; };
@@ -95,7 +100,14 @@
 		9A083AA41345484800C17E5D /* POTDController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POTDController.h; sourceTree = "<group>"; };
 		9A083AA51345484800C17E5D /* POTDController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POTDController.m; sourceTree = "<group>"; };
 		9A083AA61345484800C17E5D /* POTD.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = POTD.xib; sourceTree = "<group>"; };
-		9A083AAD134587A800C17E5D /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		9A0BACFD13469B8E00570FA1 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		9A0BACFF13469C0800570FA1 /* WebcamListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebcamListController.h; sourceTree = "<group>"; };
+		9A0BAD0013469C0800570FA1 /* WebcamListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebcamListController.m; sourceTree = "<group>"; };
+		9A0BAD0113469C0800570FA1 /* WebcamList.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebcamList.xib; sourceTree = "<group>"; };
+		9A0BAD0413469C9200570FA1 /* WebcamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebcamViewController.h; sourceTree = "<group>"; };
+		9A0BAD0513469C9200570FA1 /* WebcamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebcamViewController.m; sourceTree = "<group>"; };
+		9A0BAD0613469C9200570FA1 /* WebcamView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebcamView.xib; sourceTree = "<group>"; };
+		9A0BAD0913469D1F00570FA1 /* Webcams.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Webcams.plist; sourceTree = "<group>"; };
 		9A5329C913417EA6005EB60C /* currentBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = currentBack.png; sourceTree = "<group>"; };
 		9A8A6785133C3E1F00188AC5 /* MyXMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyXMLParser.h; sourceTree = "<group>"; };
 		9A8A6786133C3E1F00188AC5 /* MyXMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyXMLParser.m; sourceTree = "<group>"; };
@@ -186,6 +198,7 @@
 				63EB801A133BC66D00A01901 /* InfoPlist.strings */,
 				63EB801D133BC66D00A01901 /* RaysWeather-Prefix.pch */,
 				63EB801E133BC66D00A01901 /* main.m */,
+				9A0BAD0913469D1F00570FA1 /* Webcams.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -248,6 +261,8 @@
 		9A083AAC13455D8F00C17E5D /* PushedViews */ = {
 			isa = PBXGroup;
 			children = (
+				9A0BAD0613469C9200570FA1 /* WebcamView.xib */,
+				9A0BAD0113469C0800570FA1 /* WebcamList.xib */,
 				9AD3C12D1344277600BE2091 /* AlertView.xib */,
 				9A083AA61345484800C17E5D /* POTD.xib */,
 			);
@@ -271,6 +286,10 @@
 				9AD3C12C1344277500BE2091 /* AlertViewController.m */,
 				9A083AA41345484800C17E5D /* POTDController.h */,
 				9A083AA51345484800C17E5D /* POTDController.m */,
+				9A0BACFF13469C0800570FA1 /* WebcamListController.h */,
+				9A0BAD0013469C0800570FA1 /* WebcamListController.m */,
+				9A0BAD0413469C9200570FA1 /* WebcamViewController.h */,
+				9A0BAD0513469C9200570FA1 /* WebcamViewController.m */,
 			);
 			name = PushedControllers;
 			sourceTree = "<group>";
@@ -278,7 +297,7 @@
 		9AC4CBEF133D70F6005C99E3 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				9A083AAD134587A800C17E5D /* Default.png */,
+				9A0BACFD13469B8E00570FA1 /* Default.png */,
 				9A5329C913417EA6005EB60C /* currentBack.png */,
 				90A81D5A133F81D4000CF563 /* warning2.png */,
 				90A81D58133F8188000CF563 /* telescope.png */,
@@ -388,7 +407,10 @@
 				9AD3C12F1344277600BE2091 /* AlertView.xib in Resources */,
 				9A083AA313452F8B00C17E5D /* MoreView.xib in Resources */,
 				9A083AA81345484800C17E5D /* POTD.xib in Resources */,
-				9A083AAE134587A800C17E5D /* Default.png in Resources */,
+				9A0BACFE13469B8E00570FA1 /* Default.png in Resources */,
+				9A0BAD0313469C0800570FA1 /* WebcamList.xib in Resources */,
+				9A0BAD0813469C9200570FA1 /* WebcamView.xib in Resources */,
+				9A0BAD0A13469D1F00570FA1 /* Webcams.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,6 +458,8 @@
 				9A083AA213452F8B00C17E5D /* MoreViewController.m in Sources */,
 				9A083AA71345484800C17E5D /* POTDController.m in Sources */,
 				907263391345682E00AEB3B0 /* MyCLController.m in Sources */,
+				9A0BAD0213469C0800570FA1 /* WebcamListController.m in Sources */,
+				9A0BAD0713469C9200570FA1 /* WebcamViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
