@@ -46,8 +46,8 @@
     
     NSMutableString *imageString = [NSString stringWithFormat:@"http://raysweather.com/photo_of_the_day/lg/%@.jpg", dateString];
     NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:imageString]];
-    UIImage *downloadedImage = [UIImage imageWithData:imageData];
-    potdView.image = downloadedImage;
+    image = [UIImage imageWithData:imageData];
+    potdView.image = image;
     
     [format setDateStyle:NSDateFormatterShortStyle];
     dateString = [format stringFromDate:date];
@@ -64,7 +64,7 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return YES;
 }
 
 @end

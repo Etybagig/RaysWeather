@@ -13,8 +13,8 @@
 @class AlertNavController;
 @class MoreNavController;
 
-@interface RaysWeatherAppDelegate : NSObject <UIApplicationDelegate> {
-    IBOutlet UITabBarController *tabBarController;
+@interface RaysWeatherAppDelegate : NSObject <UIApplicationDelegate, UITabBarControllerDelegate> {
+//    IBOutlet UITabBarController *tabBarController;
     IBOutlet AlertNavController *alertNavController;
     IBOutlet MoreNavController *moreNavController;
 }
@@ -28,4 +28,7 @@
 @property (nonatomic, retain) IBOutlet MoreNavController *moreNavController;
 
 
+@end
+
+@interface UITabBarController (MyApp)
 @end

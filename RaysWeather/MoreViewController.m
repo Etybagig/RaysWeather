@@ -47,14 +47,14 @@
 {
     POTDController *potdView = [[POTDController alloc] initWithNibName:@"POTD" bundle:nil];
     
-    RaysWeatherAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    RaysWeatherAppDelegate *delegate = (RaysWeatherAppDelegate*)[[UIApplication sharedApplication] delegate];
     [delegate.moreNavController pushViewController:potdView animated:YES];
 }
 
 - (void)webcamsButtonTouched:(id)sender
 {
     WebcamListController *webcamList = [[WebcamListController alloc] initWithNibName:@"WebcamList" bundle:nil];
-    RaysWeatherAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    RaysWeatherAppDelegate *delegate = (RaysWeatherAppDelegate*)[[UIApplication sharedApplication] delegate];
     [delegate.moreNavController pushViewController:webcamList animated:YES];
 }
      
@@ -68,7 +68,8 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return YES;
+    //return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 - (void)viewDidDisappear:(BOOL)animated

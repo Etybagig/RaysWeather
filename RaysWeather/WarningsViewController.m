@@ -93,7 +93,7 @@
     NSString *title = [self trimWhitespace:[warnings objectForKey:@"title"]];
     if(!([title isEqualToString:@"There are no active watches, warnings or advisories"])){
         alertView.uRL = [self trimWhitespace:entryURL];
-        RaysWeatherAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+        RaysWeatherAppDelegate *delegate = (RaysWeatherAppDelegate*)[[UIApplication sharedApplication] delegate];
         [delegate.alertNavController pushViewController:alertView animated:YES];
     }
     
@@ -111,7 +111,8 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return YES;
+    //return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 

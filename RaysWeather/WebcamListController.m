@@ -77,7 +77,8 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return YES;
+    //return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 #pragma mark - Table view data source
@@ -163,7 +164,7 @@
     self.webcamView.name = [webcamAtRow objectForKey:@"name"];
     self.webcamView.extension = [webcamAtRow objectForKey:@"ext"];
     
-    RaysWeatherAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    RaysWeatherAppDelegate *delegate = (RaysWeatherAppDelegate*)[[UIApplication sharedApplication] delegate];
     [delegate.moreNavController pushViewController:webcamView animated:YES];
 }
 

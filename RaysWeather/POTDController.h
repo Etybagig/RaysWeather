@@ -11,6 +11,7 @@
 
 @interface POTDController : UIViewController {
     IBOutlet UIImageView *potdView;
+    UIImage *image;
 }
 
 @end

@@ -20,6 +20,8 @@
 {
     [super viewDidLoad];
     
+    self.title = @"Current Conditions";
+    
     //Create Core Location controller and start updating our location
     location = [[MyCLController alloc] init];
     [location.locationManager startUpdatingLocation];
@@ -108,9 +110,69 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return YES;
+    //return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+    if(toInterfaceOrientation==UIInterfaceOrientationLandscapeRight ||
+       toInterfaceOrientation==UIInterfaceOrientationLandscapeLeft)
+        [self rotateToLandscape];
+    else if(toInterfaceOrientation==UIInterfaceOrientationPortrait ||
+            toInterfaceOrientation==UIInterfaceOrientationPortraitUpsideDown)
+        [self rotateToPortrait];
+}
+
+- (void)rotateToPortrait
+{
+    NSLog(@"portrait");
+    [currentConditionImage setFrame:CGRectMake(208,58,64,64)];
+    [station setFrame:CGRectMake(29,68,164,23)];
+    [wind setFrame:CGRectMake(78,98,106,22)];
+    [humidity setFrame:CGRectMake(102,121,85,22)];
+    [barometer setFrame:CGRectMake(113,144,80,21)];
+    [currentTemp setFrame:CGRectMake(206,119,69,21)];
+    [currentHi setFrame:CGRectMake(229,138,43,21)];
+    [currentLo setFrame:CGRectMake(223,156,49,21)];
+    [todaysSummary setFrame:CGRectMake(29,238,259,141)];
+    [todaysSummaryTitle setFrame:CGRectMake(29,200,259,38)];
+    [currCondLabel setFrame:CGRectMake(194,19,93,41)];
+    [windLabel setFrame:CGRectMake(34,98,44,21)];
+    [humidLabel setFrame:CGRectMake(34,121,71,21)];
+    [baroLabel setFrame:CGRectMake(34,144,85,21)];
+    [hiLabel setFrame:CGRectMake(208,138,44,21)];
+    [loLabel setFrame:CGRectMake(208,156,45,21)];
+    [todaysforcastLabel setFrame:CGRectMake(29,184,155,21)];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"currentBack" ofType:@"png"];
+    UIImage *newBackground = [UIImage imageWithContentsOfFile:path];
+    [background setImage:newBackground];
+}
+
+-(void)rotateToLandscape
+{
+    NSLog(@"landscaperight");
+    [currentConditionImage setFrame:CGRectMake(166, 81, 64, 64)];
+    [station setFrame:CGRectMake(29, 68, 133, 23)];
+    [wind setFrame:CGRectMake(56, 109, 106, 22)];
+    [humidity setFrame:CGRectMake(56, 153, 85, 22)];
+    [barometer setFrame:CGRectMake(56, 198, 80, 21)];
+    [currentTemp setFrame:CGRectMake(164, 146, 69, 21)];
+    [currentHi setFrame:CGRectMake(187, 168, 43, 21)];
+    [currentLo setFrame:CGRectMake(181, 188, 49, 21)];
+    [todaysSummary setFrame:CGRectMake(256, 82, 188, 137)];
+    [todaysSummaryTitle setFrame:CGRectMake(240, 40, 218, 38)];
+    [currCondLabel setFrame:CGRectMake(152, 37, 93, 41)];
+    [windLabel setFrame:CGRectMake(48, 91, 44, 21)];
+    [humidLabel setFrame:CGRectMake(48, 135, 71, 21)];
+    [baroLabel setFrame:CGRectMake(48, 179, 85, 21)];
+    [hiLabel setFrame:CGRectMake(164, 168, 44, 21)];
+    [loLabel setFrame:CGRectMake(164, 188, 45, 21)];
+    [todaysforcastLabel setFrame:CGRectMake(247, 20, 155, 21)];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"currentLandscapeBack" ofType:@"png"];
+    UIImage *newBackground = [UIImage imageWithContentsOfFile:path];
+    [background setImage:newBackground];
+}
 
 - (void)didReceiveMemoryWarning
 {

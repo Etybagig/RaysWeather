@@ -42,6 +42,7 @@
 		9A0BAD0813469C9200570FA1 /* WebcamView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A0BAD0613469C9200570FA1 /* WebcamView.xib */; };
 		9A0BAD0A13469D1F00570FA1 /* Webcams.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9A0BAD0913469D1F00570FA1 /* Webcams.plist */; };
 		9A5329CA13417EA6005EB60C /* currentBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A5329C913417EA6005EB60C /* currentBack.png */; };
+		9A5737201348D078009D76AE /* currentLandscapeBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A57371F1348D078009D76AE /* currentLandscapeBack.png */; };
 		9A8A6787133C3E1F00188AC5 /* MyXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A8A6786133C3E1F00188AC5 /* MyXMLParser.m */; };
 		9ABAB853133EA2F4003244E5 /* face.png in Resources */ = {isa = PBXBuildFile; fileRef = 9ABAB852133EA2F4003244E5 /* face.png */; };
 		9ABAB855133ECE2F003244E5 /* forecastBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 9ABAB854133ECE2F003244E5 /* forecastBack.png */; };
@@ -109,6 +110,7 @@
 		9A0BAD0613469C9200570FA1 /* WebcamView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebcamView.xib; sourceTree = "<group>"; };
 		9A0BAD0913469D1F00570FA1 /* Webcams.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Webcams.plist; sourceTree = "<group>"; };
 		9A5329C913417EA6005EB60C /* currentBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = currentBack.png; sourceTree = "<group>"; };
+		9A57371F1348D078009D76AE /* currentLandscapeBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = currentLandscapeBack.png; sourceTree = "<group>"; };
 		9A8A6785133C3E1F00188AC5 /* MyXMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyXMLParser.h; sourceTree = "<group>"; };
 		9A8A6786133C3E1F00188AC5 /* MyXMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyXMLParser.m; sourceTree = "<group>"; };
 		9ABAB852133EA2F4003244E5 /* face.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = face.png; sourceTree = "<group>"; };
@@ -297,6 +299,7 @@
 		9AC4CBEF133D70F6005C99E3 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				9A57371F1348D078009D76AE /* currentLandscapeBack.png */,
 				9A0BACFD13469B8E00570FA1 /* Default.png */,
 				9A5329C913417EA6005EB60C /* currentBack.png */,
 				90A81D5A133F81D4000CF563 /* warning2.png */,
@@ -411,6 +414,7 @@
 				9A0BAD0313469C0800570FA1 /* WebcamList.xib in Resources */,
 				9A0BAD0813469C9200570FA1 /* WebcamView.xib in Resources */,
 				9A0BAD0A13469D1F00570FA1 /* Webcams.plist in Resources */,
+				9A5737201348D078009D76AE /* currentLandscapeBack.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

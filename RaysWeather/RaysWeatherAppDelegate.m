@@ -111,13 +111,31 @@
     [super dealloc];
 }
 
-/*
-// Optional UITabBarControllerDelegate method.
-- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
-{
-}
-*/
 
+// Optional UITabBarControllerDelegate method.
+- (void)tabBarController:(UITabBarController *)thistabBarController didSelectViewController:(UIViewController *)viewController
+{
+    if(thistabBarController.interfaceOrientation==UIInterfaceOrientationPortrait ||
+       thistabBarController.interfaceOrientation==UIInterfaceOrientationPortraitUpsideDown){
+        if([viewController.title isEqualToString:@"Current Conditions"]){
+            [viewController rotateToPortrait];
+        }
+    }
+    else if(thistabBarController.interfaceOrientation==UIInterfaceOrientationLandscapeRight ||
+            thistabBarController.interfaceOrientation==UIInterfaceOrientationLandscapeLeft){
+        if([viewController.title isEqualToString:@"Current Conditions"]){
+            [viewController rotateToLandscape];
+        }
+    }
+}
+
+- (void)tabBarController:(UITabBarController *)thistabBarController willBeginCustomizingViewControllers:(NSArray *)viewControllers
+{
+    if(thistabBarController.interfaceOrientation==UIInterfaceOrientationPortrait)
+        NSLog(@"portrait");
+    else if(thistabBarController.interfaceOrientation==UIInterfaceOrientationLandscapeRight ||
+            thistabBarController.interfaceOrientation==UIInterfaceOrientationLandscapeLeft)
+        NSLog(@"landscape");}
 /*
 // Optional UITabBarControllerDelegate method.
 - (void)tabBarController:(UITabBarController *)tabBarController didEndCustomizingViewControllers:(NSArray *)viewControllers changed:(BOOL)changed

@@ -148,6 +148,7 @@
 						<string key="NSFrame">{{20, 7413}, {60, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
@@ -215,7 +216,7 @@
 						<string key="NSFrame">{{34, 98}, {44, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="470441876"/>
+						<reference key="NSNextKeyView" ref="27536555"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
@@ -236,7 +237,7 @@
 						<string key="NSFrame">{{34, 121}, {71, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="27536555"/>
+						<reference key="NSNextKeyView" ref="727164216"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
@@ -257,7 +258,7 @@
 						<string key="NSFrame">{{34, 144}, {85, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="727164216"/>
+						<reference key="NSNextKeyView" ref="576518310"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
@@ -303,7 +304,7 @@
 						<string key="NSFrame">{{206, 119}, {69, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="809593658"/>
+						<reference key="NSNextKeyView" ref="747695971"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
@@ -369,7 +370,7 @@
 						<string key="NSFrame">{{78, 98}, {106, 22}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="747695971"/>
+						<reference key="NSNextKeyView" ref="470441876"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
@@ -390,7 +391,7 @@
 						<string key="NSFrame">{{102, 121}, {85, 22}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="576518310"/>
+						<reference key="NSNextKeyView" ref="238196240"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
@@ -411,7 +412,7 @@
 						<string key="NSFrame">{{113, 144}, {80, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="238196240"/>
+						<reference key="NSNextKeyView" ref="809593658"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
@@ -566,6 +567,70 @@
 						<reference key="destination" ref="157052392"/>
 					</object>
 					<int key="connectionID">101</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">background</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="920000968"/>
+					</object>
+					<int key="connectionID">104</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">baroLabel</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="208323228"/>
+					</object>
+					<int key="connectionID">105</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">currCondLabel</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="965875945"/>
+					</object>
+					<int key="connectionID">106</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">hiLabel</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="809593658"/>
+					</object>
+					<int key="connectionID">107</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">humidLabel</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="470441876"/>
+					</object>
+					<int key="connectionID">108</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">loLabel</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="357826038"/>
+					</object>
+					<int key="connectionID">109</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">todaysforcastLabel</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="826808160"/>
+					</object>
+					<int key="connectionID">110</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">windLabel</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="676207702"/>
+					</object>
+					<int key="connectionID">111</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -746,7 +811,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">103</int>
+			<int key="maxID">111</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -754,20 +819,40 @@
 					<string key="className">CurrentConditionsViewController</string>
 					<string key="superclassName">UIViewController</string>
 					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="background">UIImageView</string>
+						<string key="baroLabel">UILabel</string>
 						<string key="barometer">UILabel</string>
+						<string key="currCondLabel">UILabel</string>
 						<string key="currentConditionImage">UIImageView</string>
 						<string key="currentHi">UILabel</string>
 						<string key="currentLo">UILabel</string>
 						<string key="currentTemp">UILabel</string>
+						<string key="hiLabel">UILabel</string>
+						<string key="humidLabel">UILabel</string>
 						<string key="humidity">UILabel</string>
+						<string key="loLabel">UILabel</string>
 						<string key="station">UILabel</string>
 						<string key="todaysSummary">UITextView</string>
 						<string key="todaysSummaryTitle">UILabel</string>
+						<string key="todaysforcastLabel">UILabel</string>
 						<string key="wind">UILabel</string>
+						<string key="windLabel">UILabel</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="background">
+							<string key="name">background</string>
+							<string key="candidateClassName">UIImageView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="baroLabel">
+							<string key="name">baroLabel</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
 						<object class="IBToOneOutletInfo" key="barometer">
 							<string key="name">barometer</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="currCondLabel">
+							<string key="name">currCondLabel</string>
 							<string key="candidateClassName">UILabel</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="currentConditionImage">
@@ -786,8 +871,20 @@
 							<string key="name">currentTemp</string>
 							<string key="candidateClassName">UILabel</string>
 						</object>
+						<object class="IBToOneOutletInfo" key="hiLabel">
+							<string key="name">hiLabel</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="humidLabel">
+							<string key="name">humidLabel</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
 						<object class="IBToOneOutletInfo" key="humidity">
 							<string key="name">humidity</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="loLabel">
+							<string key="name">loLabel</string>
 							<string key="candidateClassName">UILabel</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="station">
@@ -802,8 +899,16 @@
 							<string key="name">todaysSummaryTitle</string>
 							<string key="candidateClassName">UILabel</string>
 						</object>
+						<object class="IBToOneOutletInfo" key="todaysforcastLabel">
+							<string key="name">todaysforcastLabel</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
 						<object class="IBToOneOutletInfo" key="wind">
 							<string key="name">wind</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="windLabel">
+							<string key="name">windLabel</string>
 							<string key="candidateClassName">UILabel</string>
 						</object>
 					</dictionary>
