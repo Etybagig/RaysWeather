@@ -40,6 +40,7 @@
 						<string key="NSFrameSize">{320, 411}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="478179142"/>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<object class="NSCustomResource" key="IBUIImage">
@@ -141,7 +142,7 @@
 						<int key="IBUIContentMode">7</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<string key="IBUIText">thrid</string>
+						<string key="IBUIText">third</string>
 						<reference key="IBUIFont" ref="1016046125"/>
 						<reference key="IBUITextColor" ref="775227197"/>
 						<nil key="IBUIHighlightedColor"/>
@@ -149,21 +150,6 @@
 						<string key="IBUIShadowOffset">{1, 1}</string>
 						<int key="IBUIBaselineAdjustment">1</int>
 						<float key="IBUIMinimumFontSize">10</float>
-					</object>
-					<object class="IBUIImageView" id="666201099">
-						<reference key="NSNextResponder" ref="191373211"/>
-						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{0, 311}, {59, 100}}</string>
-						<reference key="NSSuperview" ref="191373211"/>
-						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="334238628"/>
-						<int key="IBUIContentMode">11</int>
-						<bool key="IBUIUserInteractionEnabled">NO</bool>
-						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<object class="NSCustomResource" key="IBUIImage">
-							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">face.png</string>
-						</object>
 					</object>
 					<object class="IBUITextView" id="125233884">
 						<reference key="NSNextResponder" ref="191373211"/>
@@ -179,6 +165,10 @@
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<bool key="IBUIMultipleTouchEnabled">YES</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+						<double key="IBUIContentInset.top">0.0</double>
+						<double key="IBUIContentInset.bottom">10</double>
+						<double key="IBUIContentInset.left">0.0</double>
+						<double key="IBUIContentInset.right">0.0</double>
 						<int key="IBUIIndicatorStyle">2</int>
 						<bool key="IBUIEditable">NO</bool>
 						<string key="IBUIText">[first day descript]</string>
@@ -223,6 +213,7 @@
 						<string key="NSFrame">{{102, 311}, {188, 70}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">2</int>
 							<bytes key="NSRGB">MCAwLjA4MzMzMzMzMzMzIDAuMjUAA</bytes>
@@ -504,6 +495,7 @@
 						<string key="NSFrame">{{175, 25}, {111, 40}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="1001319526"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
@@ -523,6 +515,21 @@
 						<float key="IBUIMinimumFontSize">10</float>
 						<int key="IBUINumberOfLines">2</int>
 						<int key="IBUITextAlignment">1</int>
+					</object>
+					<object class="IBUIImageView" id="666201099">
+						<reference key="NSNextResponder" ref="191373211"/>
+						<int key="NSvFlags">292</int>
+						<string key="NSFrame">{{0, 311}, {59, 100}}</string>
+						<reference key="NSSuperview" ref="191373211"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="334238628"/>
+						<int key="IBUIContentMode">11</int>
+						<bool key="IBUIUserInteractionEnabled">NO</bool>
+						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+						<object class="NSCustomResource" key="IBUIImage">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">face.png</string>
+						</object>
 					</object>
 				</array>
 				<string key="NSFrame">{{0, 20}, {320, 411}}</string>
@@ -665,6 +672,78 @@
 					</object>
 					<int key="connectionID">102</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">background</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="757346594"/>
+					</object>
+					<int key="connectionID">104</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">faceOverlay</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="666201099"/>
+					</object>
+					<int key="connectionID">105</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">firsthi</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="163297891"/>
+					</object>
+					<int key="connectionID">106</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">firstlo</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="56273570"/>
+					</object>
+					<int key="connectionID">107</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">forecastTitle</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="478179142"/>
+					</object>
+					<int key="connectionID">108</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">secondhi</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="1059944244"/>
+					</object>
+					<int key="connectionID">109</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">secondlo</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="437166698"/>
+					</object>
+					<int key="connectionID">110</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">thirdhi</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="219235842"/>
+					</object>
+					<int key="connectionID">111</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">thirdlo</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="731568341"/>
+					</object>
+					<int key="connectionID">112</int>
+				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<array key="orderedObjects">
@@ -678,10 +757,8 @@
 						<int key="objectID">1</int>
 						<reference key="object" ref="191373211"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="666201099"/>
 							<reference ref="334238628"/>
 							<reference ref="757346594"/>
-							<reference ref="165349838"/>
 							<reference ref="1001319526"/>
 							<reference ref="333095584"/>
 							<reference ref="759766661"/>
@@ -702,6 +779,8 @@
 							<reference ref="98727034"/>
 							<reference ref="613179106"/>
 							<reference ref="125233884"/>
+							<reference ref="165349838"/>
+							<reference ref="666201099"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -872,7 +951,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">103</int>
+			<int key="maxID">112</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -880,23 +959,36 @@
 					<string key="className">ForecastViewController</string>
 					<string key="superclassName">UIViewController</string>
 					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="background">UIImageView</string>
 						<string key="dayOneDescript">UITextView</string>
 						<string key="dayOneImage">UIImageView</string>
 						<string key="dayThreeDescript">UITextView</string>
 						<string key="dayThreeImage">UIImageView</string>
 						<string key="dayTwoDescript">UITextView</string>
 						<string key="dayTwoImage">UIImageView</string>
+						<string key="faceOverlay">UIImageView</string>
 						<string key="firstDay">UILabel</string>
 						<string key="firstDay_hi">UILabel</string>
 						<string key="firstDay_lo">UILabel</string>
+						<string key="firsthi">UILabel</string>
+						<string key="firstlo">UILabel</string>
+						<string key="forecastTitle">UILabel</string>
 						<string key="secondDay">UILabel</string>
 						<string key="secondDay_hi">UILabel</string>
 						<string key="secondDay_lo">UILabel</string>
+						<string key="secondhi">UILabel</string>
+						<string key="secondlo">UILabel</string>
 						<string key="thirdDay">UILabel</string>
 						<string key="thirdDay_hi">UILabel</string>
 						<string key="thirdDay_lo">UILabel</string>
+						<string key="thirdhi">UILabel</string>
+						<string key="thirdlo">UILabel</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="background">
+							<string key="name">background</string>
+							<string key="candidateClassName">UIImageView</string>
+						</object>
 						<object class="IBToOneOutletInfo" key="dayOneDescript">
 							<string key="name">dayOneDescript</string>
 							<string key="candidateClassName">UITextView</string>
@@ -921,6 +1013,10 @@
 							<string key="name">dayTwoImage</string>
 							<string key="candidateClassName">UIImageView</string>
 						</object>
+						<object class="IBToOneOutletInfo" key="faceOverlay">
+							<string key="name">faceOverlay</string>
+							<string key="candidateClassName">UIImageView</string>
+						</object>
 						<object class="IBToOneOutletInfo" key="firstDay">
 							<string key="name">firstDay</string>
 							<string key="candidateClassName">UILabel</string>
@@ -931,6 +1027,18 @@
 						</object>
 						<object class="IBToOneOutletInfo" key="firstDay_lo">
 							<string key="name">firstDay_lo</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="firsthi">
+							<string key="name">firsthi</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="firstlo">
+							<string key="name">firstlo</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="forecastTitle">
+							<string key="name">forecastTitle</string>
 							<string key="candidateClassName">UILabel</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="secondDay">
@@ -945,6 +1053,14 @@
 							<string key="name">secondDay_lo</string>
 							<string key="candidateClassName">UILabel</string>
 						</object>
+						<object class="IBToOneOutletInfo" key="secondhi">
+							<string key="name">secondhi</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="secondlo">
+							<string key="name">secondlo</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
 						<object class="IBToOneOutletInfo" key="thirdDay">
 							<string key="name">thirdDay</string>
 							<string key="candidateClassName">UILabel</string>
@@ -955,6 +1071,14 @@
 						</object>
 						<object class="IBToOneOutletInfo" key="thirdDay_lo">
 							<string key="name">thirdDay_lo</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="thirdhi">
+							<string key="name">thirdhi</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="thirdlo">
+							<string key="name">thirdlo</string>
 							<string key="candidateClassName">UILabel</string>
 						</object>
 					</dictionary>

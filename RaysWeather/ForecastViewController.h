@@ -12,6 +12,8 @@
 
 
 @interface ForecastViewController : UIViewController {
+    
+    //Dynamic elements
     IBOutlet UILabel *firstDay_hi;
     IBOutlet UILabel *firstDay_lo;
     IBOutlet UILabel *secondDay_hi;
@@ -27,6 +29,19 @@
     IBOutlet UITextView *dayOneDescript;
     IBOutlet UITextView *dayTwoDescript;
     IBOutlet UITextView *dayThreeDescript;
+    IBOutlet UIImageView *background;
+    
+    //Landscape specific elements
+    IBOutlet UIImageView *faceOverlay;
+    
+    //Static elements
+    IBOutlet UILabel *firsthi;
+    IBOutlet UILabel *firstlo;
+    IBOutlet UILabel *secondhi;
+    IBOutlet UILabel *secondlo;
+    IBOutlet UILabel *thirdhi;
+    IBOutlet UILabel *thirdlo;
+    IBOutlet UILabel *forecastTitle;
     
     NSCharacterSet *charsToTrim;
     NSMutableString *dayOneIconString;
@@ -43,5 +58,7 @@
 @property (nonatomic, retain) NSMutableDictionary *dayThreeDictionary;
 
 - (NSString *)trimWhitespace:(NSMutableString *)stringToTrim;
+- (void)rotateToLandscape;
+- (void)rotateToPortrait;
 
 @end
