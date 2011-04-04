@@ -45,8 +45,8 @@
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<object class="IBUITextView" id="305956005">
 						<reference key="NSNextResponder" ref="191373211"/>
-						<int key="NSvFlags">274</int>
-						<string key="NSFrame">{{0, 103}, {320, 110}}</string>
+						<int key="NSvFlags">314</int>
+						<string key="NSFrame">{{0, 103}, {320, 129}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<object class="NSColor" key="IBUIBackgroundColor" id="330521588">
@@ -71,7 +71,7 @@
 					</object>
 					<object class="IBUILabel" id="890212347">
 						<reference key="NSNextResponder" ref="191373211"/>
-						<int key="NSvFlags">292</int>
+						<int key="NSvFlags">314</int>
 						<string key="NSFrameSize">{320, 66}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
@@ -102,8 +102,8 @@
 					</object>
 					<object class="IBUITextView" id="874085828">
 						<reference key="NSNextResponder" ref="191373211"/>
-						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{0, 250}, {320, 117}}</string>
+						<int key="NSvFlags">314</int>
+						<string key="NSFrame">{{0, 269}, {320, 98}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="IBUIBackgroundColor" ref="330521588"/>
@@ -121,7 +121,7 @@
 					</object>
 					<object class="IBUILabel" id="217133779">
 						<reference key="NSNextResponder" ref="191373211"/>
-						<int key="NSvFlags">292</int>
+						<int key="NSvFlags">314</int>
 						<string key="NSFrame">{{0, 74}, {320, 22}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
@@ -151,8 +151,8 @@
 					</object>
 					<object class="IBUILabel" id="450231166">
 						<reference key="NSNextResponder" ref="191373211"/>
-						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{0, 221}, {320, 22}}</string>
+						<int key="NSvFlags">314</int>
+						<string key="NSFrame">{{0, 238}, {320, 22}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<bool key="IBUIOpaque">NO</bool>
@@ -236,10 +236,10 @@
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="890212347"/>
-							<reference ref="874085828"/>
 							<reference ref="217133779"/>
-							<reference ref="450231166"/>
 							<reference ref="305956005"/>
+							<reference ref="874085828"/>
+							<reference ref="450231166"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>

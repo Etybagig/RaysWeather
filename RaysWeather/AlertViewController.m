@@ -50,6 +50,18 @@
     self.title = [alert objectForKey:@"severity"];
 }
 
+- (void)initialize
+{
+    parser = [[MyXMLParser alloc] init];
+    [parser parseXMLFileAtURL:uRL];
+    
+    NSMutableDictionary *alert = [parser.alert objectAtIndex:0];
+    headline.text = [alert objectForKey:@"headline"];
+    description.text = [alert objectForKey:@"description"];
+    instruction.text = [alert objectForKey:@"instruction"];
+    self.title = [alert objectForKey:@"severity"];
+}
+
 - (void)viewDidUnload
 {
     [super viewDidUnload];

@@ -93,6 +93,7 @@
     NSString *title = [self trimWhitespace:[warnings objectForKey:@"title"]];
     if(!([title isEqualToString:@"There are no active watches, warnings or advisories"])){
         alertView.uRL = [self trimWhitespace:entryURL];
+        [alertView initialize];
         RaysWeatherAppDelegate *delegate = (RaysWeatherAppDelegate*)[[UIApplication sharedApplication] delegate];
         [delegate.alertNavController pushViewController:alertView animated:YES];
     }

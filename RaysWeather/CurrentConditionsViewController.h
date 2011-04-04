@@ -10,7 +10,6 @@
 #import <QuartzCore/QuartzCore.h>
 #include <math.h>
 #import "MyXMLParser.h"
-#import "MyCLController.h"
 
 
 @interface CurrentConditionsViewController : UIViewController {
@@ -39,7 +38,6 @@
     
     MyXMLParser *parser;
     NSMutableDictionary *weatherDictionary;
-    MyCLController *location;
     
 }
 

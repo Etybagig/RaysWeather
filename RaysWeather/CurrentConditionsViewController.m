@@ -22,10 +22,6 @@
     
     self.title = @"Current Conditions";
     
-    //Create Core Location controller and start updating our location
-    location = [[MyCLController alloc] init];
-    [location.locationManager startUpdatingLocation];
-    
     //Create Parser
     parser = [MyXMLParser new];
     
@@ -194,7 +190,6 @@
 
 - (void)dealloc
 {
-    [location release];
     [parser release];
     [super dealloc];
 }

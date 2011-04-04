@@ -9,24 +9,26 @@
 #import <UIKit/UIKit.h>
 #import "AlertNavController.h"
 #import "MoreNavController.h"
+#import <CoreLocation/CoreLocation.h>
 
 @class AlertNavController;
 @class MoreNavController;
 
-@interface RaysWeatherAppDelegate : NSObject <UIApplicationDelegate, UITabBarControllerDelegate> {
+@interface RaysWeatherAppDelegate : NSObject <UIApplicationDelegate, UITabBarControllerDelegate, CLLocationManagerDelegate> {
 //    IBOutlet UITabBarController *tabBarController;
     IBOutlet AlertNavController *alertNavController;
     IBOutlet MoreNavController *moreNavController;
+    
+    CLLocationManager *locationManager;
+    CLLocation *currentLocation;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
-
 @property (nonatomic, retain) IBOutlet UITabBarController *tabBarController;
-
 @property (nonatomic, retain) IBOutlet AlertNavController *alertNavController;
-
 @property (nonatomic, retain) IBOutlet MoreNavController *moreNavController;
-
+@property (nonatomic, retain) CLLocationManager *locationManager;
+@property (nonatomic, retain) CLLocation *currentLocation;
 
 @end
 

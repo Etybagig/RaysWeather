@@ -13,17 +13,22 @@
 @implementation RaysWeatherAppDelegate
 
 @synthesize window;
-
 @synthesize tabBarController;
-
 @synthesize alertNavController;
-
 @synthesize moreNavController;
+@synthesize locationManager;
+@synthesize currentLocation;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
     // Add the tab bar controller's current view as a subview of the window
+    locationManager = [[CLLocationManager alloc] init];
+    locationManager.distanceFilter = kCLDistanceFilterNone;
+    locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
+    locationManager.delegate = self;
+    [locationManager startUpdatingLocation];
+    
     MyXMLParser *parser = [MyXMLParser new];
     NSString *path = @"http://alerts.weather.gov/cap/wwaatmget.php?x=NCZ018";
     [parser parseXMLFileAtURL:path];
@@ -64,6 +69,15 @@
     
     
 } */
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+{
+    currentLocation = newLocation;
+    double lat = currentLocation.coordinate.latitude;
+    double lon = currentLocation.coordinate.longitude;
+    NSLog(@"%2.4f", lat);
+    NSLog(@"%2.4f", lon);
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {

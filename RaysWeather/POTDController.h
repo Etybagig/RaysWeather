@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface POTDController : UIViewController {
+@interface POTDController : UIViewController <UIScrollViewDelegate>{
     IBOutlet UIImageView *potdView;
     UIImage *image;
 }

@@ -19,4 +19,6 @@
 
 @property(nonatomic, retain) NSString *uRL;
 
+- (void)initialize;
+
 @end
