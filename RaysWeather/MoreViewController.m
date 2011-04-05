@@ -49,6 +49,7 @@
     
     RaysWeatherAppDelegate *delegate = (RaysWeatherAppDelegate*)[[UIApplication sharedApplication] delegate];
     [delegate.moreNavController pushViewController:potdView animated:YES];
+    [potdView release];
 }
 
 - (void)webcamsButtonTouched:(id)sender
@@ -56,6 +57,7 @@
     WebcamListController *webcamList = [[WebcamListController alloc] initWithNibName:@"WebcamList" bundle:nil];
     RaysWeatherAppDelegate *delegate = (RaysWeatherAppDelegate*)[[UIApplication sharedApplication] delegate];
     [delegate.moreNavController pushViewController:webcamList animated:YES];
+    [webcamList release];
 }
      
 - (void)viewDidUnload

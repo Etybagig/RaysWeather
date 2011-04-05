@@ -33,8 +33,10 @@
     NSString *path = @"http://alerts.weather.gov/cap/wwaatmget.php?x=NCZ018";
     [parser parseXMLFileAtURL:path];
     NSMutableDictionary *warnings = [[NSMutableDictionary alloc] init];
-    bool finished = NO;
     int index = 0;
+    warnings = [parser.warningData objectAtIndex:index];
+    [parser release];
+    bool finished = NO;
     while (!finished){
         @try{
             warnings = [parser.warningData objectAtIndex:index];
@@ -51,6 +53,7 @@
             finished = YES;
         }
     }
+    [warnings release];
     NSInteger numberOfWarnings = index--;
     if(numberOfWarnings>0){
     [[[[[self tabBarController] tabBar] items] objectAtIndex:2] setBadgeValue:@"!"];
@@ -77,6 +80,7 @@
     double lon = currentLocation.coordinate.longitude;
     NSLog(@"%2.4f", lat);
     NSLog(@"%2.4f", lon);
+    [locationManager stopUpdatingLocation];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -120,6 +124,7 @@
 
 - (void)dealloc
 {
+    [locationManager release];
     [window release];
     [tabBarController release];
     [super dealloc];

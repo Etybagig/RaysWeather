@@ -10,7 +10,7 @@
 
 
 @implementation MyXMLParser
-@synthesize parser, weatherData, item, day1, day2, day3, warningData, alert;
+@synthesize parser, weatherData, day1, day2, day3, warningData, alert;
 
 - (void)parseXMLFileAtURL:(NSString *)URL {
 	NSURL *xmlUrl = [NSURL URLWithString:URL];
@@ -108,12 +108,12 @@
 		[item setObject:currentWindDirection forKey:@"wind_direction"];
 		[item setObject:currentHiTemp forKey:@"hi_temp"];
 		[item setObject:currentLoTemp forKey:@"lo_temp"];
-		[weatherData addObject:[item copy]];
+		[weatherData addObject:[[item copy] autorelease]];
 	}
     if ([elementName isEqualToString:@"forecast"]){
         [item setObject:currentIntro forKey:@"introduction"];
         [item setObject:currentIntroTitle forKey:@"title"];
-        [weatherData addObject:[item copy]];
+        [weatherData addObject:[[item copy] autorelease]];
     }
     if ([elementName isEqualToString:@"day1"]){
         [item setObject:hi forKey:@"hi"];
@@ -121,7 +121,7 @@
         [item setObject:icon forKey:@"icon"];
         [item setObject:day_of_week forKey:@"day_of_week"];
         [item setObject:description forKey:@"descrip"];
-        [day1 addObject:[item copy]];
+        [day1 addObject:[[item copy] autorelease]];
     }
     if ([elementName isEqualToString:@"day2"]){
         [item setObject:hi forKey:@"hi"];
@@ -129,7 +129,7 @@
         [item setObject:icon forKey:@"icon"];
         [item setObject:day_of_week forKey:@"day_of_week"];
         [item setObject:description forKey:@"descrip"];
-        [day2 addObject:[item copy]];
+        [day2 addObject:[[item copy] autorelease]];
     }
     if ([elementName isEqualToString:@"day3"]){
         [item setObject:hi forKey:@"hi"];
@@ -137,20 +137,20 @@
         [item setObject:icon forKey:@"icon"];
         [item setObject:day_of_week forKey:@"day_of_week"];
         [item setObject:description forKey:@"descrip"];
-        [day3 addObject:[item copy]];
+        [day3 addObject:[[item copy] autorelease]];
     }
     if ([elementName isEqualToString:@"entry"]){
         [item setObject:linkToEntry forKey:@"entryLink"];
         [item setObject:title forKey:@"title"];
         [item setObject:summary forKey:@"summary"];
-        [warningData addObject:[item copy]];
+        [warningData addObject:[[item copy] autorelease]];
     }
     if ([elementName isEqualToString:@"alert"]){
         [item setObject:headline forKey:@"headline"];
         [item setObject:alertDescription forKey:@"description"];
         [item setObject:instruction forKey:@"instruction"];
         [item setObject:severity forKey:@"severity"];
-        [alert addObject:[item copy]];
+        [alert addObject:[[item copy] autorelease]];
     }
 }
 

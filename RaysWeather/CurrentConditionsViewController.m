@@ -190,8 +190,9 @@
 
 - (void)dealloc
 {
-    [parser release];
     [super dealloc];
+    [parser release];
+    [weatherDictionary release];
 }
 
 @end

@@ -52,6 +52,7 @@
     [format setDateStyle:NSDateFormatterShortStyle];
     dateString = [format stringFromDate:date];
     self.title = [NSString stringWithFormat:@"Photo for %@", dateString];
+    [format release];
 }
 
 - (void)viewDidUnload

@@ -19,7 +19,7 @@
     
     self.title = @"Forecast";
     
-    MyXMLParser *parser = [MyXMLParser new];
+    MyXMLParser *parser = [[MyXMLParser alloc] init];
     NSString *forecastPath = @"http://raysweather.com/mobile/forecast/?station=1";
     [parser parseXMLFileAtURL:forecastPath];
     
@@ -79,6 +79,7 @@
     
     //-----------------------Day Three----------------------//
     dayThreeDictionary = [parser.day3 objectAtIndex:0];
+    [parser release];
     
     //Day Name
     thirdDay.text = [self trimWhitespace:[dayThreeDictionary objectForKey:@"day_of_week"]];

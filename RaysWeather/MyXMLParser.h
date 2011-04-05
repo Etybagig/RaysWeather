@@ -56,7 +56,6 @@
 
 @property (nonatomic, retain) NSXMLParser *parser;
 @property (nonatomic, retain) NSMutableArray *weatherData;
-@property (nonatomic, retain) NSMutableDictionary *item;
 @property (nonatomic, retain) NSMutableArray *day1;
 @property (nonatomic, retain) NSMutableArray *day2;
 @property (nonatomic, retain) NSMutableArray *day3;
