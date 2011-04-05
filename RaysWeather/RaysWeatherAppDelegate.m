@@ -29,6 +29,7 @@
     locationManager.delegate = self;
     [locationManager startUpdatingLocation];
     
+    
     MyXMLParser *parser = [MyXMLParser new];
     NSString *path = @"http://alerts.weather.gov/cap/wwaatmget.php?x=NCZ018";
     [parser parseXMLFileAtURL:path];
@@ -49,6 +50,8 @@
                 index--;
                 finished = YES;
             }
+            else if([parser.warningData count] == index)
+                finished = YES;
         }@catch(NSException *e){
             finished = YES;
         }
