@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 
 
-@interface WebcamViewController : UIViewController {
-    IBOutlet UIImageView *webcamView;
+@interface WebcamViewController : UIViewController <UIScrollViewDelegate>{
+    UIImageView *webcamView;
+    UIImage *image;
+    IBOutlet UIScrollView *imageScrollView;
     NSString *name;
     NSString *extension;
 }

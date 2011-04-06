@@ -48,6 +48,7 @@
     POTDController *potdView = [[POTDController alloc] initWithNibName:@"POTD" bundle:nil];
     
     RaysWeatherAppDelegate *delegate = (RaysWeatherAppDelegate*)[[UIApplication sharedApplication] delegate];
+    potdView.hidesBottomBarWhenPushed = YES;
     [delegate.moreNavController pushViewController:potdView animated:YES];
     [potdView release];
 }
@@ -56,6 +57,7 @@
 {
     WebcamListController *webcamList = [[WebcamListController alloc] initWithNibName:@"WebcamList" bundle:nil];
     RaysWeatherAppDelegate *delegate = (RaysWeatherAppDelegate*)[[UIApplication sharedApplication] delegate];
+    webcamList.hidesBottomBarWhenPushed = YES;
     [delegate.moreNavController pushViewController:webcamList animated:YES];
     [webcamList release];
 }

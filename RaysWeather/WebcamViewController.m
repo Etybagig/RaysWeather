@@ -39,18 +39,57 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
     self.title = name;
     
     NSMutableString *imageString = [NSString stringWithFormat:@"http://raysweather.com/images/webcams/%@.jpg", extension];
     NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:imageString]];
     UIImage *downloadedImage = [UIImage imageWithData:imageData];
-    webcamView.image = downloadedImage;
+    image = downloadedImage;
+    
+    webcamView = [[UIImageView alloc] initWithImage:image];
+    [webcamView setContentMode:UIViewContentModeScaleAspectFit];
+    [webcamView setFrame:CGRectMake(0,0,320,367)];
+    
+    [imageScrollView addSubview:webcamView];
+    [imageScrollView setContentSize:CGSizeMake(webcamView.frame.size.width, 
+                                               webcamView.frame.size.height)];
+    [imageScrollView setScrollEnabled:YES];
+    [imageScrollView setMinimumZoomScale:1.0];
+    [imageScrollView setMaximumZoomScale:4.0];
+    [imageScrollView setDelegate:self];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+
+}
+
+
+
+-(void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+    if(toInterfaceOrientation == UIInterfaceOrientationLandscapeRight ||
+       toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft)
+    {
+        [imageScrollView setZoomScale:1.0];
+        [webcamView setFrame:CGRectMake(0, 0, 480, 320)];
+        [self.navigationController setNavigationBarHidden:YES animated:YES];
+        [[UIApplication sharedApplication] setStatusBarHidden:YES animated:YES];
+        UIView *tabBar = [self.tabBarController.view.subviews objectAtIndex:1];
+        self.view.frame = CGRectMake(0, 0, 480, 320);
+        tabBar.hidden = YES;
+    }
+    else if(toInterfaceOrientation == UIInterfaceOrientationPortrait ||
+            toInterfaceOrientation == UIInterfaceOrientationPortraitUpsideDown)
+    {
+        [imageScrollView setZoomScale:1.0];
+        [webcamView setFrame:CGRectMake(0, 0, 320, 367)];
+        [self.navigationController setNavigationBarHidden:NO animated:YES];
+        [[UIApplication sharedApplication] setStatusBarHidden:NO animated:YES];
+        UIView *tabBar = [self.tabBarController.view.subviews objectAtIndex:1];
+        self.view.frame = CGRectMake(0, 0, 320, 480);
+        tabBar.hidden = NO;
+    }
 }
 
 - (void)viewDidUnload
@@ -65,6 +104,11 @@
     // Return YES for supported orientations
     return YES;
     //return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
+{
+    return webcamView;
 }
 
 @end

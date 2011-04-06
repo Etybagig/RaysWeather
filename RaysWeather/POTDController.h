@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "RaysWeatherAppDelegate.h"
 
 @interface POTDController : UIViewController <UIScrollViewDelegate>{
-    IBOutlet UIImageView *potdView;
+    UIImageView *potdView;
+    IBOutlet UIScrollView *imageScrollView;
     UIImage *image;
 }
 
