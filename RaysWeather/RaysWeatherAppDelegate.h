@@ -21,6 +21,7 @@
     
     CLLocationManager *locationManager;
     CLLocation *currentLocation;
+    NSMutableArray *stations;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;

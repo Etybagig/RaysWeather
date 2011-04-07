@@ -23,12 +23,27 @@
 {
     // Override point for customization after application launch.
     // Add the tab bar controller's current view as a subview of the window
+    
+    //Initialize core location
     locationManager = [[CLLocationManager alloc] init];
     locationManager.distanceFilter = kCLDistanceFilterNone;
     locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
     locationManager.delegate = self;
     [locationManager startUpdatingLocation];
     
+    //Load stations if needed
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSString *stationsPath = [[NSBundle mainBundle] pathForResource:@"Stations" ofType:@"plist"];
+    if([fileManager fileExistsAtPath:stationsPath])
+        stations = [[NSMutableArray alloc] initWithContentsOfFile:stationsPath];
+    else{
+        MyXMLParser *parser = [MyXMLParser new];
+        NSString *stationURL = @"http://raysweather.com/mobile/stations/";
+        [parser parseXMLFileAtURL:stationURL];
+        stations = parser.stationsData;
+        NSString *writePath = @"RaysWeather.app";
+        [stations writeToFile:writePath atomically:YES];
+    }
     
     MyXMLParser *parser = [MyXMLParser new];
     NSString *path = @"http://alerts.weather.gov/cap/wwaatmget.php?x=NCZ018";

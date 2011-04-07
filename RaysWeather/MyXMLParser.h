@@ -52,6 +52,15 @@
     NSMutableString *alertDescription;
     NSMutableString *instruction;
     NSMutableString *severity;
+    
+    //Stations
+    NSMutableArray *stationsData;
+    NSMutableString *station_id;
+    NSMutableString *city;
+    NSMutableString *state;
+    NSMutableString *latitude;
+    NSMutableString *longitude;
+    NSMutableString *nws_zone_code;
 }
 
 @property (nonatomic, retain) NSXMLParser *parser;
@@ -61,6 +70,7 @@
 @property (nonatomic, retain) NSMutableArray *day3;
 @property (nonatomic, retain) NSMutableArray *warningData;
 @property (nonatomic, retain) NSMutableArray *alert;
+@property (nonatomic, retain) NSMutableArray *stationsData;
 
 - (void)parseXMLFileAtURL:(NSString *)URL;
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict;

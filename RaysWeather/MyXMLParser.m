@@ -10,7 +10,7 @@
 
 
 @implementation MyXMLParser
-@synthesize parser, weatherData, day1, day2, day3, warningData, alert;
+@synthesize parser, weatherData, day1, day2, day3, warningData, alert, stationsData;
 
 - (void)parseXMLFileAtURL:(NSString *)URL {
 	NSURL *xmlUrl = [NSURL URLWithString:URL];
@@ -93,6 +93,19 @@
         severity = [[NSMutableString alloc] init];
         currentType = [NSMutableString stringWithString:@"alert"];
     }
+    if ([elementName isEqualToString:@"station_info"]){
+        stationsData = [[NSMutableArray alloc] init];
+        currentType = [NSMutableString stringWithString:@"stations"];
+    }
+    if ([elementName isEqualToString:@"station"]){
+        item = [[NSMutableDictionary alloc] init];
+        station_id = [[NSMutableString alloc] init];
+        city = [[NSMutableString alloc] init];
+        state = [[NSMutableString alloc] init];
+        latitude = [[NSMutableString alloc] init];
+        longitude = [[NSMutableString alloc] init];
+        nws_zone_code = [[NSMutableString alloc] init];
+    }
 }
 
 
@@ -152,6 +165,15 @@
         [item setObject:severity forKey:@"severity"];
         [alert addObject:[[item copy] autorelease]];
     }
+    if ([elementName isEqualToString:@"station"]){
+        [item setObject:station_id forKey:@"station_id"];
+        [item setObject:city forKey:@"city"];
+        [item setObject:state forKey:@"state"];
+        [item setObject:latitude forKey:@"latitude"];
+        [item setObject:longitude forKey:@"longitude"];
+        [item setObject:nws_zone_code forKey:@"nws_zone_code"];
+        [stationsData addObject:[[item copy] autorelease]];
+    }
 }
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
@@ -208,6 +230,20 @@
             [instruction appendString:string];
         else if([currentElement isEqualToString:@"severity"])
             [severity appendString:string];
+    }
+    else if([currentType isEqualToString:@"stations"]){
+        if([currentElement isEqualToString:@"station_id"])
+            [station_id appendString:string];
+        else if([currentElement isEqualToString:@"city"])
+            [city appendString:string];
+        else if([currentElement isEqualToString:@"state"])
+            [state appendString:string];
+        else if([currentElement isEqualToString:@"latitude"])
+            [latitude appendString:string];
+        else if([currentElement isEqualToString:@"longitude"])
+            [longitude appendString:string];
+        else if([currentElement isEqualToString:@"nws_zone_code"])
+            [latitude appendString:string];
     }
 }
 
