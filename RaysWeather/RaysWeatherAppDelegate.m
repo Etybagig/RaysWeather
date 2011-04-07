@@ -34,7 +34,7 @@
     //Load stations if needed
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *stationsPath = [documentsDirectory stringByAppendingString:@"_Stations.plist"];
+    NSString *stationsPath = [documentsDirectory stringByAppendingPathComponent:@"Stations.plist"];
     stations = [[NSMutableArray alloc] initWithContentsOfFile:stationsPath];
     if(stations == nil){
         MyXMLParser *parser = [MyXMLParser new];
