@@ -32,17 +32,16 @@
     [locationManager startUpdatingLocation];
     
     //Load stations if needed
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSString *stationsPath = [[NSBundle mainBundle] pathForResource:@"Stations" ofType:@"plist"];
-    if([fileManager fileExistsAtPath:stationsPath])
-        stations = [[NSMutableArray alloc] initWithContentsOfFile:stationsPath];
-    else{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *stationsPath = [documentsDirectory stringByAppendingString:@"_Stations.plist"];
+    stations = [[NSMutableArray alloc] initWithContentsOfFile:stationsPath];
+    if(stations == nil){
         MyXMLParser *parser = [MyXMLParser new];
         NSString *stationURL = @"http://raysweather.com/mobile/stations/";
         [parser parseXMLFileAtURL:stationURL];
         stations = parser.stationsData;
-        NSString *writePath = @"RaysWeather.app";
-        [stations writeToFile:writePath atomically:YES];
+        [stations writeToFile:stationsPath atomically:YES];
     }
     
     MyXMLParser *parser = [MyXMLParser new];
