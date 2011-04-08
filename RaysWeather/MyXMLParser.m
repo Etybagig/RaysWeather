@@ -166,12 +166,12 @@
         [alert addObject:[[item copy] autorelease]];
     }
     if ([elementName isEqualToString:@"station"]){
-        [item setObject:station_id forKey:@"station_id"];
+        [item setObject:station_id forKey:@"stationId"];
         [item setObject:city forKey:@"city"];
         [item setObject:state forKey:@"state"];
         [item setObject:latitude forKey:@"latitude"];
         [item setObject:longitude forKey:@"longitude"];
-        [item setObject:nws_zone_code forKey:@"nws_zone_code"];
+        [item setObject:nws_zone_code forKey:@"nwsZoneCode"];
         [stationsData addObject:[[item copy] autorelease]];
     }
 }
@@ -243,7 +243,7 @@
         else if([currentElement isEqualToString:@"longitude"])
             [longitude appendString:string];
         else if([currentElement isEqualToString:@"nws_zone_code"])
-            [latitude appendString:string];
+            [nws_zone_code appendString:string];
     }
 }
 
