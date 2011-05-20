@@ -46,6 +46,8 @@
 		9A5329CA13417EA6005EB60C /* currentBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A5329C913417EA6005EB60C /* currentBack.png */; };
 		9A5737201348D078009D76AE /* currentLandscapeBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A57371F1348D078009D76AE /* currentLandscapeBack.png */; };
 		9A5737241348F1EA009D76AE /* forecastLandscapeBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A5737231348F1EA009D76AE /* forecastLandscapeBack.png */; };
+		9A8481601354B4E2004183F6 /* RadarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A84815E1354B4E2004183F6 /* RadarViewController.m */; };
+		9A8481611354B4E2004183F6 /* RadarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A84815F1354B4E2004183F6 /* RadarView.xib */; };
 		9A8A6787133C3E1F00188AC5 /* MyXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A8A6786133C3E1F00188AC5 /* MyXMLParser.m */; };
 		9ABAB853133EA2F4003244E5 /* face.png in Resources */ = {isa = PBXBuildFile; fileRef = 9ABAB852133EA2F4003244E5 /* face.png */; };
 		9ABAB855133ECE2F003244E5 /* forecastBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 9ABAB854133ECE2F003244E5 /* forecastBack.png */; };
@@ -116,6 +118,9 @@
 		9A5329C913417EA6005EB60C /* currentBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = currentBack.png; sourceTree = "<group>"; };
 		9A57371F1348D078009D76AE /* currentLandscapeBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = currentLandscapeBack.png; sourceTree = "<group>"; };
 		9A5737231348F1EA009D76AE /* forecastLandscapeBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = forecastLandscapeBack.png; sourceTree = "<group>"; };
+		9A84815D1354B4E2004183F6 /* RadarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RadarViewController.h; sourceTree = "<group>"; };
+		9A84815E1354B4E2004183F6 /* RadarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RadarViewController.m; sourceTree = "<group>"; };
+		9A84815F1354B4E2004183F6 /* RadarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RadarView.xib; sourceTree = "<group>"; };
 		9A8A6785133C3E1F00188AC5 /* MyXMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyXMLParser.h; sourceTree = "<group>"; };
 		9A8A6786133C3E1F00188AC5 /* MyXMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyXMLParser.m; sourceTree = "<group>"; };
 		9ABAB852133EA2F4003244E5 /* face.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = face.png; sourceTree = "<group>"; };
@@ -241,6 +246,8 @@
 				9008F9E5133DA047000CB0D3 /* WarningsViewController.m */,
 				9A083A9F13452F8B00C17E5D /* MoreViewController.h */,
 				9A083AA013452F8B00C17E5D /* MoreViewController.m */,
+				9A84815D1354B4E2004183F6 /* RadarViewController.h */,
+				9A84815E1354B4E2004183F6 /* RadarViewController.m */,
 			);
 			name = MainTabControllers;
 			sourceTree = "<group>";
@@ -260,6 +267,7 @@
 				63EB802C133BC66E00A01901 /* CurrentConditionsView.xib */,
 				63EB802F133BC66E00A01901 /* ForecastView.xib */,
 				9008F9E6133DA047000CB0D3 /* WarningsView.xib */,
+				9A84815F1354B4E2004183F6 /* RadarView.xib */,
 				9A083AA113452F8B00C17E5D /* MoreView.xib */,
 			);
 			name = MainTabViews;
@@ -426,6 +434,7 @@
 				9A3F04B1134EB29C003792A5 /* Default@2x.png in Resources */,
 				9A3F04B2134EB29C003792A5 /* Icon.png in Resources */,
 				9A3F04B3134EB29C003792A5 /* Icon@2x.png in Resources */,
+				9A8481611354B4E2004183F6 /* RadarView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,6 +483,7 @@
 				9A083AA71345484800C17E5D /* POTDController.m in Sources */,
 				9A0BAD0213469C0800570FA1 /* WebcamListController.m in Sources */,
 				9A0BAD0713469C9200570FA1 /* WebcamViewController.m in Sources */,
+				9A8481601354B4E2004183F6 /* RadarViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

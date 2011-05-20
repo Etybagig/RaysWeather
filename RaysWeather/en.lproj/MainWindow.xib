@@ -44,6 +44,8 @@
 				<object class="NSPSMatrix" key="NSFrameMatrix"/>
 				<string key="NSFrameSize">{320, 480}</string>
 				<reference key="NSSuperview"/>
+				<reference key="NSWindow"/>
+				<reference key="NSNextKeyView"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">1</int>
 					<bytes key="NSRGB">MSAxIDEAA</bytes>
@@ -63,17 +65,15 @@
 				</object>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 				<bool key="IBUIHorizontal">NO</bool>
-				<object class="IBUIViewController" key="IBUISelectedViewController" id="1024858337">
-					<object class="IBUITabBarItem" key="IBUITabBarItem" id="765670903">
-						<string key="IBUITitle">Current</string>
-						<object class="NSCustomResource" key="IBUIImage">
-							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">sun.png</string>
-						</object>
+				<object class="IBUIViewController" key="IBUISelectedViewController" id="256473761">
+					<object class="IBUITabBarItem" key="IBUITabBarItem" id="493028148">
+						<string key="IBUITitle">Radar</string>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+						<reference key="IBUITabBar" ref="795333663"/>
 					</object>
 					<reference key="IBUIParentViewController" ref="1034742383"/>
-					<string key="IBUINibName">CurrentConditionsView</string>
+					<string key="IBUINibName">RadarView</string>
+					<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
 					<object class="IBUISimulatedOrientationMetrics" key="IBUISimulatedOrientationMetrics">
 						<int key="IBUIInterfaceOrientation">1</int>
 						<int key="interfaceOrientation">1</int>
@@ -82,7 +82,25 @@
 					<bool key="IBUIHorizontal">NO</bool>
 				</object>
 				<array class="NSMutableArray" key="IBUIViewControllers">
-					<reference ref="1024858337"/>
+					<object class="IBUIViewController" id="1024858337">
+						<object class="IBUITabBarItem" key="IBUITabBarItem" id="765670903">
+							<string key="IBUITitle">Current</string>
+							<object class="NSCustomResource" key="IBUIImage">
+								<string key="NSClassName">NSImage</string>
+								<string key="NSResourceName">sun.png</string>
+							</object>
+							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+							<reference key="IBUITabBar" ref="795333663"/>
+						</object>
+						<reference key="IBUIParentViewController" ref="1034742383"/>
+						<string key="IBUINibName">CurrentConditionsView</string>
+						<object class="IBUISimulatedOrientationMetrics" key="IBUISimulatedOrientationMetrics">
+							<int key="IBUIInterfaceOrientation">1</int>
+							<int key="interfaceOrientation">1</int>
+						</object>
+						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+						<bool key="IBUIHorizontal">NO</bool>
+					</object>
 					<object class="IBUIViewController" id="268481961">
 						<object class="IBUITabBarItem" key="IBUITabBarItem" id="807309489">
 							<string key="IBUITitle">Forecast</string>
@@ -91,6 +109,7 @@
 								<string key="NSResourceName">telescope.png</string>
 							</object>
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+							<reference key="IBUITabBar" ref="795333663"/>
 						</object>
 						<reference key="IBUIParentViewController" ref="1034742383"/>
 						<string key="IBUINibName">ForecastView</string>
@@ -109,6 +128,7 @@
 								<string key="NSResourceName">warning2.png</string>
 							</object>
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+							<reference key="IBUITabBar" ref="795333663"/>
 						</object>
 						<reference key="IBUIParentViewController" ref="1034742383"/>
 						<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
@@ -130,6 +150,7 @@
 						<array class="NSMutableArray" key="IBUIViewControllers">
 							<object class="IBUIViewController" id="1042966538">
 								<object class="IBUINavigationItem" key="IBUINavigationItem" id="77592962">
+									<reference key="IBUINavigationBar"/>
 									<string key="IBUITitle">NWS Alerts</string>
 									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								</object>
@@ -144,9 +165,11 @@
 							</object>
 						</array>
 					</object>
+					<reference ref="256473761"/>
 					<object class="IBUINavigationController" id="140840320">
 						<object class="IBUITabBarItem" key="IBUITabBarItem" id="590049238">
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+							<reference key="IBUITabBar" ref="795333663"/>
 							<int key="IBUISystemItemIdentifier">0</int>
 						</object>
 						<reference key="IBUIParentViewController" ref="1034742383"/>
@@ -169,6 +192,7 @@
 						<array class="NSMutableArray" key="IBUIViewControllers">
 							<object class="IBUIViewController" id="147670920">
 								<object class="IBUINavigationItem" key="IBUINavigationItem" id="697692013">
+									<reference key="IBUINavigationBar"/>
 									<string key="IBUITitle">Ray's Weather Center</string>
 									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								</object>
@@ -189,12 +213,22 @@
 					<int key="NSvFlags">266</int>
 					<string key="NSFrame">{{0, 431}, {320, 49}}</string>
 					<reference key="NSSuperview"/>
+					<reference key="NSWindow"/>
+					<reference key="NSNextKeyView"/>
 					<object class="NSColor" key="IBUIBackgroundColor">
 						<int key="NSColorSpace">3</int>
 						<bytes key="NSWhite">MCAwAA</bytes>
 					</object>
 					<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
 					<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+					<array class="NSMutableArray" key="IBUIItems">
+						<reference ref="765670903"/>
+						<reference ref="807309489"/>
+						<reference ref="413951043"/>
+						<reference ref="493028148"/>
+						<reference ref="590049238"/>
+					</array>
+					<reference key="IBUISelectedItem" ref="493028148"/>
 				</object>
 			</object>
 		</array>
@@ -282,6 +316,7 @@
 							<reference ref="268481961"/>
 							<reference ref="1024858337"/>
 							<reference ref="400559351"/>
+							<reference ref="256473761"/>
 							<reference ref="140840320"/>
 						</array>
 						<reference key="parent" ref="0"/>
@@ -390,6 +425,19 @@
 						<reference key="object" ref="590049238"/>
 						<reference key="parent" ref="140840320"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">151</int>
+						<reference key="object" ref="256473761"/>
+						<array class="NSMutableArray" key="children">
+							<reference ref="493028148"/>
+						</array>
+						<reference key="parent" ref="1034742383"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">152</int>
+						<reference key="object" ref="493028148"/>
+						<reference key="parent" ref="256473761"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -416,6 +464,9 @@
 				<string key="142.CustomClassName">MoreViewController</string>
 				<string key="142.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="144.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="151.CustomClassName">RadarViewController</string>
+				<string key="151.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="152.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<dictionary class="NSMutableDictionary" key="2.IBAttributePlaceholdersKey"/>
 				<string key="2.IBEditorWindowLastContentRect">{{229, 373}, {320, 480}}</string>
 				<string key="2.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -426,9 +477,364 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">148</int>
+			<int key="maxID">152</int>
 		</object>
-		<object class="IBClassDescriber" key="IBDocument.Classes"/>
+		<object class="IBClassDescriber" key="IBDocument.Classes">
+			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
+				<object class="IBPartialClassDescription">
+					<string key="className">AlertNavController</string>
+					<string key="superclassName">UINavigationController</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/AlertNavController.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">CurrentConditionsViewController</string>
+					<string key="superclassName">UIViewController</string>
+					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="background">UIImageView</string>
+						<string key="baroLabel">UILabel</string>
+						<string key="barometer">UILabel</string>
+						<string key="currCondLabel">UILabel</string>
+						<string key="currentConditionImage">UIImageView</string>
+						<string key="currentHi">UILabel</string>
+						<string key="currentLo">UILabel</string>
+						<string key="currentTemp">UILabel</string>
+						<string key="hiLabel">UILabel</string>
+						<string key="humidLabel">UILabel</string>
+						<string key="humidity">UILabel</string>
+						<string key="loLabel">UILabel</string>
+						<string key="station">UILabel</string>
+						<string key="todaysSummary">UITextView</string>
+						<string key="todaysSummaryTitle">UILabel</string>
+						<string key="todaysforcastLabel">UILabel</string>
+						<string key="wind">UILabel</string>
+						<string key="windLabel">UILabel</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="background">
+							<string key="name">background</string>
+							<string key="candidateClassName">UIImageView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="baroLabel">
+							<string key="name">baroLabel</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="barometer">
+							<string key="name">barometer</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="currCondLabel">
+							<string key="name">currCondLabel</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="currentConditionImage">
+							<string key="name">currentConditionImage</string>
+							<string key="candidateClassName">UIImageView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="currentHi">
+							<string key="name">currentHi</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="currentLo">
+							<string key="name">currentLo</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="currentTemp">
+							<string key="name">currentTemp</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="hiLabel">
+							<string key="name">hiLabel</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="humidLabel">
+							<string key="name">humidLabel</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="humidity">
+							<string key="name">humidity</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="loLabel">
+							<string key="name">loLabel</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="station">
+							<string key="name">station</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="todaysSummary">
+							<string key="name">todaysSummary</string>
+							<string key="candidateClassName">UITextView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="todaysSummaryTitle">
+							<string key="name">todaysSummaryTitle</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="todaysforcastLabel">
+							<string key="name">todaysforcastLabel</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="wind">
+							<string key="name">wind</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="windLabel">
+							<string key="name">windLabel</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+					</dictionary>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/CurrentConditionsViewController.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">ForecastViewController</string>
+					<string key="superclassName">UIViewController</string>
+					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="background">UIImageView</string>
+						<string key="dayOneDescript">UITextView</string>
+						<string key="dayOneImage">UIImageView</string>
+						<string key="dayThreeDescript">UITextView</string>
+						<string key="dayThreeImage">UIImageView</string>
+						<string key="dayTwoDescript">UITextView</string>
+						<string key="dayTwoImage">UIImageView</string>
+						<string key="faceOverlay">UIImageView</string>
+						<string key="firstDay">UILabel</string>
+						<string key="firstDay_hi">UILabel</string>
+						<string key="firstDay_lo">UILabel</string>
+						<string key="firsthi">UILabel</string>
+						<string key="firstlo">UILabel</string>
+						<string key="forecastTitle">UILabel</string>
+						<string key="secondDay">UILabel</string>
+						<string key="secondDay_hi">UILabel</string>
+						<string key="secondDay_lo">UILabel</string>
+						<string key="secondhi">UILabel</string>
+						<string key="secondlo">UILabel</string>
+						<string key="thirdDay">UILabel</string>
+						<string key="thirdDay_hi">UILabel</string>
+						<string key="thirdDay_lo">UILabel</string>
+						<string key="thirdhi">UILabel</string>
+						<string key="thirdlo">UILabel</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="background">
+							<string key="name">background</string>
+							<string key="candidateClassName">UIImageView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="dayOneDescript">
+							<string key="name">dayOneDescript</string>
+							<string key="candidateClassName">UITextView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="dayOneImage">
+							<string key="name">dayOneImage</string>
+							<string key="candidateClassName">UIImageView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="dayThreeDescript">
+							<string key="name">dayThreeDescript</string>
+							<string key="candidateClassName">UITextView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="dayThreeImage">
+							<string key="name">dayThreeImage</string>
+							<string key="candidateClassName">UIImageView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="dayTwoDescript">
+							<string key="name">dayTwoDescript</string>
+							<string key="candidateClassName">UITextView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="dayTwoImage">
+							<string key="name">dayTwoImage</string>
+							<string key="candidateClassName">UIImageView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="faceOverlay">
+							<string key="name">faceOverlay</string>
+							<string key="candidateClassName">UIImageView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="firstDay">
+							<string key="name">firstDay</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="firstDay_hi">
+							<string key="name">firstDay_hi</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="firstDay_lo">
+							<string key="name">firstDay_lo</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="firsthi">
+							<string key="name">firsthi</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="firstlo">
+							<string key="name">firstlo</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="forecastTitle">
+							<string key="name">forecastTitle</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="secondDay">
+							<string key="name">secondDay</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="secondDay_hi">
+							<string key="name">secondDay_hi</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="secondDay_lo">
+							<string key="name">secondDay_lo</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="secondhi">
+							<string key="name">secondhi</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="secondlo">
+							<string key="name">secondlo</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="thirdDay">
+							<string key="name">thirdDay</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="thirdDay_hi">
+							<string key="name">thirdDay_hi</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="thirdDay_lo">
+							<string key="name">thirdDay_lo</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="thirdhi">
+							<string key="name">thirdhi</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="thirdlo">
+							<string key="name">thirdlo</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+					</dictionary>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/ForecastViewController.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">MoreNavController</string>
+					<string key="superclassName">UINavigationController</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/MoreNavController.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">MoreViewController</string>
+					<string key="superclassName">UIViewController</string>
+					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="potd">UIButton</string>
+						<string key="potdLabel">UILabel</string>
+						<string key="webcamLabel">UILabel</string>
+						<string key="webcams">UIButton</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="potd">
+							<string key="name">potd</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="potdLabel">
+							<string key="name">potdLabel</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="webcamLabel">
+							<string key="name">webcamLabel</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="webcams">
+							<string key="name">webcams</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+					</dictionary>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/MoreViewController.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">RadarViewController</string>
+					<string key="superclassName">UIViewController</string>
+					<object class="NSMutableDictionary" key="outlets">
+						<string key="NS.key.0">radar</string>
+						<string key="NS.object.0">UIWebView</string>
+					</object>
+					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<string key="NS.key.0">radar</string>
+						<object class="IBToOneOutletInfo" key="NS.object.0">
+							<string key="name">radar</string>
+							<string key="candidateClassName">UIWebView</string>
+						</object>
+					</object>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/RadarViewController.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">RaysWeatherAppDelegate</string>
+					<string key="superclassName">NSObject</string>
+					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="alertNavController">AlertNavController</string>
+						<string key="moreNavController">MoreNavController</string>
+						<string key="tabBarController">UITabBarController</string>
+						<string key="window">UIWindow</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="alertNavController">
+							<string key="name">alertNavController</string>
+							<string key="candidateClassName">AlertNavController</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="moreNavController">
+							<string key="name">moreNavController</string>
+							<string key="candidateClassName">MoreNavController</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="tabBarController">
+							<string key="name">tabBarController</string>
+							<string key="candidateClassName">UITabBarController</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="window">
+							<string key="name">window</string>
+							<string key="candidateClassName">UIWindow</string>
+						</object>
+					</dictionary>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/RaysWeatherAppDelegate.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">WarningsViewController</string>
+					<string key="superclassName">UITableViewController</string>
+					<object class="NSMutableDictionary" key="outlets">
+						<string key="NS.key.0">table</string>
+						<string key="NS.object.0">UITableView</string>
+					</object>
+					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<string key="NS.key.0">table</string>
+						<object class="IBToOneOutletInfo" key="NS.object.0">
+							<string key="name">table</string>
+							<string key="candidateClassName">UITableView</string>
+						</object>
+					</object>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/WarningsViewController.h</string>
+					</object>
+				</object>
+			</array>
+		</object>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaTouchFramework</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencies">
