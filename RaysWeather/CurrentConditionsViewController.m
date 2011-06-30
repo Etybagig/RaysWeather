@@ -20,16 +20,22 @@
 {
     [super viewDidLoad];
     
+    RaysWeatherAppDelegate *delegate = (RaysWeatherAppDelegate*)[[UIApplication sharedApplication] delegate];
+    stationInfo = delegate.closestStation;
+    
     self.title = @"Current Conditions";
     
     //Create Parser
     parser = [MyXMLParser new];
     
-    //Until we get the location stuff working, station will be set to boone
-    station.text = @"Boone, NC";
+    //Set Title
+    NSString *stationCity = [self trimWhitespace:[stationInfo objectForKey:@"city"]];
+    NSString *stationState = [self trimWhitespace:[stationInfo objectForKey:@"state"]];
+    station.text = [NSString stringWithFormat:@"%@, %@", stationCity, stationState];
     
     //Parse first site
-    NSString *path = @"http://raysweather.com/mobile/conditions/?station=1";
+    NSInteger stationID = [[self trimWhitespace:[stationInfo objectForKey:@"stationId"]] integerValue];
+    NSString *path = [NSString stringWithFormat:@"http://raysweather.com/mobile/conditions/?station=%d", stationID];
 	[parser parseXMLFileAtURL:path];
     weatherDictionary = [parser.weatherData objectAtIndex:0];
     

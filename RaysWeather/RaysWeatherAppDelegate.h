@@ -22,6 +22,7 @@
     CLLocationManager *locationManager;
     CLLocation *currentLocation;
     NSMutableArray *stations;
+    NSMutableDictionary *closestStation;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
@@ -30,6 +31,9 @@
 @property (nonatomic, retain) IBOutlet MoreNavController *moreNavController;
 @property (nonatomic, retain) CLLocationManager *locationManager;
 @property (nonatomic, retain) CLLocation *currentLocation;
+@property (nonatomic, retain) NSMutableDictionary *closestStation;
+
+- (NSString *)trimWhitespace:(NSMutableString *)stringToTrim;
 
 @end
 

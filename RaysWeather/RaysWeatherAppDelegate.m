@@ -18,11 +18,18 @@
 @synthesize moreNavController;
 @synthesize locationManager;
 @synthesize currentLocation;
+@synthesize closestStation;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
     // Add the tab bar controller's current view as a subview of the window
+    
+    //Load stations
+    MyXMLParser *parser = [MyXMLParser new];
+    NSString *stationURL = @"http://raysweather.com/mobile/stations/";
+    [parser parseXMLFileAtURL:stationURL];
+    stations = parser.stationsData;
     
     //Initialize core location
     locationManager = [[CLLocationManager alloc] init];
@@ -31,20 +38,7 @@
     locationManager.delegate = self;
     [locationManager startUpdatingLocation];
     
-    //Load stations if needed
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *stationsPath = [documentsDirectory stringByAppendingPathComponent:@"Stations.plist"];
-    stations = [[NSMutableArray alloc] initWithContentsOfFile:stationsPath];
-    if(stations == nil){
-        MyXMLParser *parser = [MyXMLParser new];
-        NSString *stationURL = @"http://raysweather.com/mobile/stations/";
-        [parser parseXMLFileAtURL:stationURL];
-        stations = parser.stationsData;
-        [stations writeToFile:stationsPath atomically:YES];
-    }
-    
-    MyXMLParser *parser = [MyXMLParser new];
+    //Check for weather alerts and warnings.
     NSString *path = @"http://alerts.weather.gov/cap/wwaatmget.php?x=NCZ018";
     [parser parseXMLFileAtURL:path];
     NSMutableDictionary *warnings = [[NSMutableDictionary alloc] init];
@@ -98,6 +92,24 @@
     NSLog(@"%2.4f", lat);
     NSLog(@"%2.4f", lon);
     [locationManager stopUpdatingLocation];
+    closestStation = nil;
+    double previousDiff = 1000.00;
+    for(NSMutableDictionary *station in stations){
+        double stationLat = [[self trimWhitespace:[station objectForKey:@"latitude"]] doubleValue];
+        double stationLong = [[self trimWhitespace:[station objectForKey:@"longitude"]] doubleValue];
+        double diff = (lat-stationLat) + (lon-stationLong);
+        diff = fabs(diff);
+        if(diff<previousDiff){
+            closestStation = station;
+            previousDiff = diff;
+        }
+    }
+}
+
+- (NSString *)trimWhitespace:(NSMutableString *)stringToTrim{
+    NSString *removeNewLine = [stringToTrim stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    NSString *removeTab = [removeNewLine stringByReplacingOccurrencesOfString:@"\t" withString:@""];
+    return removeTab;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
