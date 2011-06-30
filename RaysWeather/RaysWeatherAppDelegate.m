@@ -25,18 +25,18 @@
     // Override point for customization after application launch.
     // Add the tab bar controller's current view as a subview of the window
     
-    //Load stations
-    MyXMLParser *parser = [MyXMLParser new];
-    NSString *stationURL = @"http://raysweather.com/mobile/stations/";
-    [parser parseXMLFileAtURL:stationURL];
-    stations = parser.stationsData;
-    
     //Initialize core location
     locationManager = [[CLLocationManager alloc] init];
     locationManager.distanceFilter = kCLDistanceFilterNone;
     locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
     locationManager.delegate = self;
     [locationManager startUpdatingLocation];
+    
+    //Load stations
+    MyXMLParser *parser = [MyXMLParser new];
+    NSString *stationURL = @"http://raysweather.com/mobile/stations/";
+    [parser parseXMLFileAtURL:stationURL];
+    stations = parser.stationsData;
     
     //Check for weather alerts and warnings.
     NSString *path = @"http://alerts.weather.gov/cap/wwaatmget.php?x=NCZ018";
@@ -86,12 +86,13 @@
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {
+    [locationManager stopUpdatingLocation];
     currentLocation = newLocation;
     double lat = currentLocation.coordinate.latitude;
     double lon = currentLocation.coordinate.longitude;
     NSLog(@"%2.4f", lat);
     NSLog(@"%2.4f", lon);
-    [locationManager stopUpdatingLocation];
+
     closestStation = nil;
     double previousDiff = 1000.00;
     for(NSMutableDictionary *station in stations){
