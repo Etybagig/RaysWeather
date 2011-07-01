@@ -86,6 +86,11 @@
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {
+    NSDate* eventDate = locationManager.location.timestamp;
+    NSTimeInterval howRecent;
+    howRecent = [eventDate timeIntervalSinceNow];
+    if(abs(howRecent) > 5.0)
+        return;
     [locationManager stopUpdatingLocation];
     currentLocation = newLocation;
     double lat = currentLocation.coordinate.latitude;
@@ -94,17 +99,18 @@
     NSLog(@"%2.4f", lon);
 
     closestStation = nil;
-    double previousDiff = 1000.00;
+    double previousDistance = 1000.00;
     for(NSMutableDictionary *station in stations){
         double stationLat = [[self trimWhitespace:[station objectForKey:@"latitude"]] doubleValue];
         double stationLong = [[self trimWhitespace:[station objectForKey:@"longitude"]] doubleValue];
-        double diff = (lat-stationLat) + (lon-stationLong);
-        diff = fabs(diff);
-        if(diff<previousDiff){
+        double distance = sqrt(pow((stationLat-lat),2) + pow((stationLong-lon),2));
+        distance = fabs(distance);
+        if(distance<previousDistance){
             closestStation = station;
-            previousDiff = diff;
+            previousDistance = distance;
         }
     }
+    
 }
 
 - (NSString *)trimWhitespace:(NSMutableString *)stringToTrim{

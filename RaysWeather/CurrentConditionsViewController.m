@@ -15,10 +15,10 @@
 @implementation CurrentConditionsViewController
 
 
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
+// Implement viewWillAppear to do additional setup after loading the view, typically from a nib.
 - (void)viewWillAppear:(BOOL)animated
 {
-    [super viewWillAppear:TRUE];
+    [super viewWillAppear:YES];
     
     RaysWeatherAppDelegate *delegate = (RaysWeatherAppDelegate*)[[UIApplication sharedApplication] delegate];
     stationInfo = delegate.closestStation;
