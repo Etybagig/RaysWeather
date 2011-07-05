@@ -14,13 +14,17 @@
 
 @implementation CurrentConditionsViewController
 
-
 // Implement viewWillAppear to do additional setup after loading the view, typically from a nib.
 - (void)viewWillAppear:(BOOL)animated
-{
+{    
     [super viewWillAppear:YES];
     
-    RaysWeatherAppDelegate *delegate = (RaysWeatherAppDelegate*)[[UIApplication sharedApplication] delegate];
+    delegate = (RaysWeatherAppDelegate*)[[UIApplication sharedApplication] delegate];
+    delegate.currentConditions = self;
+}
+
+- (void)locationReceived
+{
     stationInfo = delegate.closestStation;
     
     self.title = @"Current Conditions";
@@ -95,6 +99,7 @@
     
     //Today's Summary Title
     todaysSummaryTitle.text = [self trimWhitespace:[weatherDictionary objectForKey:@"title"]];
+
 }
 
 - (NSString *)trimWhitespace:(NSMutableString *)stringToTrim{

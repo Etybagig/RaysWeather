@@ -40,9 +40,10 @@
     MyXMLParser *parser;
     NSMutableDictionary *weatherDictionary;
     NSMutableDictionary *stationInfo;
-    
+    RaysWeatherAppDelegate *delegate;
 }
 
+- (void)locationReceived;
 - (NSString *)trimWhitespace:(NSMutableString *)stringToTrim;
 - (NSString *)roundAndSnap:(NSString *)stringToRound;
 - (void)rotateToPortrait;

@@ -8,7 +8,6 @@
 
 #import "RaysWeatherAppDelegate.h"
 #include "MyXMLParser.h"
-//#include "MyXMLParser.h"--------1
 
 @implementation RaysWeatherAppDelegate
 
@@ -19,6 +18,7 @@
 @synthesize locationManager;
 @synthesize currentLocation;
 @synthesize closestStation;
+@synthesize currentConditions;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -110,7 +110,7 @@
             previousDistance = distance;
         }
     }
-    
+    [currentConditions locationReceived];
 }
 
 - (NSString *)trimWhitespace:(NSMutableString *)stringToTrim{

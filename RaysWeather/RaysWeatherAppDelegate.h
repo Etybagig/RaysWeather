@@ -10,14 +10,17 @@
 #import "AlertNavController.h"
 #import "MoreNavController.h"
 #import <CoreLocation/CoreLocation.h>
+#include "CurrentConditionsViewController.h"
 
 @class AlertNavController;
 @class MoreNavController;
+@class CurrentConditionsViewController;
 
 @interface RaysWeatherAppDelegate : NSObject <UIApplicationDelegate, UITabBarControllerDelegate, CLLocationManagerDelegate> {
 //    IBOutlet UITabBarController *tabBarController;
     IBOutlet AlertNavController *alertNavController;
     IBOutlet MoreNavController *moreNavController;
+    CurrentConditionsViewController *currentConditions;
     
     CLLocationManager *locationManager;
     CLLocation *currentLocation;
@@ -32,6 +35,7 @@
 @property (nonatomic, retain) CLLocationManager *locationManager;
 @property (nonatomic, retain) CLLocation *currentLocation;
 @property (nonatomic, retain) NSMutableDictionary *closestStation;
+@property (nonatomic, retain) CurrentConditionsViewController *currentConditions;
 
 - (NSString *)trimWhitespace:(NSMutableString *)stringToTrim;
 
