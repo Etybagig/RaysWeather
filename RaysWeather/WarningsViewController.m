@@ -14,9 +14,18 @@
 
 - (void)viewDidLoad
 {
+    RaysWeatherAppDelegate *delegate = (RaysWeatherAppDelegate*)[[UIApplication sharedApplication] delegate];
+    
+    NSMutableString *zoneCode = [delegate.closestStation valueForKey:@"nwsZoneCode"];
+    NSString *zone = [self trimWhitespace:zoneCode];
+    NSMutableString *countyCode = [delegate.closestStation valueForKey:@"nwsCountyCode"];
+    NSString *county = [self trimWhitespace:countyCode];
+    
     parser = [[MyXMLParser alloc] init];
-    NSString *path = @"http://alerts.weather.gov/cap/wwaatmget.php?x=NCZ018";
+    NSString *path = [NSString stringWithFormat:@"http://alerts.weather.gov/cap/wwaatmget.php?x=%@", zone];
     [parser parseXMLFileAtURL:path];
+    NSString *path2 = [NSString stringWithFormat:@"http://alerts.weather.gov/cap/wwaatmget.php?x=%@", county];
+    [parser parseXMLFileAtURL:path2];
     
     bool finished = NO;
     int index = 0;

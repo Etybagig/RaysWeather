@@ -61,6 +61,8 @@
     NSMutableString *latitude;
     NSMutableString *longitude;
     NSMutableString *nws_zone_code;
+    NSMutableString *nws_county_code;
+    NSMutableString *station_name;
 }
 
 @property (nonatomic, retain) NSXMLParser *parser;

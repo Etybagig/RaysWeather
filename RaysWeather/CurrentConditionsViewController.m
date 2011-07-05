@@ -14,6 +14,8 @@
 
 @implementation CurrentConditionsViewController
 
+@synthesize parser;
+
 // Implement viewWillAppear to do additional setup after loading the view, typically from a nib.
 - (void)viewWillAppear:(BOOL)animated
 {    
@@ -33,9 +35,8 @@
     parser = [MyXMLParser new];
     
     //Set Title
-    NSString *stationCity = [self trimWhitespace:[stationInfo objectForKey:@"city"]];
-    NSString *stationState = [self trimWhitespace:[stationInfo objectForKey:@"state"]];
-    station.text = [NSString stringWithFormat:@"%@, %@", stationCity, stationState];
+    NSString *stationName = [self trimWhitespace:[stationInfo objectForKey:@"station_name"]];
+    station.text = stationName;
     
     //Parse first site
     NSInteger stationID = [[self trimWhitespace:[stationInfo objectForKey:@"stationId"]] integerValue];
@@ -86,7 +87,7 @@
     currentLo.text = tempTextLo;
 	
     //Parse second site
-    NSString *path2 = @"http://raysweather.com/mobile/forecast/?station=1";
+    NSString *path2 = [NSString stringWithFormat:@"http://raysweather.com/mobile/forecast/?station=%d", stationID];
 	[parser parseXMLFileAtURL:path2];
     weatherDictionary = [parser.weatherData objectAtIndex:1];
     
@@ -100,6 +101,34 @@
     //Today's Summary Title
     todaysSummaryTitle.text = [self trimWhitespace:[weatherDictionary objectForKey:@"title"]];
 
+}
+
+- (void)showPicker
+{
+    stationPicker.hidden = NO;
+}
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)thePickerView numberOfRowsInComponent:(NSInteger)component
+{
+    return [delegate.stations count];
+}
+
+- (NSString *)pickerView:(UIPickerView *)thePickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    NSMutableArray *stations = delegate.stations;
+    NSMutableDictionary *stationComponent = [stations objectAtIndex:row];
+    NSString *name = [self trimWhitespace:[stationComponent objectForKey:@"station_name"]];
+    return name;
+}
+
+- (void)pickerView:(UIPickerView *)thePickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    stationPicker.hidden = YES;
+    delegate.closestStation = [delegate.stations objectAtIndex:row];
+    [self locationReceived];
 }
 
 - (NSString *)trimWhitespace:(NSMutableString *)stringToTrim{

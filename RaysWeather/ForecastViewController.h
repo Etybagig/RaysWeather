@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 #import "MyXMLParser.h"
-
+#import "RaysWeatherAppDelegate.h"
 
 @interface ForecastViewController : UIViewController {
     
@@ -51,6 +51,8 @@
     NSMutableDictionary *dayOneDictionary;
     NSMutableDictionary *dayTwoDictionary;
     NSMutableDictionary *dayThreeDictionary;
+    
+    CurrentConditionsViewController *currentConditions;
 }
 
 @property (nonatomic, retain) NSMutableDictionary *dayOneDictionary;

@@ -19,6 +19,7 @@
 @synthesize currentLocation;
 @synthesize closestStation;
 @synthesize currentConditions;
+@synthesize stations;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -76,13 +77,10 @@
     return YES;
 }
 
-/*- (bool)isWarnings{-------------2
-    MyXMLParser *parser = [MyXMLParser new];
-    NSString *path = @"http://alerts.weather.gov/cap/wwaatmget.php?x=GAC079";
-    [parser parseXMLFileAtURL:path];
-    
-    
-} */
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    [currentConditions showPicker];
+}
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {

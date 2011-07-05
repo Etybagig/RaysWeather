@@ -12,8 +12,10 @@
 #import "MyXMLParser.h"
 #import "RaysWeatherAppDelegate.h"
 
+@class RaysWeatherAppDelegate;
 
-@interface CurrentConditionsViewController : UIViewController {
+@interface CurrentConditionsViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
+{
     
     //Dynamic elements
     IBOutlet UIImageView *currentConditionImage;
@@ -41,8 +43,12 @@
     NSMutableDictionary *weatherDictionary;
     NSMutableDictionary *stationInfo;
     RaysWeatherAppDelegate *delegate;
+    IBOutlet UIPickerView *stationPicker;
 }
 
+@property (nonatomic, retain) MyXMLParser *parser;
+
+- (void)showPicker;
 - (void)locationReceived;
 - (NSString *)trimWhitespace:(NSMutableString *)stringToTrim;
 - (NSString *)roundAndSnap:(NSString *)stringToRound;

@@ -19,9 +19,10 @@
     
     self.title = @"Forecast";
     
-    MyXMLParser *parser = [[MyXMLParser alloc] init];
-    NSString *forecastPath = @"http://raysweather.com/mobile/forecast/?station=1";
-    [parser parseXMLFileAtURL:forecastPath];
+    RaysWeatherAppDelegate *delegate = (RaysWeatherAppDelegate*)[[UIApplication sharedApplication] delegate];
+    currentConditions = delegate.currentConditions;
+    
+    MyXMLParser *parser = currentConditions.parser;
     
     //-----------------------Day One-------------------------//
 	dayOneDictionary = [parser.day1 objectAtIndex:0];

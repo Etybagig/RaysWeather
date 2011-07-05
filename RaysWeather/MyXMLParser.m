@@ -105,6 +105,8 @@
         latitude = [[NSMutableString alloc] init];
         longitude = [[NSMutableString alloc] init];
         nws_zone_code = [[NSMutableString alloc] init];
+        nws_county_code = [[NSMutableString alloc] init];
+        station_name = [[NSMutableString alloc] init];
     }
 }
 
@@ -172,6 +174,8 @@
         [item setObject:latitude forKey:@"latitude"];
         [item setObject:longitude forKey:@"longitude"];
         [item setObject:nws_zone_code forKey:@"nwsZoneCode"];
+        [item setObject:nws_county_code forKey:@"nwsCountyCode"];
+        [item setObject:station_name forKey:@"station_name"];
         [stationsData addObject:[[item copy] autorelease]];
     }
 }
@@ -244,6 +248,10 @@
             [longitude appendString:string];
         else if([currentElement isEqualToString:@"nws_zone_code"])
             [nws_zone_code appendString:string];
+        else if([currentElement isEqualToString:@"nws_county_code"])
+            [nws_county_code appendString:string];
+        else if([currentElement isEqualToString:@"station_short_name"])
+            [station_name appendString:string];
     }
 }
 

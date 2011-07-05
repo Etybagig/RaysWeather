@@ -35,6 +35,7 @@
 @property (nonatomic, retain) CLLocationManager *locationManager;
 @property (nonatomic, retain) CLLocation *currentLocation;
 @property (nonatomic, retain) NSMutableDictionary *closestStation;
+@property (nonatomic, retain) NSMutableArray *stations;
 @property (nonatomic, retain) CurrentConditionsViewController *currentConditions;
 
 - (NSString *)trimWhitespace:(NSMutableString *)stringToTrim;
