@@ -15,14 +15,47 @@
 @implementation CurrentConditionsViewController
 
 @synthesize parser;
+@synthesize stationInfo;
 
-// Implement viewWillAppear to do additional setup after loading the view, typically from a nib.
-- (void)viewWillAppear:(BOOL)animated
+// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
+- (void)viewDidLoad
 {    
     [super viewWillAppear:YES];
     
     delegate = (RaysWeatherAppDelegate*)[[UIApplication sharedApplication] delegate];
     delegate.currentConditions = self;
+    delegate.currentNavController.navigationBar.hidden = YES;
+    
+    currentConditionImage.hidden = YES;
+    station.hidden = YES;
+    wind.hidden = YES;
+    humidity.hidden = YES;
+    barometer.hidden = YES;
+    currentTemp.hidden = YES;
+    currentHi.hidden = YES;
+    currentLo.hidden = YES;
+    todaysSummaryTitle.hidden = YES;
+    todaysSummary.hidden = YES;
+    currCondLabel.hidden = YES;
+    windLabel.hidden = YES;
+    humidLabel.hidden = YES;
+    baroLabel.hidden = YES;
+    hiLabel.hidden = YES;
+    loLabel.hidden = YES;
+    todaysforcastLabel.hidden = YES;
+    
+    activityIndicatorLabel.hidden = NO;
+    activityIndicator.hidden = NO;
+    [activityIndicator startAnimating];
+    
+    //No internet connection present or other problem with the xml parser.
+    if(delegate.parser.error == YES){
+        activityIndicatorLabel.hidden = YES;
+        [activityIndicator stopAnimating];
+        activityIndicator.hidden = YES;
+        connectionError.hidden = NO;
+        return;
+    }
 }
 
 - (void)locationReceived
@@ -42,6 +75,7 @@
     NSInteger stationID = [[self trimWhitespace:[stationInfo objectForKey:@"stationId"]] integerValue];
     NSString *path = [NSString stringWithFormat:@"http://raysweather.com/mobile/conditions/?station=%d", stationID];
 	[parser parseXMLFileAtURL:path];
+    
     weatherDictionary = [parser.weatherData objectAtIndex:0];
     
     //Set information that was parsed, trimming all strings
@@ -101,35 +135,39 @@
     //Today's Summary Title
     todaysSummaryTitle.text = [self trimWhitespace:[weatherDictionary objectForKey:@"title"]];
 
+    //Stop activity indicator and hide
+    [activityIndicator stopAnimating];
+    activityIndicator.hidden = YES;
+    activityIndicatorLabel.hidden = YES;
+    
+    //Unhide everything
+    currentConditionImage.hidden = NO;
+    station.hidden = NO;
+    wind.hidden = NO;
+    humidity.hidden = NO;
+    barometer.hidden = NO;
+    currentTemp.hidden = NO;
+    currentHi.hidden = NO;
+    currentLo.hidden = NO;
+    todaysSummaryTitle.hidden = NO;
+    todaysSummary.hidden = NO;
+    currCondLabel.hidden = NO;
+    windLabel.hidden = NO;
+    humidLabel.hidden = NO;
+    baroLabel.hidden = NO;
+    hiLabel.hidden = NO;
+    loLabel.hidden = NO;
+    todaysforcastLabel.hidden = NO;
 }
 
 - (void)showPicker
 {
-    stationPicker.hidden = NO;
+    StationPickerViewController *stationPicker = [[StationPickerViewController alloc] initWithNibName:@"StationPicker" bundle:nil];
+    stationPicker.hidesBottomBarWhenPushed = YES;
+    stationPicker.currentViewController = self;
+    [delegate.currentNavController pushViewController:stationPicker animated:YES];
 }
 
-- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
-{
-    return 1;
-}
-
-- (NSInteger)pickerView:(UIPickerView *)thePickerView numberOfRowsInComponent:(NSInteger)component
-{
-    return [delegate.stations count];
-}
-
-- (NSString *)pickerView:(UIPickerView *)thePickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    NSMutableArray *stations = delegate.stations;
-    NSMutableDictionary *stationComponent = [stations objectAtIndex:row];
-    NSString *name = [self trimWhitespace:[stationComponent objectForKey:@"station_name"]];
-    return name;
-}
-
-- (void)pickerView:(UIPickerView *)thePickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    stationPicker.hidden = YES;
-    delegate.closestStation = [delegate.stations objectAtIndex:row];
-    [self locationReceived];
-}
 
 - (NSString *)trimWhitespace:(NSMutableString *)stringToTrim{
     NSString *removeNewLine = [stringToTrim stringByReplacingOccurrencesOfString:@"\n" withString:@""];
@@ -147,7 +185,6 @@
 {
     // Return YES for supported orientations
     return YES;
-    //return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration

@@ -14,8 +14,6 @@
 @interface MoreViewController : UIViewController {
     IBOutlet UIButton *potd;
     IBOutlet UIButton *webcams;
-    IBOutlet UILabel *potdLabel;
-    IBOutlet UILabel *webcamLabel;
 }
 
 - (void)potdButtonTouched:(id)sender;

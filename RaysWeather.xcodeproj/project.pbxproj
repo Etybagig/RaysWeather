@@ -49,12 +49,12 @@
 		9A8481601354B4E2004183F6 /* RadarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A84815E1354B4E2004183F6 /* RadarViewController.m */; };
 		9A8481611354B4E2004183F6 /* RadarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A84815F1354B4E2004183F6 /* RadarView.xib */; };
 		9A8A6787133C3E1F00188AC5 /* MyXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A8A6786133C3E1F00188AC5 /* MyXMLParser.m */; };
+		9AA4AFFC13C3F21100F287B7 /* StationPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA4AFFA13C3F21100F287B7 /* StationPickerViewController.m */; };
+		9AA4AFFD13C3F21100F287B7 /* StationPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AA4AFFB13C3F21100F287B7 /* StationPicker.xib */; };
 		9ABAB853133EA2F4003244E5 /* face.png in Resources */ = {isa = PBXBuildFile; fileRef = 9ABAB852133EA2F4003244E5 /* face.png */; };
 		9ABAB855133ECE2F003244E5 /* forecastBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 9ABAB854133ECE2F003244E5 /* forecastBack.png */; };
-		9AD3C12913440C0600BE2091 /* AlertNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AD3C12713440C0600BE2091 /* AlertNavController.m */; };
 		9AD3C12E1344277600BE2091 /* AlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AD3C12C1344277500BE2091 /* AlertViewController.m */; };
 		9AD3C12F1344277600BE2091 /* AlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AD3C12D1344277600BE2091 /* AlertView.xib */; };
-		9AE6012B1344E1430091C168 /* MoreNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AE6012A1344E1430091C168 /* MoreNavController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,15 +123,14 @@
 		9A84815F1354B4E2004183F6 /* RadarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RadarView.xib; sourceTree = "<group>"; };
 		9A8A6785133C3E1F00188AC5 /* MyXMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyXMLParser.h; sourceTree = "<group>"; };
 		9A8A6786133C3E1F00188AC5 /* MyXMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyXMLParser.m; sourceTree = "<group>"; };
+		9AA4AFF913C3F21100F287B7 /* StationPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationPickerViewController.h; sourceTree = "<group>"; };
+		9AA4AFFA13C3F21100F287B7 /* StationPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationPickerViewController.m; sourceTree = "<group>"; };
+		9AA4AFFB13C3F21100F287B7 /* StationPicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StationPicker.xib; sourceTree = "<group>"; };
 		9ABAB852133EA2F4003244E5 /* face.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = face.png; sourceTree = "<group>"; };
 		9ABAB854133ECE2F003244E5 /* forecastBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = forecastBack.png; sourceTree = "<group>"; };
-		9AD3C12613440C0600BE2091 /* AlertNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertNavController.h; sourceTree = "<group>"; };
-		9AD3C12713440C0600BE2091 /* AlertNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertNavController.m; sourceTree = "<group>"; };
 		9AD3C12B1344277400BE2091 /* AlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertViewController.h; sourceTree = "<group>"; };
 		9AD3C12C1344277500BE2091 /* AlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertViewController.m; sourceTree = "<group>"; };
 		9AD3C12D1344277600BE2091 /* AlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlertView.xib; sourceTree = "<group>"; };
-		9AE601291344E1430091C168 /* MoreNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreNavController.h; sourceTree = "<group>"; };
-		9AE6012A1344E1430091C168 /* MoreNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreNavController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,6 +275,7 @@
 		9A083AAC13455D8F00C17E5D /* PushedViews */ = {
 			isa = PBXGroup;
 			children = (
+				9AA4AFFB13C3F21100F287B7 /* StationPicker.xib */,
 				9A0BAD0613469C9200570FA1 /* WebcamView.xib */,
 				9A0BAD0113469C0800570FA1 /* WebcamList.xib */,
 				9AD3C12D1344277600BE2091 /* AlertView.xib */,
@@ -305,6 +305,8 @@
 				9A0BAD0013469C0800570FA1 /* WebcamListController.m */,
 				9A0BAD0413469C9200570FA1 /* WebcamViewController.h */,
 				9A0BAD0513469C9200570FA1 /* WebcamViewController.m */,
+				9AA4AFF913C3F21100F287B7 /* StationPickerViewController.h */,
+				9AA4AFFA13C3F21100F287B7 /* StationPickerViewController.m */,
 			);
 			name = PushedControllers;
 			sourceTree = "<group>";
@@ -333,10 +335,6 @@
 			children = (
 				9A8A6785133C3E1F00188AC5 /* MyXMLParser.h */,
 				9A8A6786133C3E1F00188AC5 /* MyXMLParser.m */,
-				9AD3C12613440C0600BE2091 /* AlertNavController.h */,
-				9AD3C12713440C0600BE2091 /* AlertNavController.m */,
-				9AE601291344E1430091C168 /* MoreNavController.h */,
-				9AE6012A1344E1430091C168 /* MoreNavController.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -435,6 +433,7 @@
 				9A3F04B2134EB29C003792A5 /* Icon.png in Resources */,
 				9A3F04B3134EB29C003792A5 /* Icon@2x.png in Resources */,
 				9A8481611354B4E2004183F6 /* RadarView.xib in Resources */,
+				9AA4AFFD13C3F21100F287B7 /* StationPicker.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,14 +475,13 @@
 				63EB802B133BC66E00A01901 /* ForecastViewController.m in Sources */,
 				9A8A6787133C3E1F00188AC5 /* MyXMLParser.m in Sources */,
 				9008F9E7133DA047000CB0D3 /* WarningsViewController.m in Sources */,
-				9AD3C12913440C0600BE2091 /* AlertNavController.m in Sources */,
 				9AD3C12E1344277600BE2091 /* AlertViewController.m in Sources */,
-				9AE6012B1344E1430091C168 /* MoreNavController.m in Sources */,
 				9A083AA213452F8B00C17E5D /* MoreViewController.m in Sources */,
 				9A083AA71345484800C17E5D /* POTDController.m in Sources */,
 				9A0BAD0213469C0800570FA1 /* WebcamListController.m in Sources */,
 				9A0BAD0713469C9200570FA1 /* WebcamViewController.m in Sources */,
 				9A8481601354B4E2004183F6 /* RadarViewController.m in Sources */,
+				9AA4AFFC13C3F21100F287B7 /* StationPickerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

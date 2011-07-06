@@ -11,6 +11,8 @@
 
 @interface RadarViewController : UIViewController <UIWebViewDelegate>{
     IBOutlet UIWebView *radar;
+    IBOutlet UIActivityIndicatorView *activityIndicator;
+    IBOutlet UILabel *activityIndicatorLabel;
 }
 
 @end

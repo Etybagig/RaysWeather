@@ -63,6 +63,9 @@
     NSMutableString *nws_zone_code;
     NSMutableString *nws_county_code;
     NSMutableString *station_name;
+    
+    //Error flag
+    BOOL error;
 }
 
 @property (nonatomic, retain) NSXMLParser *parser;
@@ -73,6 +76,7 @@
 @property (nonatomic, retain) NSMutableArray *warningData;
 @property (nonatomic, retain) NSMutableArray *alert;
 @property (nonatomic, retain) NSMutableArray *stationsData;
+@property BOOL error;
 
 - (void)parseXMLFileAtURL:(NSString *)URL;
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict;

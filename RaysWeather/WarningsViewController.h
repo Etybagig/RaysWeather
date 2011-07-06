@@ -18,7 +18,7 @@
     MyXMLParser *parser;
     NSInteger numberOfWarnings;
     NSInteger currentCell;
-    
+    BOOL noWarnings;
     AlertViewController *alertView;
 }
 

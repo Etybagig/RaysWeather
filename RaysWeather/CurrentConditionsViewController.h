@@ -11,10 +11,11 @@
 #include <math.h>
 #import "MyXMLParser.h"
 #import "RaysWeatherAppDelegate.h"
+#import "StationPickerViewController.h"
 
 @class RaysWeatherAppDelegate;
 
-@interface CurrentConditionsViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
+@interface CurrentConditionsViewController : UIViewController 
 {
     
     //Dynamic elements
@@ -39,14 +40,21 @@
     IBOutlet UILabel *loLabel;
     IBOutlet UILabel *todaysforcastLabel;
     
+    //Activity Indicator
+    IBOutlet UIActivityIndicatorView *activityIndicator;
+    IBOutlet UILabel *activityIndicatorLabel;
+    
+    //Internet Error
+    IBOutlet UILabel *connectionError;
+    
     MyXMLParser *parser;
     NSMutableDictionary *weatherDictionary;
     NSMutableDictionary *stationInfo;
     RaysWeatherAppDelegate *delegate;
-    IBOutlet UIPickerView *stationPicker;
 }
 
 @property (nonatomic, retain) MyXMLParser *parser;
+@property (nonatomic, retain) NSMutableDictionary *stationInfo;
 
 - (void)showPicker;
 - (void)locationReceived;

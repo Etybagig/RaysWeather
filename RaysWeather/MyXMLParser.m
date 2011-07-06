@@ -10,7 +10,7 @@
 
 
 @implementation MyXMLParser
-@synthesize parser, weatherData, day1, day2, day3, warningData, alert, stationsData;
+@synthesize parser, weatherData, day1, day2, day3, warningData, alert, stationsData, error;
 
 - (void)parseXMLFileAtURL:(NSString *)URL {
 	NSURL *xmlUrl = [NSURL URLWithString:URL];
@@ -250,9 +250,12 @@
             [nws_zone_code appendString:string];
         else if([currentElement isEqualToString:@"nws_county_code"])
             [nws_county_code appendString:string];
-        else if([currentElement isEqualToString:@"station_short_name"])
+        else if([currentElement isEqualToString:@"station_long_name"])
             [station_name appendString:string];
     }
+}    
+- (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError
+{
+    error = YES;
 }
-
 @end

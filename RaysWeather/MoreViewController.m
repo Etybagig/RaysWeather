@@ -41,6 +41,7 @@
     // Do any additional setup after loading the view from its nib.
     [potd addTarget:self action:@selector(potdButtonTouched:) forControlEvents:UIControlEventTouchUpInside];
     [webcams addTarget:self action:@selector(webcamsButtonTouched:) forControlEvents:UIControlEventTouchUpInside];
+    
 }
 
 - (void)potdButtonTouched:(id)sender

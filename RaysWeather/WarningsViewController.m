@@ -48,7 +48,6 @@
         }
     }
     numberOfWarnings = index--;
-    currentCell = 0;
     
     table = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     [table setDelegate:self];
@@ -66,7 +65,15 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     NSLog(@"%d", numberOfWarnings);
-    return numberOfWarnings;
+    if(numberOfWarnings == 0){
+        noWarnings = YES;
+        return 1;
+    }
+    else
+    {
+        noWarnings = NO;
+        return numberOfWarnings;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -79,12 +86,13 @@
     }
     
     int row = [indexPath row];
-    if(row<numberOfWarnings && numberOfWarnings!=currentCell){
-        warnings = [parser.warningData objectAtIndex:currentCell++];
+    if(row<numberOfWarnings && noWarnings==NO){
+        warnings = [parser.warningData objectAtIndex:row];
         NSString *title = [self trimWhitespace:[warnings objectForKey:@"title"]];
-        if([title isEqualToString:@"There are no active watches, warnings or advisories"])
-           title = @"There are no current alerts.";
         [[cell textLabel] setText:title];
+    }
+    else if(noWarnings==YES){
+        [[cell textLabel] setText:@"No current watches or warnings"];
     }
     return cell;
 }
@@ -92,6 +100,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSInteger row = [indexPath row];
+    
+    if([[[[tableView cellForRowAtIndexPath:indexPath] textLabel] text] isEqualToString:@"No current watches or warnings"])
+        return;
+    
     if(self.alertView == nil){
         AlertViewController *anAlertView = [[AlertViewController alloc] initWithNibName:@"AlertView" bundle:nil];
         self.alertView = anAlertView;

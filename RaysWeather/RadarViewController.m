@@ -35,22 +35,31 @@
 
 #pragma mark - View lifecycle
 
-- (void)viewDidLoad
+- (void)viewWillAppear:(BOOL)animated
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    NSString *urlAddress = @"http://raysweather.com/radar_images/N0R_FCX_loop.gif";
-	NSURL *url = [NSURL URLWithString:urlAddress];
-	NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
-	[radar loadRequest:requestObj];
-    
-}
-
+    activityIndicator.hidden = NO;
+    [activityIndicator startAnimating];
+    activityIndicatorLabel.hidden = NO;
+}    
 - (void)viewDidUnload
 {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    NSString *urlAddress = @"http://raysweather.com/radar_images/N0R_FCX_loop.gif";
+	NSURL *url = [NSURL URLWithString:urlAddress];
+	NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
+	[radar loadRequest:requestObj];
+    
+    activityIndicatorLabel.hidden = YES;
+    [activityIndicator stopAnimating];
+    activityIndicator.hidden = YES;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
