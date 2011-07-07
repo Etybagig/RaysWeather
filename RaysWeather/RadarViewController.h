@@ -7,12 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RaysWeatherAppDelegate.h"
 
-
-@interface RadarViewController : UIViewController <UIWebViewDelegate>{
+@interface RadarViewController : UIViewController 
+{
     IBOutlet UIWebView *radar;
     IBOutlet UIActivityIndicatorView *activityIndicator;
     IBOutlet UILabel *activityIndicatorLabel;
 }
+
+- (NSString *)trimWhitespace:(NSMutableString *)stringToTrim;
 
 @end

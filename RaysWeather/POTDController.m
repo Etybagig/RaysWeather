@@ -10,6 +10,7 @@
 
 
 @implementation POTDController
+@synthesize tapGestureRecognizer, captionText;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,20 +36,30 @@
 
 #pragma mark - View lifecycle
 
-- (void)viewDidLoad
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    NSDate *date = [NSDate date];
-    NSDateFormatter *format = [[NSDateFormatter alloc] init];
-    [format setDateFormat:@"yyyyMMdd"];
-    NSString *dateString = [format stringFromDate:date];
+    [super viewWillAppear:YES];
     
-    NSMutableString *imageString = [NSString stringWithFormat:@"http://raysweather.com/photo_of_the_day/lg/%@.jpg", dateString];
+    [activityIndicator startAnimating];
+    [NSThread detachNewThreadSelector:@selector(loadPhoto) toTarget:self withObject:nil];
+    [self willRotateToInterfaceOrientation:self.interfaceOrientation duration:10];
+}
+
+- (void)loadPhoto
+{
+    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+    
+    MyXMLParser *parser = [[MyXMLParser alloc] init];
+    [parser parseXMLFileAtURL:@"http://raysweather.com/mobile/photo/"];
+    
+    NSMutableDictionary *potd = [parser.photoOfTheDay objectAtIndex:0];
+    NSMutableString *photoURL = [potd objectForKey:@"photoURL"];
+    
+    NSString *imageString = [self trimWhitespace:photoURL];
     NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:imageString]];
     image = [UIImage imageWithData:imageData];
     
-    
+    self.captionText = [self trimWhitespace:[potd objectForKey:@"caption"]];
     
     potdView = [[UIImageView alloc] initWithImage:image];
     [potdView setContentMode:UIViewContentModeScaleAspectFit];
@@ -62,10 +73,44 @@
     [imageScrollView setMaximumZoomScale:4.0];
     [imageScrollView setDelegate:self];
     
+    NSDate *date = [NSDate date];
+    NSDateFormatter *format = [[NSDateFormatter alloc] init];
     [format setDateStyle:NSDateFormatterShortStyle];
-    dateString = [format stringFromDate:date];
+    NSString *dateString = [format stringFromDate:date];
     self.title = [NSString stringWithFormat:@"Photo for %@", dateString];
     [format release];
+    
+    [self performSelectorOnMainThread:@selector(updateUI) withObject:nil waitUntilDone: NO];
+    
+    [pool drain];
+}
+
+- (void)updateUI
+{
+    caption.text = captionText;
+    caption.hidden = NO;
+}
+
+- (void)viewDidLoad
+{
+    UITapGestureRecognizer *newTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTaps:)];
+    self.tapGestureRecognizer = newTapGestureRecognizer;
+    self.tapGestureRecognizer.numberOfTouchesRequired = 1;
+    self.tapGestureRecognizer.numberOfTapsRequired = 1;
+    [self.view addGestureRecognizer:self.tapGestureRecognizer];
+    [newTapGestureRecognizer release];
+}
+
+-(void)handleTaps:(UITapGestureRecognizer*)paramSender
+{
+    [[UIApplication sharedApplication] setStatusBarHidden:NO animated:YES];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+}
+
+- (NSString *)trimWhitespace:(NSMutableString *)stringToTrim{
+    NSString *removeNewLine = [stringToTrim stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    NSString *removeTab = [removeNewLine stringByReplacingOccurrencesOfString:@"\t" withString:@""];
+    return removeTab;
 }
 
 - (void)viewDidUnload

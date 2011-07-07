@@ -10,7 +10,7 @@
 
 
 @implementation MyXMLParser
-@synthesize parser, weatherData, day1, day2, day3, warningData, alert, stationsData, error;
+@synthesize parser, weatherData, day1, day2, day3, warningData, alert, stationsData, photoOfTheDay, error;
 
 - (void)parseXMLFileAtURL:(NSString *)URL {
 	NSURL *xmlUrl = [NSURL URLWithString:URL];
@@ -107,6 +107,15 @@
         nws_zone_code = [[NSMutableString alloc] init];
         nws_county_code = [[NSMutableString alloc] init];
         station_name = [[NSMutableString alloc] init];
+        closest_radar = [[NSMutableString alloc] init];
+    }
+    if ([elementName isEqualToString:@"photo_of_the_day"]){
+        item = [[NSMutableDictionary alloc] init];
+        photoOfTheDay = [[NSMutableArray alloc] init];
+        date = [[NSMutableString alloc] init];
+        photoURL = [[NSMutableString alloc] init];
+        caption = [[NSMutableString alloc] init];
+        currentType = [NSMutableString stringWithString:@"photo_of_the_day"];
     }
 }
 
@@ -176,7 +185,14 @@
         [item setObject:nws_zone_code forKey:@"nwsZoneCode"];
         [item setObject:nws_county_code forKey:@"nwsCountyCode"];
         [item setObject:station_name forKey:@"station_name"];
+        [item setObject:closest_radar forKey:@"closest_radar"];
         [stationsData addObject:[[item copy] autorelease]];
+    }
+    if ([elementName isEqualToString:@"photo_of_the_day"]){
+        [item setObject:date forKey:@"date"];
+        [item setObject:photoURL forKey:@"photoURL"];
+        [item setObject:caption forKey:@"caption"];
+        [photoOfTheDay addObject:[[item copy] autorelease]];
     }
 }
 
@@ -252,6 +268,16 @@
             [nws_county_code appendString:string];
         else if([currentElement isEqualToString:@"station_long_name"])
             [station_name appendString:string];
+        else if([currentElement isEqualToString:@"closest_radar"])
+            [closest_radar appendString:string];
+    }
+    else if([currentType isEqualToString:@"photo_of_the_day"]){
+        if([currentElement isEqualToString:@"date"])
+            [date appendString:string];
+        else if([currentElement isEqualToString:@"url"])
+            [photoURL appendString:string];
+        else if([currentElement isEqualToString:@"text"])
+            [caption appendString:string];
     }
 }    
 - (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError

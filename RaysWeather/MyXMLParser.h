@@ -63,6 +63,13 @@
     NSMutableString *nws_zone_code;
     NSMutableString *nws_county_code;
     NSMutableString *station_name;
+    NSMutableString *closest_radar;
+    
+    //Photo of the Day
+    NSMutableArray *photoOfTheDay;
+    NSMutableString *date;
+    NSMutableString *photoURL;
+    NSMutableString *caption;
     
     //Error flag
     BOOL error;
@@ -76,6 +83,7 @@
 @property (nonatomic, retain) NSMutableArray *warningData;
 @property (nonatomic, retain) NSMutableArray *alert;
 @property (nonatomic, retain) NSMutableArray *stationsData;
+@property (nonatomic, retain) NSMutableArray *photoOfTheDay;
 @property BOOL error;
 
 - (void)parseXMLFileAtURL:(NSString *)URL;

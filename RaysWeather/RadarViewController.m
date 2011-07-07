@@ -34,15 +34,6 @@
 }
 
 #pragma mark - View lifecycle
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    activityIndicator.hidden = NO;
-    [activityIndicator startAnimating];
-    activityIndicatorLabel.hidden = NO;
-}    
 - (void)viewDidUnload
 {
     [super viewDidUnload];
@@ -52,14 +43,35 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    NSString *urlAddress = @"http://raysweather.com/radar_images/N0R_FCX_loop.gif";
+    [super viewDidAppear:YES];
+    radar.hidden = YES;
+    [activityIndicator startAnimating];
+    [NSThread detachNewThreadSelector:@selector(loadRadar) toTarget:self withObject:nil];
+}
+
+- (void)loadRadar
+{
+    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+    
+    RaysWeatherAppDelegate *delegate = (RaysWeatherAppDelegate*)[[UIApplication sharedApplication] delegate];
+    NSString *closest_radar = [self trimWhitespace:[delegate.closestStation objectForKey:@"closest_radar"]];
+    NSString *urlAddress = [NSString stringWithFormat:@"http://raysweather.com/radar_images/N0R_%@_loop.gif", closest_radar];
 	NSURL *url = [NSURL URLWithString:urlAddress];
 	NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
 	[radar loadRequest:requestObj];
     
-    activityIndicatorLabel.hidden = YES;
     [activityIndicator stopAnimating];
+    activityIndicatorLabel.hidden = YES;
     activityIndicator.hidden = YES;
+    radar.hidden = NO;
+    
+    [pool drain];
+}
+
+- (NSString *)trimWhitespace:(NSMutableString *)stringToTrim{
+    NSString *removeNewLine = [stringToTrim stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    NSString *removeTab = [removeNewLine stringByReplacingOccurrencesOfString:@"\t" withString:@""];
+    return removeTab;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

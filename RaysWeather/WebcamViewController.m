@@ -11,7 +11,7 @@
 
 @implementation WebcamViewController
 
-@synthesize name, extension;
+@synthesize name, extension, tapGestureRecognizer;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -37,8 +37,19 @@
 
 #pragma mark - View lifecycle
 
-- (void)viewDidLoad
+- (void)viewWillAppear:(BOOL)animated
 {
+    webcamView.hidden = YES;
+    [activityIndicator startAnimating];
+    activityIndicator.hidden = NO;
+    activityIndicatorLabel.hidden = NO;
+    [NSThread detachNewThreadSelector:@selector(loadImage) toTarget:self withObject:nil];
+}
+
+- (void)loadImage
+{
+    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+    
     self.title = name;
     
     NSMutableString *imageString = [NSString stringWithFormat:@"http://raysweather.com/images/webcams/%@.jpg", extension];
@@ -57,14 +68,16 @@
     [imageScrollView setMinimumZoomScale:1.0];
     [imageScrollView setMaximumZoomScale:4.0];
     [imageScrollView setDelegate:self];
+    
+    [activityIndicator stopAnimating];
+    activityIndicator.hidden = NO;
+    activityIndicatorLabel.hidden = NO;
+    webcamView.hidden = NO;
+    
+    [self willRotateToInterfaceOrientation:self.interfaceOrientation duration:10];
+    
+    [pool drain];
 }
-
-- (void)viewWillAppear:(BOOL)animated
-{
-
-}
-
-
 
 -(void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
@@ -92,6 +105,21 @@
     }
 }
 
+- (void)viewDidLoad
+{
+    UITapGestureRecognizer *newTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTaps:)];
+    self.tapGestureRecognizer = newTapGestureRecognizer;
+    self.tapGestureRecognizer.numberOfTouchesRequired = 1;
+    self.tapGestureRecognizer.numberOfTapsRequired = 1;
+    [self.view addGestureRecognizer:self.tapGestureRecognizer];
+    [newTapGestureRecognizer release];
+}
+
+-(void)handleTaps:(UITapGestureRecognizer*)paramSender
+{
+    [[UIApplication sharedApplication] setStatusBarHidden:NO animated:YES];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+}
 - (void)viewDidUnload
 {
     [super viewDidUnload];

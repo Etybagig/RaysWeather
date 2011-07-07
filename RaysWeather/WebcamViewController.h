@@ -15,9 +15,13 @@
     IBOutlet UIScrollView *imageScrollView;
     NSString *name;
     NSString *extension;
+    IBOutlet UIActivityIndicatorView *activityIndicator;
+    IBOutlet UILabel *activityIndicatorLabel;
+    UITapGestureRecognizer *tapGestureRecognizer;
 }
 
 @property (nonatomic, retain) NSString *name;
 @property (nonatomic, retain) NSString *extension;
+@property(nonatomic, retain) UITapGestureRecognizer *tapGestureRecognizer;
 
 @end

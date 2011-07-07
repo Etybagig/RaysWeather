@@ -11,8 +11,8 @@
 #import "AlertViewController.h"
 #import "RaysWeatherAppDelegate.h"
 
-@interface WarningsViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource> {
-    
+@interface WarningsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> 
+{    
     IBOutlet UITableView *table;
     NSMutableDictionary *warnings;
     MyXMLParser *parser;
@@ -20,9 +20,15 @@
     NSInteger currentCell;
     BOOL noWarnings;
     AlertViewController *alertView;
+    BOOL isThreadFinished;
+    NSArray *allWarnings;
+    IBOutlet UIActivityIndicatorView *activityIndicator;
+    IBOutlet UILabel *activityIndicatorLabel;
 }
 
 @property (nonatomic, retain) AlertViewController *alertView;
+@property (nonatomic, retain) NSArray *allWarnings;
+@property (nonatomic, retain) UITableView *table;
 
 - (NSString *)trimWhitespace:(NSMutableString *)stringToTrim;
 

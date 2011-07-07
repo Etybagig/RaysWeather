@@ -11,9 +11,21 @@
 @implementation WarningsViewController
 
 @synthesize alertView;
+@synthesize allWarnings;
+@synthesize table;
 
-- (void)viewDidLoad
+- (void)viewDidAppear:(BOOL)animated
 {
+    [super viewDidAppear:YES];
+    
+    isThreadFinished = NO;
+    [activityIndicator startAnimating];
+    [NSThread detachNewThreadSelector:@selector(parseWarnings) toTarget:self withObject:nil];
+}
+
+- (void)parseWarnings
+{
+    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
     RaysWeatherAppDelegate *delegate = (RaysWeatherAppDelegate*)[[UIApplication sharedApplication] delegate];
     
     NSMutableString *zoneCode = [delegate.closestStation valueForKey:@"nwsZoneCode"];
@@ -24,14 +36,19 @@
     parser = [[MyXMLParser alloc] init];
     NSString *path = [NSString stringWithFormat:@"http://alerts.weather.gov/cap/wwaatmget.php?x=%@", zone];
     [parser parseXMLFileAtURL:path];
+    NSMutableArray *zoneWarnings = parser.warningData;
     NSString *path2 = [NSString stringWithFormat:@"http://alerts.weather.gov/cap/wwaatmget.php?x=%@", county];
     [parser parseXMLFileAtURL:path2];
+    NSMutableArray *countyWarnings = parser.warningData;
+    NSMutableSet *set = [NSMutableSet setWithArray:zoneWarnings];
+    [set addObjectsFromArray:countyWarnings];
+    self.allWarnings = [set allObjects];
     
     bool finished = NO;
     int index = 0;
     while (!finished){
         @try{
-            warnings = [parser.warningData objectAtIndex:index];
+            warnings = [allWarnings objectAtIndex:index];
             index++;
             if(warnings == Nil){
                 index--;
@@ -41,7 +58,7 @@
                 index--;
                 finished = YES;
             }
-            else if([parser.warningData count]==index)
+            else if([allWarnings count]==index)
                 finished = YES;
         }@catch(NSException *e){
             finished = YES;
@@ -49,13 +66,13 @@
     }
     numberOfWarnings = index--;
     
-    table = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
-    [table setDelegate:self];
-    [table setDataSource:self];
+    [activityIndicator stopAnimating];
+    activityIndicatorLabel.hidden = YES;
+    activityIndicator.hidden = YES;
+    isThreadFinished = YES;
+    [self.table reloadData];
     
-
-    
-    [super viewDidLoad];
+    [pool drain];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -64,6 +81,8 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+//    while(!isThreadFinished);
+    
     NSLog(@"%d", numberOfWarnings);
     if(numberOfWarnings == 0){
         noWarnings = YES;
@@ -78,6 +97,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+ //   while(!isThreadFinished);
+    
     static NSString *CellIdentifier = @"Cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -87,7 +108,7 @@
     
     int row = [indexPath row];
     if(row<numberOfWarnings && noWarnings==NO){
-        warnings = [parser.warningData objectAtIndex:row];
+        warnings = [allWarnings objectAtIndex:row];
         NSString *title = [self trimWhitespace:[warnings objectForKey:@"title"]];
         [[cell textLabel] setText:title];
     }
@@ -110,7 +131,7 @@
         [anAlertView release];
     }
 
-    warnings = [parser.warningData objectAtIndex:row];
+    warnings = [allWarnings objectAtIndex:row];
     
     NSMutableString *entryURL = [warnings objectForKey:@"entryLink"];
     NSString *title = [self trimWhitespace:[warnings objectForKey:@"title"]];
