@@ -22,6 +22,6 @@
 
 @property (nonatomic, retain) NSString *name;
 @property (nonatomic, retain) NSString *extension;
-@property(nonatomic, retain) UITapGestureRecognizer *tapGestureRecognizer;
+@property (nonatomic, retain) UITapGestureRecognizer *tapGestureRecognizer;
 
 @end

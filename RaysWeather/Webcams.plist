@@ -4,147 +4,147 @@
 <array>
 	<dict>
 		<key>ext</key>
-		<string>105westcam</string>
+		<string>BooneStreetCamera/105West</string>
 		<key>name</key>
 		<string>HWY 105 - Southwest</string>
 	</dict>
 	<dict>
 		<key>ext</key>
-		<string>105eastcam</string>
+		<string>BooneStreetCamera/105East</string>
 		<key>name</key>
 		<string>HWY 105 - Northeast</string>
 	</dict>
 	<dict>
 		<key>ext</key>
-		<string>321northcam</string>
+		<string>BooneStreetCamera/321North</string>
 		<key>name</key>
 		<string>HWY 321 - Northwest</string>
 	</dict>
 	<dict>
 		<key>ext</key>
-		<string>321southcam</string>
+		<string>BooneStreetCamera/321South</string>
 		<key>name</key>
 		<string>HWY 321 - Southeast</string>
 	</dict>
 	<dict>
 		<key>ext</key>
-		<string>linvilleridgeclub</string>
+		<string>LinvilleRidgeClubCam</string>
 		<key>name</key>
 		<string>Linville Ridge Club</string>
 	</dict>
 	<dict>
 		<key>ext</key>
-		<string>linvilleridgebelvedere</string>
+		<string>LinvilleRidgeBelvedereCam</string>
 		<key>name</key>
 		<string>Linville Ridge Belvedere</string>
 	</dict>
 	<dict>
 		<key>ext</key>
-		<string>turkeyknob</string>
+		<string>TurkeyKnobCamera</string>
 		<key>name</key>
 		<string>Turkey Knob</string>
 	</dict>
 	<dict>
 		<key>ext</key>
-		<string>canyonscam</string>
+		<string>CanyonsCam</string>
 		<key>name</key>
 		<string>Canyons</string>
 	</dict>
 	<dict>
 		<key>ext</key>
-		<string>laurelridgecam</string>
+		<string>LaurelRidgeCam</string>
 		<key>name</key>
 		<string>Laurel Ridge</string>
 	</dict>
 	<dict>
 		<key>ext</key>
-		<string>waynesvillestreetcam</string>
+		<string>WaynesvilleStreetCam</string>
 		<key>name</key>
 		<string>Waynesville Street View</string>
 	</dict>
 	<dict>
 		<key>ext</key>
-		<string>waynesvillemountaincam</string>
+		<string>WaynesvilleMountainCam</string>
 		<key>name</key>
 		<string>Waynesville Mountain View</string>
 	</dict>
 	<dict>
 		<key>ext</key>
-		<string>elkriverrunwaycam</string>
+		<string>ElkRiverRunway</string>
 		<key>name</key>
 		<string>Elk River Runway</string>
 	</dict>
 	<dict>
 		<key>ext</key>
-		<string>elkriverbeechcam</string>
+		<string>ElkRiverBeechCam</string>
 		<key>name</key>
 		<string>Elk River Beech Mountain</string>
 	</dict>
 	<dict>
 		<key>ext</key>
-		<string>wolflaurelmtn</string>
+		<string>WolfLaurelMountainViewCam</string>
 		<key>name</key>
 		<string>Wolf Laurel Mountain View</string>
 	</dict>
 	<dict>
 		<key>ext</key>
-		<string>wolflaurelclub</string>
+		<string>WolfLaurelClubCam</string>
 		<key>name</key>
 		<string>Wolf Laurel Country Club View</string>
 	</dict>
 	<dict>
 		<key>ext</key>
-		<string>tourists</string>
+		<string>TouristsCam</string>
 		<key>name</key>
 		<string>Asheville Tourists</string>
 	</dict>
 	<dict>
 		<key>ext</key>
-		<string>OwenHighSchool</string>
+		<string>OwenHighSchoolCam</string>
 		<key>name</key>
 		<string>Owen High School</string>
 	</dict>
 	<dict>
 		<key>ext</key>
-		<string>crestwood</string>
+		<string>CrestwoodCam</string>
 		<key>name</key>
 		<string>Crestwood</string>
 	</dict>
 	<dict>
 		<key>ext</key>
-		<string>rutherwoodcam</string>
-		<key>name</key>
-		<string>Rutherwood</string>
-	</dict>
-	<dict>
-		<key>ext</key>
-		<string>ashemedicalassoccam</string>
+		<string>MountJeffersonCam</string>
 		<key>name</key>
 		<string>Mount Jefferson</string>
 	</dict>
 	<dict>
 		<key>ext</key>
-		<string>boonegolfcam</string>
+		<string>BooneGolfClubCam</string>
 		<key>name</key>
 		<string>Boone Golf Club</string>
 	</dict>
 	<dict>
 		<key>ext</key>
-		<string>roaringgapcam</string>
+		<string>RoaringGapClubCam</string>
 		<key>name</key>
 		<string>Roaring Gap</string>
 	</dict>
 	<dict>
 		<key>ext</key>
-		<string>critchervillecam</string>
+		<string>CritchervilleCam</string>
 		<key>name</key>
 		<string>Critcherville</string>
 	</dict>
 	<dict>
 		<key>ext</key>
-		<string>appskimtncam</string>
+		<string>AppSkiMtnCam</string>
 		<key>name</key>
 		<string>App Ski Mtn</string>
+	</dict>
+	<dict>
+		<key>ext</key>
+		<string>GreyBeardCam</string>
+		<key>name</key>
+		<string>Greybeard Realty Cam</string>
 	</dict>
 </array>
 </plist>

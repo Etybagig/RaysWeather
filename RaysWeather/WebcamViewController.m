@@ -52,7 +52,7 @@
     
     self.title = name;
     
-    NSMutableString *imageString = [NSString stringWithFormat:@"http://raysweather.com/images/webcams/%@.jpg", extension];
+    NSMutableString *imageString = [NSString stringWithFormat:@"http://raysweather.com/images/webcams/%@/image.jpg", extension];
     NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:imageString]];
     UIImage *downloadedImage = [UIImage imageWithData:imageData];
     image = downloadedImage;
