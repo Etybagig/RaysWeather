@@ -90,15 +90,6 @@
     return removeTab;
 }
 
-- (void)dealloc
-{
-    [locationManager release];
-    [window release];
-    [tabBarController release];
-    [super dealloc];
-}
-
-
 // Optional UITabBarControllerDelegate method.
 - (void)tabBarController:(UITabBarController *)thistabBarController didSelectViewController:(UIViewController *)viewController
 {
@@ -108,6 +99,22 @@
     else if(thistabBarController.interfaceOrientation==UIInterfaceOrientationLandscapeRight ||
             thistabBarController.interfaceOrientation==UIInterfaceOrientationLandscapeLeft)
         [viewController willRotateToInterfaceOrientation:UIInterfaceOrientationLandscapeLeft duration:10];
+}
+
+- (void)dealloc
+{
+    [locationManager release];
+    [alertNavController release];
+    [moreNavController release];
+    [currentLocation release];
+    [currentNavController release];
+    [closestStation release];
+    [currentConditions release];
+    [stations release];
+    [parser release];
+    [window release];
+    [tabBarController release];
+    [super dealloc];
 }
 
 @end

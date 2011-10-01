@@ -22,11 +22,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    [super dealloc];
-}
-
 - (void)didReceiveMemoryWarning
 {
     // Releases the view if it doesn't have a superview.
@@ -48,18 +43,7 @@
     description.text = [alert objectForKey:@"description"];
     instruction.text = [alert objectForKey:@"instruction"];
     self.title = [alert objectForKey:@"severity"];
-}
-
-- (void)initialize
-{
-    parser = [[MyXMLParser alloc] init];
-    [parser parseXMLFileAtURL:uRL];
-    
-    NSMutableDictionary *alert = [parser.alert objectAtIndex:0];
-    headline.text = [alert objectForKey:@"headline"];
-    description.text = [alert objectForKey:@"description"];
-    instruction.text = [alert objectForKey:@"instruction"];
-    self.title = [alert objectForKey:@"severity"];
+    [parser release];
 }
 
 - (void)viewDidUnload
@@ -74,6 +58,12 @@
     // Return YES for supported orientations
     return YES;
     //return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (void)dealloc
+{
+    [uRL release];
+    [super dealloc];
 }
 
 @end

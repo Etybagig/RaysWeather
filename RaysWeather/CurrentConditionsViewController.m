@@ -62,7 +62,7 @@
 {
     stationInfo = delegate.closestStation;
     
-    self.title = @"Current Conditions";
+    self.title = @"Current";
     
     //Create Parser
     parser = [MyXMLParser new];
@@ -166,6 +166,7 @@
     stationPicker.hidesBottomBarWhenPushed = YES;
     stationPicker.currentViewController = self;
     [delegate.currentNavController pushViewController:stationPicker animated:YES];
+    [stationPicker release];
 }
 
 
@@ -267,9 +268,9 @@
 
 - (void)dealloc
 {
-    [super dealloc];
     [parser release];
     [weatherDictionary release];
+    [super dealloc];
 }
 
 @end

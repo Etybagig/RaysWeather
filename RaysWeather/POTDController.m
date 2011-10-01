@@ -21,11 +21,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    [super dealloc];
-}
-
 - (void)didReceiveMemoryWarning
 {
     // Releases the view if it doesn't have a superview.
@@ -81,7 +76,7 @@
     [format release];
     
     [self performSelectorOnMainThread:@selector(updateUI) withObject:nil waitUntilDone: NO];
-    
+    [parser release];
     [pool drain];
 }
 
@@ -116,8 +111,6 @@
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -160,6 +153,13 @@
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
 {
     return potdView;
+}
+
+-(void)dealloc
+{
+    [tapGestureRecognizer release];
+    [captionText release];
+    [super dealloc];
 }
 
 @end

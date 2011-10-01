@@ -80,7 +80,6 @@
     
     //-----------------------Day Three----------------------//
     dayThreeDictionary = [parser.day3 objectAtIndex:0];
-    [parser release];
     
     //Day Name
     thirdDay.text = [self trimWhitespace:[dayThreeDictionary objectForKey:@"day_of_week"]];
@@ -221,6 +220,9 @@
 
 - (void)dealloc
 {
+    [dayOneDictionary release];
+    [dayTwoDictionary release];
+    [dayThreeDictionary release];
     [super dealloc];
 }
 

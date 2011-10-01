@@ -137,7 +137,6 @@
     NSString *title = [self trimWhitespace:[warnings objectForKey:@"title"]];
     if(!([title isEqualToString:@"There are no active watches, warnings or advisories"])){
         alertView.uRL = [self trimWhitespace:entryURL];
-        [alertView initialize];
         RaysWeatherAppDelegate *delegate = (RaysWeatherAppDelegate*)[[UIApplication sharedApplication] delegate];
         [delegate.alertNavController pushViewController:alertView animated:YES];
     }
@@ -172,15 +171,17 @@
 
 - (void)viewDidUnload
 {
-    [super viewDidUnload];
-    
     // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+    self.alertView = nil;
+    [super viewDidUnload];
 }
 
 
 - (void)dealloc
 {
+    [alertView release];
+    [allWarnings release];
+    [table release];
     [super dealloc];
 }
 

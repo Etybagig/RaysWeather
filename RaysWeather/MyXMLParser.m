@@ -10,7 +10,7 @@
 
 
 @implementation MyXMLParser
-@synthesize parser, weatherData, day1, day2, day3, warningData, alert, stationsData, photoOfTheDay, error;
+@synthesize parser, weatherData, day1, day2, day3, warningData, alert, error, stationsData, photoOfTheDay;
 
 - (void)parseXMLFileAtURL:(NSString *)URL {
 	NSURL *xmlUrl = [NSURL URLWithString:URL];
@@ -284,4 +284,19 @@
 {
     error = YES;
 }
+
+-(void)dealloc
+{
+    [parser release];
+    [weatherData release];
+    [day1 release];
+    [day2 release];
+    [day3 release];
+    [warningData release];
+    [alert release];
+    [stationsData release];
+    [photoOfTheDay release];
+    [super dealloc];
+}
+
 @end

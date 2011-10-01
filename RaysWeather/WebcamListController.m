@@ -22,11 +22,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    [super dealloc];
-}
-
 - (void)didReceiveMemoryWarning
 {
     // Releases the view if it doesn't have a superview.
@@ -49,9 +44,8 @@
 
 - (void)viewDidUnload
 {
+    self.webcamView = nil;
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -166,6 +160,12 @@
     
     RaysWeatherAppDelegate *delegate = (RaysWeatherAppDelegate*)[[UIApplication sharedApplication] delegate];
     [delegate.moreNavController pushViewController:webcamView animated:YES];
+}
+
+- (void)dealloc
+{
+    [webcamView release];
+    [super dealloc];
 }
 
 @end

@@ -52,12 +52,6 @@
 	</dict>
 	<dict>
 		<key>ext</key>
-		<string>LaurelRidgeCam</string>
-		<key>name</key>
-		<string>Laurel Ridge</string>
-	</dict>
-	<dict>
-		<key>ext</key>
 		<string>WaynesvilleStreetCam</string>
 		<key>name</key>
 		<string>Waynesville Street View</string>

@@ -30,6 +30,7 @@
 		90A81D56133F8167000CF563 /* sun.png in Resources */ = {isa = PBXBuildFile; fileRef = 90A81D55133F8167000CF563 /* sun.png */; };
 		90A81D59133F8188000CF563 /* telescope.png in Resources */ = {isa = PBXBuildFile; fileRef = 90A81D58133F8188000CF563 /* telescope.png */; };
 		90A81D5B133F81D4000CF563 /* warning2.png in Resources */ = {isa = PBXBuildFile; fileRef = 90A81D5A133F81D4000CF563 /* warning2.png */; };
+		90D05A9914368173008DB8B2 /* radar.png in Resources */ = {isa = PBXBuildFile; fileRef = 90D05A9814368173008DB8B2 /* radar.png */; };
 		9A083AA213452F8B00C17E5D /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A083AA013452F8B00C17E5D /* MoreViewController.m */; };
 		9A083AA313452F8B00C17E5D /* MoreView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A083AA113452F8B00C17E5D /* MoreView.xib */; };
 		9A083AA71345484800C17E5D /* POTDController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A083AA51345484800C17E5D /* POTDController.m */; };
@@ -98,6 +99,7 @@
 		90A81D55133F8167000CF563 /* sun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sun.png; sourceTree = "<group>"; };
 		90A81D58133F8188000CF563 /* telescope.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = telescope.png; sourceTree = "<group>"; };
 		90A81D5A133F81D4000CF563 /* warning2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = warning2.png; sourceTree = "<group>"; };
+		90D05A9814368173008DB8B2 /* radar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radar.png; sourceTree = "<group>"; };
 		9A083A9F13452F8B00C17E5D /* MoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreViewController.h; sourceTree = "<group>"; };
 		9A083AA013452F8B00C17E5D /* MoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreViewController.m; sourceTree = "<group>"; };
 		9A083AA113452F8B00C17E5D /* MoreView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreView.xib; sourceTree = "<group>"; };
@@ -315,6 +317,7 @@
 			isa = PBXGroup;
 			children = (
 				9A3F04AC134EB29C003792A5 /* Default.png */,
+				90D05A9814368173008DB8B2 /* radar.png */,
 				9A3F04AD134EB29C003792A5 /* Default@2x.png */,
 				9A3F04AE134EB29C003792A5 /* Icon.png */,
 				9A3F04AF134EB29C003792A5 /* Icon@2x.png */,
@@ -434,6 +437,7 @@
 				9A3F04B3134EB29C003792A5 /* Icon@2x.png in Resources */,
 				9A8481611354B4E2004183F6 /* RadarView.xib in Resources */,
 				9AA4AFFD13C3F21100F287B7 /* StationPicker.xib in Resources */,
+				90D05A9914368173008DB8B2 /* radar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

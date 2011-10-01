@@ -20,11 +20,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    [super dealloc];
-}
-
 - (void)didReceiveMemoryWarning
 {
     // Releases the view if it doesn't have a superview.
@@ -37,17 +32,26 @@
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    activityIndicator.hidden = NO;
+    activityIndicatorLabel.hidden = NO;
+    [activityIndicator startAnimating];
+    radar.hidden = YES;
+    [NSThread detachNewThreadSelector:@selector(loadRadar) toTarget:self withObject:nil];
+}
+
+/*
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:YES];
     radar.hidden = YES;
-    [activityIndicator startAnimating];
     [NSThread detachNewThreadSelector:@selector(loadRadar) toTarget:self withObject:nil];
 }
+*/
 
 - (void)loadRadar
 {
@@ -78,6 +82,11 @@
 {
     // Return YES for supported orientations
     return YES;
+}
+
+- (void)dealloc
+{
+    [super dealloc];
 }
 
 @end
