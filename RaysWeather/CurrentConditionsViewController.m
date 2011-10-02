@@ -269,7 +269,7 @@
 - (void)dealloc
 {
     [parser release];
-    [weatherDictionary release];
+    [stationInfo release];
     [super dealloc];
 }
 

@@ -14,8 +14,10 @@
     IBOutlet UIWebView *radar;
     IBOutlet UIActivityIndicatorView *activityIndicator;
     IBOutlet UILabel *activityIndicatorLabel;
+    NSTimer *timer;
 }
 
 - (NSString *)trimWhitespace:(NSMutableString *)stringToTrim;
+-(void)timerLoad;
 
 @end

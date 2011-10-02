@@ -37,21 +37,25 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    activityIndicator.hidden = NO;
-    activityIndicatorLabel.hidden = NO;
-    [activityIndicator startAnimating];
-    radar.hidden = YES;
     [NSThread detachNewThreadSelector:@selector(loadRadar) toTarget:self withObject:nil];
+    timer = [NSTimer scheduledTimerWithTimeInterval:(1.0/2.0) target:self selector:@selector(timerLoad) userInfo:nil repeats:YES];
 }
 
-/*
-- (void)viewDidAppear:(BOOL)animated
+- (void)timerLoad
 {
-    [super viewDidAppear:YES];
-    radar.hidden = YES;
-    [NSThread detachNewThreadSelector:@selector(loadRadar) toTarget:self withObject:nil];
+    if (!radar.loading)
+    {
+        [activityIndicator stopAnimating];
+        activityIndicator.hidden = YES;
+        activityIndicatorLabel.hidden = YES;
+    }
+    else
+    {
+        activityIndicator.hidden = NO;
+        activityIndicatorLabel.hidden = NO;
+        [activityIndicator startAnimating];
+    }
 }
-*/
 
 - (void)loadRadar
 {
@@ -63,11 +67,6 @@
 	NSURL *url = [NSURL URLWithString:urlAddress];
 	NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
 	[radar loadRequest:requestObj];
-    
-    [activityIndicator stopAnimating];
-    activityIndicatorLabel.hidden = YES;
-    activityIndicator.hidden = YES;
-    radar.hidden = NO;
     
     [pool drain];
 }
