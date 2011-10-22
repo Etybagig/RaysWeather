@@ -20,8 +20,8 @@
     UITapGestureRecognizer *tapGestureRecognizer;
 }
 
-@property (nonatomic, retain) NSString *name;
-@property (nonatomic, retain) NSString *extension;
-@property (nonatomic, retain) UITapGestureRecognizer *tapGestureRecognizer;
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *extension;
+@property (nonatomic, strong) UITapGestureRecognizer *tapGestureRecognizer;
 
 @end

@@ -43,7 +43,6 @@
     description.text = [alert objectForKey:@"description"];
     instruction.text = [alert objectForKey:@"instruction"];
     self.title = [alert objectForKey:@"severity"];
-    [parser release];
 }
 
 - (void)viewDidUnload
@@ -60,10 +59,5 @@
     //return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-- (void)dealloc
-{
-    [uRL release];
-    [super dealloc];
-}
 
 @end

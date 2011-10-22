@@ -166,7 +166,6 @@
     stationPicker.hidesBottomBarWhenPushed = YES;
     stationPicker.currentViewController = self;
     [delegate.currentNavController pushViewController:stationPicker animated:YES];
-    [stationPicker release];
 }
 
 
@@ -266,11 +265,5 @@
 }
 
 
-- (void)dealloc
-{
-    [parser release];
-    [stationInfo release];
-    [super dealloc];
-}
 
 @end

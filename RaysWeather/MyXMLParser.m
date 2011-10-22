@@ -132,12 +132,12 @@
 		[item setObject:currentWindDirection forKey:@"wind_direction"];
 		[item setObject:currentHiTemp forKey:@"hi_temp"];
 		[item setObject:currentLoTemp forKey:@"lo_temp"];
-		[weatherData addObject:[[item copy] autorelease]];
+		[weatherData addObject:[item copy]];
 	}
     if ([elementName isEqualToString:@"forecast"]){
         [item setObject:currentIntro forKey:@"introduction"];
         [item setObject:currentIntroTitle forKey:@"title"];
-        [weatherData addObject:[[item copy] autorelease]];
+        [weatherData addObject:[item copy]];
     }
     if ([elementName isEqualToString:@"day1"]){
         [item setObject:hi forKey:@"hi"];
@@ -145,7 +145,7 @@
         [item setObject:icon forKey:@"icon"];
         [item setObject:day_of_week forKey:@"day_of_week"];
         [item setObject:description forKey:@"descrip"];
-        [day1 addObject:[[item copy] autorelease]];
+        [day1 addObject:[item copy]];
     }
     if ([elementName isEqualToString:@"day2"]){
         [item setObject:hi forKey:@"hi"];
@@ -153,7 +153,7 @@
         [item setObject:icon forKey:@"icon"];
         [item setObject:day_of_week forKey:@"day_of_week"];
         [item setObject:description forKey:@"descrip"];
-        [day2 addObject:[[item copy] autorelease]];
+        [day2 addObject:[item copy]];
     }
     if ([elementName isEqualToString:@"day3"]){
         [item setObject:hi forKey:@"hi"];
@@ -161,20 +161,20 @@
         [item setObject:icon forKey:@"icon"];
         [item setObject:day_of_week forKey:@"day_of_week"];
         [item setObject:description forKey:@"descrip"];
-        [day3 addObject:[[item copy] autorelease]];
+        [day3 addObject:[item copy]];
     }
     if ([elementName isEqualToString:@"entry"]){
         [item setObject:linkToEntry forKey:@"entryLink"];
         [item setObject:title forKey:@"title"];
         [item setObject:summary forKey:@"summary"];
-        [warningData addObject:[[item copy] autorelease]];
+        [warningData addObject:[item copy]];
     }
     if ([elementName isEqualToString:@"alert"]){
         [item setObject:headline forKey:@"headline"];
         [item setObject:alertDescription forKey:@"description"];
         [item setObject:instruction forKey:@"instruction"];
         [item setObject:severity forKey:@"severity"];
-        [alert addObject:[[item copy] autorelease]];
+        [alert addObject:[item copy]];
     }
     if ([elementName isEqualToString:@"station"]){
         [item setObject:station_id forKey:@"stationId"];
@@ -186,13 +186,13 @@
         [item setObject:nws_county_code forKey:@"nwsCountyCode"];
         [item setObject:station_name forKey:@"station_name"];
         [item setObject:closest_radar forKey:@"closest_radar"];
-        [stationsData addObject:[[item copy] autorelease]];
+        [stationsData addObject:[item copy]];
     }
     if ([elementName isEqualToString:@"photo_of_the_day"]){
         [item setObject:date forKey:@"date"];
         [item setObject:photoURL forKey:@"photoURL"];
         [item setObject:caption forKey:@"caption"];
-        [photoOfTheDay addObject:[[item copy] autorelease]];
+        [photoOfTheDay addObject:[item copy]];
     }
 }
 
@@ -285,18 +285,5 @@
     error = YES;
 }
 
--(void)dealloc
-{
-    [parser release];
-    [weatherData release];
-    [day1 release];
-    [day2 release];
-    [day3 release];
-    [warningData release];
-    [alert release];
-    [stationsData release];
-    [photoOfTheDay release];
-    [super dealloc];
-}
 
 @end

@@ -90,10 +90,5 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-- (void)dealloc
-{
-    [currentViewController release];
-    [super dealloc];
-}
 
 @end

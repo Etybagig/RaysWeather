@@ -55,9 +55,9 @@
     CurrentConditionsViewController *currentConditions;
 }
 
-@property (nonatomic, retain) NSMutableDictionary *dayOneDictionary;
-@property (nonatomic, retain) NSMutableDictionary *dayTwoDictionary;
-@property (nonatomic, retain) NSMutableDictionary *dayThreeDictionary;
+@property (nonatomic, strong) NSMutableDictionary *dayOneDictionary;
+@property (nonatomic, strong) NSMutableDictionary *dayTwoDictionary;
+@property (nonatomic, strong) NSMutableDictionary *dayThreeDictionary;
 
 - (NSString *)trimWhitespace:(NSMutableString *)stringToTrim;
 - (void)rotateToLandscape;

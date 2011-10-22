@@ -15,6 +15,6 @@
     WebcamViewController *webcamView;
 }
 
-@property (nonatomic, retain) WebcamViewController *webcamView;
+@property (nonatomic, strong) WebcamViewController *webcamView;
 
 @end

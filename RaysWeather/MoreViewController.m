@@ -46,7 +46,6 @@
     RaysWeatherAppDelegate *delegate = (RaysWeatherAppDelegate*)[[UIApplication sharedApplication] delegate];
     potdView.hidesBottomBarWhenPushed = YES;
     [delegate.moreNavController pushViewController:potdView animated:YES];
-    [potdView release];
 }
 
 - (void)webcamsButtonTouched:(id)sender
@@ -55,7 +54,6 @@
     RaysWeatherAppDelegate *delegate = (RaysWeatherAppDelegate*)[[UIApplication sharedApplication] delegate];
     webcamList.hidesBottomBarWhenPushed = YES;
     [delegate.moreNavController pushViewController:webcamList animated:YES];
-    [webcamList release];
 }
      
 - (void)viewDidUnload
@@ -82,9 +80,5 @@
     self.title = @"Rays Weather Center";
 }
 
-- (void)dealloc
-{
-    [super dealloc];
-}
 
 @end

@@ -75,15 +75,15 @@
     BOOL error;
 }
 
-@property (nonatomic, retain) NSXMLParser *parser;
-@property (nonatomic, retain) NSMutableArray *weatherData;
-@property (nonatomic, retain) NSMutableArray *day1;
-@property (nonatomic, retain) NSMutableArray *day2;
-@property (nonatomic, retain) NSMutableArray *day3;
-@property (nonatomic, retain) NSMutableArray *warningData;
-@property (nonatomic, retain) NSMutableArray *alert;
-@property (nonatomic, retain) NSMutableArray *stationsData;
-@property (nonatomic, retain) NSMutableArray *photoOfTheDay;
+@property (nonatomic, strong) NSXMLParser *parser;
+@property (nonatomic, strong) NSMutableArray *weatherData;
+@property (nonatomic, strong) NSMutableArray *day1;
+@property (nonatomic, strong) NSMutableArray *day2;
+@property (nonatomic, strong) NSMutableArray *day3;
+@property (nonatomic, strong) NSMutableArray *warningData;
+@property (nonatomic, strong) NSMutableArray *alert;
+@property (nonatomic, strong) NSMutableArray *stationsData;
+@property (nonatomic, strong) NSMutableArray *photoOfTheDay;
 @property BOOL error;
 
 - (void)parseXMLFileAtURL:(NSString *)URL;

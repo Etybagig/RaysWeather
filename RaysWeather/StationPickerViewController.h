@@ -22,7 +22,7 @@
     CurrentConditionsViewController *currentViewController;
 }
 
-@property (nonatomic, retain) CurrentConditionsViewController *currentViewController;
+@property (nonatomic, strong) CurrentConditionsViewController *currentViewController;
 
 - (NSString *)trimWhitespace:(NSMutableString *)stringToTrim;
 - (IBAction)buttonPressed;

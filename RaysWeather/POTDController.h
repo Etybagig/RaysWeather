@@ -20,8 +20,8 @@
     NSString *captionText;
 }
 
-@property (nonatomic, retain) UITapGestureRecognizer *tapGestureRecognizer;
-@property (nonatomic, retain) NSString *captionText;
+@property (nonatomic, strong) UITapGestureRecognizer *tapGestureRecognizer;
+@property (nonatomic, strong) NSString *captionText;
 
 - (NSString *)trimWhitespace:(NSMutableString *)stringToTrim;
 

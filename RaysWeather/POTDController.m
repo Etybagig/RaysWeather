@@ -42,42 +42,40 @@
 
 - (void)loadPhoto
 {
-    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+    @autoreleasepool {
     
-    MyXMLParser *parser = [[MyXMLParser alloc] init];
-    [parser parseXMLFileAtURL:@"http://raysweather.com/mobile/photo/"];
-    
-    NSMutableDictionary *potd = [parser.photoOfTheDay objectAtIndex:0];
-    NSMutableString *photoURL = [potd objectForKey:@"photoURL"];
-    
-    NSString *imageString = [self trimWhitespace:photoURL];
-    NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:imageString]];
-    image = [UIImage imageWithData:imageData];
-    
-    self.captionText = [self trimWhitespace:[potd objectForKey:@"caption"]];
-    
-    potdView = [[UIImageView alloc] initWithImage:image];
-    [potdView setContentMode:UIViewContentModeScaleAspectFit];
-    [potdView setFrame:CGRectMake(0, 0, 320, 367)];
-    
-    [imageScrollView addSubview:potdView];
-    [imageScrollView setContentSize:CGSizeMake(potdView.frame.size.width,
-                                               potdView.frame.size.height)];
-    [imageScrollView setScrollEnabled:YES];
-    [imageScrollView setMinimumZoomScale:1.0];
-    [imageScrollView setMaximumZoomScale:4.0];
-    [imageScrollView setDelegate:self];
-    
-    NSDate *date = [NSDate date];
-    NSDateFormatter *format = [[NSDateFormatter alloc] init];
-    [format setDateStyle:NSDateFormatterShortStyle];
-    NSString *dateString = [format stringFromDate:date];
-    self.title = [NSString stringWithFormat:@"Photo for %@", dateString];
-    [format release];
-    
-    [self performSelectorOnMainThread:@selector(updateUI) withObject:nil waitUntilDone: NO];
-    [parser release];
-    [pool drain];
+        MyXMLParser *parser = [[MyXMLParser alloc] init];
+        [parser parseXMLFileAtURL:@"http://raysweather.com/mobile/photo/"];
+        
+        NSMutableDictionary *potd = [parser.photoOfTheDay objectAtIndex:0];
+        NSMutableString *photoURL = [potd objectForKey:@"photoURL"];
+        
+        NSString *imageString = [self trimWhitespace:photoURL];
+        NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:imageString]];
+        image = [UIImage imageWithData:imageData];
+        
+        self.captionText = [self trimWhitespace:[potd objectForKey:@"caption"]];
+        
+        potdView = [[UIImageView alloc] initWithImage:image];
+        [potdView setContentMode:UIViewContentModeScaleAspectFit];
+        [potdView setFrame:CGRectMake(0, 0, 320, 367)];
+        
+        [imageScrollView addSubview:potdView];
+        [imageScrollView setContentSize:CGSizeMake(potdView.frame.size.width,
+                                                   potdView.frame.size.height)];
+        [imageScrollView setScrollEnabled:YES];
+        [imageScrollView setMinimumZoomScale:1.0];
+        [imageScrollView setMaximumZoomScale:4.0];
+        [imageScrollView setDelegate:self];
+        
+        NSDate *date = [NSDate date];
+        NSDateFormatter *format = [[NSDateFormatter alloc] init];
+        [format setDateStyle:NSDateFormatterShortStyle];
+        NSString *dateString = [format stringFromDate:date];
+        self.title = [NSString stringWithFormat:@"Photo for %@", dateString];
+        
+        [self performSelectorOnMainThread:@selector(updateUI) withObject:nil waitUntilDone: NO];
+    }
 }
 
 - (void)updateUI
@@ -93,7 +91,6 @@
     self.tapGestureRecognizer.numberOfTouchesRequired = 1;
     self.tapGestureRecognizer.numberOfTapsRequired = 1;
     [self.view addGestureRecognizer:self.tapGestureRecognizer];
-    [newTapGestureRecognizer release];
 }
 
 -(void)handleTaps:(UITapGestureRecognizer*)paramSender
@@ -155,11 +152,5 @@
     return potdView;
 }
 
--(void)dealloc
-{
-    [tapGestureRecognizer release];
-    [captionText release];
-    [super dealloc];
-}
 
 @end

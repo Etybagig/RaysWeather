@@ -17,6 +17,6 @@
     MyXMLParser *parser;
 }
 
-@property(nonatomic, retain) NSString *uRL;
+@property(nonatomic, strong) NSString *uRL;
 
 @end

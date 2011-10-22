@@ -26,17 +26,17 @@
     MyXMLParser *parser;
 }
 
-@property (nonatomic, retain) IBOutlet UIWindow *window;
-@property (nonatomic, retain) IBOutlet UITabBarController *tabBarController;
-@property (nonatomic, retain) IBOutlet UINavigationController *alertNavController;
-@property (nonatomic, retain) IBOutlet UINavigationController *moreNavController;
-@property (nonatomic, retain) IBOutlet UINavigationController *currentNavController;
-@property (nonatomic, retain) CLLocationManager *locationManager;
-@property (nonatomic, retain) CLLocation *currentLocation;
-@property (nonatomic, retain) NSMutableDictionary *closestStation;
-@property (nonatomic, retain) NSMutableArray *stations;
-@property (nonatomic, retain) CurrentConditionsViewController *currentConditions;
-@property (nonatomic, retain) MyXMLParser *parser;
+@property (nonatomic, strong) IBOutlet UIWindow *window;
+@property (nonatomic, strong) IBOutlet UITabBarController *tabBarController;
+@property (nonatomic, strong) IBOutlet UINavigationController *alertNavController;
+@property (nonatomic, strong) IBOutlet UINavigationController *moreNavController;
+@property (nonatomic, strong) IBOutlet UINavigationController *currentNavController;
+@property (nonatomic, strong) CLLocationManager *locationManager;
+@property (nonatomic, strong) CLLocation *currentLocation;
+@property (nonatomic, strong) NSMutableDictionary *closestStation;
+@property (nonatomic, strong) NSMutableArray *stations;
+@property (nonatomic, strong) CurrentConditionsViewController *currentConditions;
+@property (nonatomic, strong) MyXMLParser *parser;
 
 - (NSString *)trimWhitespace:(NSMutableString *)stringToTrim;
 

@@ -53,8 +53,8 @@
     RaysWeatherAppDelegate *delegate;
 }
 
-@property (nonatomic, retain) MyXMLParser *parser;
-@property (nonatomic, retain) NSMutableDictionary *stationInfo;
+@property (nonatomic, strong) MyXMLParser *parser;
+@property (nonatomic, strong) NSMutableDictionary *stationInfo;
 
 - (void)showPicker;
 - (void)locationReceived;

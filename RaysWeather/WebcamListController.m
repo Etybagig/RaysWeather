@@ -93,7 +93,7 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
     int row = [indexPath row];
@@ -151,7 +151,6 @@
     if(webcamView == nil){
         WebcamViewController *aWebcamView = [[WebcamViewController alloc] initWithNibName:@"WebcamView" bundle:nil];
         self.webcamView = aWebcamView;
-        [aWebcamView release];
     }
     
     NSMutableDictionary *webcamAtRow = [webcams objectAtIndex:row];
@@ -162,10 +161,5 @@
     [delegate.moreNavController pushViewController:webcamView animated:YES];
 }
 
-- (void)dealloc
-{
-    [webcamView release];
-    [super dealloc];
-}
 
 @end

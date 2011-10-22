@@ -25,54 +25,54 @@
 
 - (void)parseWarnings
 {
-    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-    RaysWeatherAppDelegate *delegate = (RaysWeatherAppDelegate*)[[UIApplication sharedApplication] delegate];
-    
-    NSMutableString *zoneCode = [delegate.closestStation valueForKey:@"nwsZoneCode"];
-    NSString *zone = [self trimWhitespace:zoneCode];
-    NSMutableString *countyCode = [delegate.closestStation valueForKey:@"nwsCountyCode"];
-    NSString *county = [self trimWhitespace:countyCode];
-    
-    parser = [[MyXMLParser alloc] init];
-    NSString *path = [NSString stringWithFormat:@"http://alerts.weather.gov/cap/wwaatmget.php?x=%@", zone];
-    [parser parseXMLFileAtURL:path];
-    NSMutableArray *zoneWarnings = parser.warningData;
-    NSString *path2 = [NSString stringWithFormat:@"http://alerts.weather.gov/cap/wwaatmget.php?x=%@", county];
-    [parser parseXMLFileAtURL:path2];
-    NSMutableArray *countyWarnings = parser.warningData;
-    NSMutableSet *set = [NSMutableSet setWithArray:zoneWarnings];
-    [set addObjectsFromArray:countyWarnings];
-    self.allWarnings = [set allObjects];
-    
-    bool finished = NO;
-    int index = 0;
-    while (!finished){
-        @try{
-            warnings = [allWarnings objectAtIndex:index];
-            index++;
-            if(warnings == Nil){
-                index--;
+    @autoreleasepool {
+        RaysWeatherAppDelegate *delegate = (RaysWeatherAppDelegate*)[[UIApplication sharedApplication] delegate];
+        
+        NSMutableString *zoneCode = [delegate.closestStation valueForKey:@"nwsZoneCode"];
+        NSString *zone = [self trimWhitespace:zoneCode];
+        NSMutableString *countyCode = [delegate.closestStation valueForKey:@"nwsCountyCode"];
+        NSString *county = [self trimWhitespace:countyCode];
+        
+        parser = [[MyXMLParser alloc] init];
+        NSString *path = [NSString stringWithFormat:@"http://alerts.weather.gov/cap/wwaatmget.php?x=%@", zone];
+        [parser parseXMLFileAtURL:path];
+        NSMutableArray *zoneWarnings = parser.warningData;
+        NSString *path2 = [NSString stringWithFormat:@"http://alerts.weather.gov/cap/wwaatmget.php?x=%@", county];
+        [parser parseXMLFileAtURL:path2];
+        NSMutableArray *countyWarnings = parser.warningData;
+        NSMutableSet *set = [NSMutableSet setWithArray:zoneWarnings];
+        [set addObjectsFromArray:countyWarnings];
+        self.allWarnings = [set allObjects];
+        
+        bool finished = NO;
+        int index = 0;
+        while (!finished){
+            @try{
+                warnings = [allWarnings objectAtIndex:index];
+                index++;
+                if(warnings == Nil){
+                    index--;
+                    finished = YES;
+                }
+                else if([[warnings objectForKey:@"summary"] isEqualToString:@""]){
+                    index--;
+                    finished = YES;
+                }
+                else if([allWarnings count]==index)
+                    finished = YES;
+            }@catch(NSException *e){
                 finished = YES;
             }
-            else if([[warnings objectForKey:@"summary"] isEqualToString:@""]){
-                index--;
-                finished = YES;
-            }
-            else if([allWarnings count]==index)
-                finished = YES;
-        }@catch(NSException *e){
-            finished = YES;
         }
+        numberOfWarnings = index--;
+        
+        [activityIndicator stopAnimating];
+        activityIndicatorLabel.hidden = YES;
+        activityIndicator.hidden = YES;
+        isThreadFinished = YES;
+        [self.table reloadData];
+    
     }
-    numberOfWarnings = index--;
-    
-    [activityIndicator stopAnimating];
-    activityIndicatorLabel.hidden = YES;
-    activityIndicator.hidden = YES;
-    isThreadFinished = YES;
-    [self.table reloadData];
-    
-    [pool drain];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -103,7 +103,7 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if(cell == nil){
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
     int row = [indexPath row];
@@ -128,7 +128,6 @@
     if(self.alertView == nil){
         AlertViewController *anAlertView = [[AlertViewController alloc] initWithNibName:@"AlertView" bundle:nil];
         self.alertView = anAlertView;
-        [anAlertView release];
     }
 
     warnings = [allWarnings objectAtIndex:row];
@@ -177,12 +176,5 @@
 }
 
 
-- (void)dealloc
-{
-    [alertView release];
-    [allWarnings release];
-    [table release];
-    [super dealloc];
-}
 
 @end

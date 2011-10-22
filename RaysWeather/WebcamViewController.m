@@ -43,35 +43,35 @@
 
 - (void)loadImage
 {
-    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+    @autoreleasepool {
     
-    self.title = name;
+        self.title = name;
+        
+        NSMutableString *imageString = [NSString stringWithFormat:@"http://raysweather.com/images/webcams/%@/image.jpg", extension];
+        NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:imageString]];
+        UIImage *downloadedImage = [UIImage imageWithData:imageData];
+        image = downloadedImage;
+        
+        webcamView = [[UIImageView alloc] initWithImage:image];
+        [webcamView setContentMode:UIViewContentModeScaleAspectFit];
+        [webcamView setFrame:CGRectMake(0,0,320,367)];
+        
+        [imageScrollView addSubview:webcamView];
+        [imageScrollView setContentSize:CGSizeMake(webcamView.frame.size.width, 
+                                                   webcamView.frame.size.height)];
+        [imageScrollView setScrollEnabled:YES];
+        [imageScrollView setMinimumZoomScale:1.0];
+        [imageScrollView setMaximumZoomScale:4.0];
+        [imageScrollView setDelegate:self];
+        
+        [activityIndicator stopAnimating];
+        activityIndicator.hidden = NO;
+        activityIndicatorLabel.hidden = NO;
+        webcamView.hidden = NO;
+        
+        [self willRotateToInterfaceOrientation:self.interfaceOrientation duration:10];
     
-    NSMutableString *imageString = [NSString stringWithFormat:@"http://raysweather.com/images/webcams/%@/image.jpg", extension];
-    NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:imageString]];
-    UIImage *downloadedImage = [UIImage imageWithData:imageData];
-    image = downloadedImage;
-    
-    webcamView = [[UIImageView alloc] initWithImage:image];
-    [webcamView setContentMode:UIViewContentModeScaleAspectFit];
-    [webcamView setFrame:CGRectMake(0,0,320,367)];
-    
-    [imageScrollView addSubview:webcamView];
-    [imageScrollView setContentSize:CGSizeMake(webcamView.frame.size.width, 
-                                               webcamView.frame.size.height)];
-    [imageScrollView setScrollEnabled:YES];
-    [imageScrollView setMinimumZoomScale:1.0];
-    [imageScrollView setMaximumZoomScale:4.0];
-    [imageScrollView setDelegate:self];
-    
-    [activityIndicator stopAnimating];
-    activityIndicator.hidden = NO;
-    activityIndicatorLabel.hidden = NO;
-    webcamView.hidden = NO;
-    
-    [self willRotateToInterfaceOrientation:self.interfaceOrientation duration:10];
-    
-    [pool drain];
+    }
 }
 
 -(void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
@@ -107,7 +107,6 @@
     self.tapGestureRecognizer.numberOfTouchesRequired = 1;
     self.tapGestureRecognizer.numberOfTapsRequired = 1;
     [self.view addGestureRecognizer:self.tapGestureRecognizer];
-    [newTapGestureRecognizer release];
 }
 
 -(void)handleTaps:(UITapGestureRecognizer*)paramSender
@@ -134,12 +133,5 @@
     return webcamView;
 }
 
-- (void)dealloc
-{
-    [name release];
-    [extension release];
-    [tapGestureRecognizer release];
-    [super dealloc];
-}
 
 @end

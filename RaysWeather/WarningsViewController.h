@@ -26,9 +26,9 @@
     IBOutlet UILabel *activityIndicatorLabel;
 }
 
-@property (nonatomic, retain) AlertViewController *alertView;
-@property (nonatomic, retain) NSArray *allWarnings;
-@property (nonatomic, retain) UITableView *table;
+@property (nonatomic, strong) AlertViewController *alertView;
+@property (nonatomic, strong) NSArray *allWarnings;
+@property (nonatomic, strong) UITableView *table;
 
 - (NSString *)trimWhitespace:(NSMutableString *)stringToTrim;
 

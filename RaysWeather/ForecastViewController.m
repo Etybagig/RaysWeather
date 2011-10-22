@@ -218,12 +218,5 @@
 }
 
 
-- (void)dealloc
-{
-    [dayOneDictionary release];
-    [dayTwoDictionary release];
-    [dayThreeDictionary release];
-    [super dealloc];
-}
 
 @end

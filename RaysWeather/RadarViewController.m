@@ -59,16 +59,16 @@
 
 - (void)loadRadar
 {
-    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+    @autoreleasepool {
     
-    RaysWeatherAppDelegate *delegate = (RaysWeatherAppDelegate*)[[UIApplication sharedApplication] delegate];
-    NSString *closest_radar = [self trimWhitespace:[delegate.closestStation objectForKey:@"closest_radar"]];
-    NSString *urlAddress = [NSString stringWithFormat:@"http://raysweather.com/radar_images/N0R_%@_loop.gif", closest_radar];
-	NSURL *url = [NSURL URLWithString:urlAddress];
-	NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
-	[radar loadRequest:requestObj];
+        RaysWeatherAppDelegate *delegate = (RaysWeatherAppDelegate*)[[UIApplication sharedApplication] delegate];
+        NSString *closest_radar = [self trimWhitespace:[delegate.closestStation objectForKey:@"closest_radar"]];
+        NSString *urlAddress = [NSString stringWithFormat:@"http://raysweather.com/radar_images/N0R_%@_loop.gif", closest_radar];
+        NSURL *url = [NSURL URLWithString:urlAddress];
+        NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
+        [radar loadRequest:requestObj];
     
-    [pool drain];
+    }
 }
 
 - (NSString *)trimWhitespace:(NSMutableString *)stringToTrim{
@@ -83,9 +83,5 @@
     return YES;
 }
 
-- (void)dealloc
-{
-    [super dealloc];
-}
 
 @end
