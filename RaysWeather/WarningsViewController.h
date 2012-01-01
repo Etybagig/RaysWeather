@@ -2,8 +2,8 @@
 //  WarningsViewController.h
 //  RaysWeather
 //
-//  Created by Seth Hobson on 3/26/11.
-//  Copyright 2011 Appalachian State University. All rights reserved.
+//  Created by Seth Hobson and Bobby Lunceford.
+//  Copyright 2011 Ray's Weather. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -31,5 +31,6 @@
 @property (nonatomic, strong) UITableView *table;
 
 - (NSString *)trimWhitespace:(NSMutableString *)stringToTrim;
+- (void)loadData;
 
 @end

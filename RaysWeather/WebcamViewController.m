@@ -2,8 +2,8 @@
 //  WebcamViewController.m
 //  RaysWeather
 //
-//  Created by Bobby Lunceford on 4/1/11.
-//  Copyright 2011 Appalachian State University. All rights reserved.
+//  Created by Bobby Lunceford and Seth Hobson.
+//  Copyright 2011 Ray's Weather. All rights reserved.
 //
 
 #import "WebcamViewController.h"
@@ -43,8 +43,8 @@
 
 - (void)loadImage
 {
-    @autoreleasepool {
-    
+    @autoreleasepool
+    {
         self.title = name;
         
         NSMutableString *imageString = [NSString stringWithFormat:@"http://raysweather.com/images/webcams/%@/image.jpg", extension];
@@ -70,7 +70,6 @@
         webcamView.hidden = NO;
         
         [self willRotateToInterfaceOrientation:self.interfaceOrientation duration:10];
-    
     }
 }
 
@@ -82,7 +81,7 @@
         [imageScrollView setZoomScale:1.0];
         [webcamView setFrame:CGRectMake(0, 0, 480, 320)];
         [self.navigationController setNavigationBarHidden:YES animated:YES];
-        [[UIApplication sharedApplication] setStatusBarHidden:YES animated:YES];
+        [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:YES];
         UIView *tabBar = [self.tabBarController.view.subviews objectAtIndex:1];
         self.view.frame = CGRectMake(0, 0, 480, 320);
         tabBar.hidden = YES;
@@ -93,7 +92,7 @@
         [imageScrollView setZoomScale:1.0];
         [webcamView setFrame:CGRectMake(0, 0, 320, 367)];
         [self.navigationController setNavigationBarHidden:NO animated:YES];
-        [[UIApplication sharedApplication] setStatusBarHidden:NO animated:YES];
+        [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:YES];
         UIView *tabBar = [self.tabBarController.view.subviews objectAtIndex:1];
         self.view.frame = CGRectMake(0, 0, 320, 480);
         tabBar.hidden = NO;
@@ -111,9 +110,10 @@
 
 -(void)handleTaps:(UITapGestureRecognizer*)paramSender
 {
-    [[UIApplication sharedApplication] setStatusBarHidden:NO animated:YES];
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:YES];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
+
 - (void)viewDidUnload
 {
     [super viewDidUnload];

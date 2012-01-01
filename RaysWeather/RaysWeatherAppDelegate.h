@@ -2,8 +2,8 @@
 //  RaysWeatherAppDelegate.h
 //  RaysWeather
 //
-//  Created by Bobby Lunceford on 3/24/11.
-//  Copyright 2011 Appalachian State University. All rights reserved.
+//  Created by Bobby Lunceford and Seth Hobson.
+//  Copyright 2011 Ray's Weather. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -12,7 +12,8 @@
 
 @class CurrentConditionsViewController;
 
-@interface RaysWeatherAppDelegate : NSObject <UIApplicationDelegate, UITabBarControllerDelegate, CLLocationManagerDelegate> {
+@interface RaysWeatherAppDelegate : NSObject <UIApplicationDelegate, UITabBarControllerDelegate, CLLocationManagerDelegate>
+{
     IBOutlet UINavigationController *alertNavController;
     IBOutlet UINavigationController *moreNavController;
     IBOutlet UINavigationController *currentNavController;

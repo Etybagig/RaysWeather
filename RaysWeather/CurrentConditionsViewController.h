@@ -2,8 +2,8 @@
 //  CurrentConditionsViewController.h
 //  RaysWeather
 //
-//  Created by Bobby Lunceford on 3/24/11.
-//  Copyright 2011 Appalachian State University. All rights reserved.
+//  Created by Bobby Lunceford and Seth Hobson.
+//  Copyright 2011 Ray's Weather. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -59,7 +59,10 @@
 - (void)showPicker;
 - (void)locationReceived;
 - (NSString *)trimWhitespace:(NSMutableString *)stringToTrim;
+- (NSString *)stringByStrippingHTML:(NSString *)stringToStrip;
 - (NSString *)roundAndSnap:(NSString *)stringToRound;
+- (void)loadData;
 - (void)rotateToPortrait;
 - (void)rotateToLandscape;
+
 @end

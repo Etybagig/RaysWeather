@@ -2,8 +2,8 @@
 //  WebcamListController.m
 //  RaysWeather
 //
-//  Created by Bobby Lunceford on 4/1/11.
-//  Copyright 2011 Appalachian State University. All rights reserved.
+//  Created by Bobby Lunceford and Seth Hobson.
+//  Copyright 2011 Ray's Weather. All rights reserved.
 //
 
 #import "WebcamListController.h"
@@ -92,7 +92,8 @@
     static NSString *CellIdentifier = @"Cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
+    if (cell == nil)
+    {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
@@ -148,7 +149,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSInteger row = [indexPath row];
-    if(webcamView == nil){
+    if(webcamView == nil)
+    {
         WebcamViewController *aWebcamView = [[WebcamViewController alloc] initWithNibName:@"WebcamView" bundle:nil];
         self.webcamView = aWebcamView;
     }

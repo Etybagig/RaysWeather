@@ -2,14 +2,15 @@
 //  MyXMLParser.h
 //  RaysWeather
 //
-//  Created by Bobby Lunceford on 3/24/11.
-//  Copyright 2011 Appalachian State University. All rights reserved.
+//  Created by Bobby Lunceford and Seth Hobson.
+//  Copyright 2011 Ray's Weather. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
 
-@interface MyXMLParser : NSObject <NSXMLParserDelegate> {
+@interface MyXMLParser : NSObject <NSXMLParserDelegate>
+{
     //CLLocationManager *locationManager;
     NSXMLParser *parser;
     NSMutableArray *weatherData;

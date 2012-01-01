@@ -2,22 +2,58 @@
 //  WarningsViewController.m
 //  RaysWeather
 //
-//  Created by Seth Hobson on 3/26/11.
-//  Copyright 2011 Appalachian State University. All rights reserved.
+//  Created by Seth Hobson and Bobby Lunceford.
+//  Copyright 2011 Ray's Weather. All rights reserved.
 //
 
 #import "WarningsViewController.h"
 
 @implementation WarningsViewController
 
-@synthesize alertView;
-@synthesize allWarnings;
-@synthesize table;
+@synthesize alertView, allWarnings, table;
 
-- (void)viewDidAppear:(BOOL)animated
+- (void)viewDidLoad
 {
-    [super viewDidAppear:YES];
-    
+    [super viewDidLoad];
+    [self loadData];
+    [[NSNotificationCenter defaultCenter] addObserver: self
+                                             selector: @selector(appActivated:)
+                                                 name: UIApplicationDidBecomeActiveNotification
+                                               object: nil];
+}
+
+- (void)viewDidUnload
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [super viewDidUnload];
+}
+
+/*
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [[NSNotificationCenter defaultCenter] addObserver: self
+                                             selector: @selector(appActivated:)
+                                                 name: UIApplicationDidBecomeActiveNotification
+                                               object: nil];
+}
+*/
+
+- (void)appActivated:(NSNotification *)note
+{
+    NSLog(@"reloading warnings");
+    [self loadData];
+}
+
+- (void)loadData
+{
     isThreadFinished = NO;
     [activityIndicator startAnimating];
     [NSThread detachNewThreadSelector:@selector(parseWarnings) toTarget:self withObject:nil];
@@ -25,7 +61,8 @@
 
 - (void)parseWarnings
 {
-    @autoreleasepool {
+    @autoreleasepool
+    {
         RaysWeatherAppDelegate *delegate = (RaysWeatherAppDelegate*)[[UIApplication sharedApplication] delegate];
         
         NSMutableString *zoneCode = [delegate.closestStation valueForKey:@"nwsZoneCode"];
@@ -46,21 +83,27 @@
         
         bool finished = NO;
         int index = 0;
-        while (!finished){
-            @try{
+        while (!finished)
+        {
+            @try
+            {
                 warnings = [allWarnings objectAtIndex:index];
                 index++;
-                if(warnings == Nil){
+                if (warnings == nil)
+                {
                     index--;
                     finished = YES;
                 }
-                else if([[warnings objectForKey:@"summary"] isEqualToString:@""]){
+                else if ([[warnings objectForKey:@"summary"] isEqualToString:@""])
+                {
                     index--;
                     finished = YES;
                 }
-                else if([allWarnings count]==index)
+                else if ([allWarnings count] == index)
                     finished = YES;
-            }@catch(NSException *e){
+            }
+            @catch (NSException *e)
+            {
                 finished = YES;
             }
         }
@@ -71,11 +114,11 @@
         activityIndicator.hidden = YES;
         isThreadFinished = YES;
         [self.table reloadData];
-    
     }
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
     return 1;
 }
 
@@ -84,7 +127,8 @@
 //    while(!isThreadFinished);
     
     NSLog(@"%d", numberOfWarnings);
-    if(numberOfWarnings == 0){
+    if (numberOfWarnings == 0)
+    {
         noWarnings = YES;
         return 1;
     }
@@ -97,49 +141,61 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
- //   while(!isThreadFinished);
-    
     static NSString *CellIdentifier = @"Cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if(cell == nil){
+    if (cell == nil)
+    {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
+        cell.textLabel.numberOfLines = 0;
+        cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:17.0];
     }
     
     int row = [indexPath row];
-    if(row<numberOfWarnings && noWarnings==NO){
+    if (row < numberOfWarnings && noWarnings == NO)
+    {
         warnings = [allWarnings objectAtIndex:row];
         NSString *title = [self trimWhitespace:[warnings objectForKey:@"title"]];
         [[cell textLabel] setText:title];
     }
-    else if(noWarnings==YES){
-        [[cell textLabel] setText:@"No current watches or warnings"];
+    else if (noWarnings == YES)
+    {
+        [[cell textLabel] setText:@"No current watches or warnings."];
     }
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *cellText = @"No current watches or warnings.";
+    UIFont *cellFont = [UIFont fontWithName:@"Helvetica" size:17.0];
+    CGSize constraintSize = CGSizeMake(280.0f, MAXFLOAT);
+    CGSize labelSize = [cellText sizeWithFont:cellFont constrainedToSize:constraintSize lineBreakMode:UILineBreakModeWordWrap];
+    
+    return labelSize.height + 60;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSInteger row = [indexPath row];
+    warnings = [allWarnings objectAtIndex:row];
     
-    if([[[[tableView cellForRowAtIndexPath:indexPath] textLabel] text] isEqualToString:@"No current watches or warnings"])
+    if ([[[[tableView cellForRowAtIndexPath:indexPath] textLabel] text] isEqualToString:@"No current watches or warnings"])
         return;
     
-    if(self.alertView == nil){
-        AlertViewController *anAlertView = [[AlertViewController alloc] initWithNibName:@"AlertView" bundle:nil];
-        self.alertView = anAlertView;
-    }
-
-    warnings = [allWarnings objectAtIndex:row];
+    AlertViewController *anAlertView = [[AlertViewController alloc] initWithNibName:@"AlertView" bundle:nil];
+    alertView = anAlertView;
     
     NSMutableString *entryURL = [warnings objectForKey:@"entryLink"];
     NSString *title = [self trimWhitespace:[warnings objectForKey:@"title"]];
-    if(!([title isEqualToString:@"There are no active watches, warnings or advisories"])){
+    if (!([title isEqualToString:@"There are no active watches, warnings or advisories"]))
+    {
         alertView.uRL = [self trimWhitespace:entryURL];
         RaysWeatherAppDelegate *delegate = (RaysWeatherAppDelegate*)[[UIApplication sharedApplication] delegate];
         [delegate.alertNavController pushViewController:alertView animated:YES];
     }
-    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (NSString *)trimWhitespace:(NSMutableString *)stringToTrim
@@ -166,15 +222,5 @@
     
     // Release any cached data, images, etc. that aren't in use.
 }
-
-
-- (void)viewDidUnload
-{
-    // Release any retained subviews of the main view.
-    self.alertView = nil;
-    [super viewDidUnload];
-}
-
-
 
 @end

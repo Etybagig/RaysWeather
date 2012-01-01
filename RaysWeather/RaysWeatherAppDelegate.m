@@ -2,8 +2,8 @@
 //  RaysWeatherAppDelegate.m
 //  RaysWeather
 //
-//  Created by Bobby Lunceford on 3/24/11.
-//  Copyright 2011 Appalachian State University. All rights reserved.
+//  Created by Bobby Lunceford and Seth Hobson.
+//  Copyright 2011 Ray's Weather. All rights reserved.
 //
 
 #import "RaysWeatherAppDelegate.h"
@@ -11,17 +11,8 @@
 
 @implementation RaysWeatherAppDelegate
 
-@synthesize window;
-@synthesize tabBarController;
-@synthesize alertNavController;
-@synthesize moreNavController;
-@synthesize currentNavController;
-@synthesize locationManager;
-@synthesize currentLocation;
-@synthesize closestStation;
-@synthesize currentConditions;
-@synthesize stations;
-@synthesize parser;
+@synthesize window, tabBarController, alertNavController, moreNavController, currentNavController, locationManager;
+@synthesize  currentLocation, closestStation, currentConditions, stations, parser;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -48,17 +39,26 @@
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
-    if(parser.error == YES)
+    if (parser.error == YES)
         return;
     [currentConditions showPicker];
 }
 
+- (void)applicationDidBecomeActive:(UIApplication *)application
+{
+    NSLog(@"application did become active");
+    [locationManager startUpdatingLocation];
+    NSString *stationURL = @"http://raysweather.com/mobile/stations/";
+    [parser parseXMLFileAtURL:stationURL];
+    stations = parser.stationsData;
+}
+
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {
-    NSDate* eventDate = locationManager.location.timestamp;
+    NSDate *eventDate = locationManager.location.timestamp;
     NSTimeInterval howRecent;
     howRecent = [eventDate timeIntervalSinceNow];
-    if(abs(howRecent) > 5.0)
+    if (abs(howRecent) > 5.0)
         return;
     [locationManager stopUpdatingLocation];
     currentLocation = newLocation;
@@ -69,22 +69,25 @@
 
     closestStation = nil;
     double previousDistance = 1000.00;
-    for(NSMutableDictionary *station in stations){
+    for (NSMutableDictionary *station in stations)
+    {
         double stationLat = [[self trimWhitespace:[station objectForKey:@"latitude"]] doubleValue];
         double stationLong = [[self trimWhitespace:[station objectForKey:@"longitude"]] doubleValue];
         double distance = sqrt(pow((stationLat-lat),2) + pow((stationLong-lon),2));
         distance = fabs(distance);
-        if(distance<previousDistance){
+        if (distance < previousDistance)
+        {
             closestStation = station;
             previousDistance = distance;
         }
     }
-    if(parser.error == YES)
+    if (parser.error == YES)
         return;
     [currentConditions locationReceived];
 }
 
-- (NSString *)trimWhitespace:(NSMutableString *)stringToTrim{
+- (NSString *)trimWhitespace:(NSMutableString *)stringToTrim
+{
     NSString *removeNewLine = [stringToTrim stringByReplacingOccurrencesOfString:@"\n" withString:@""];
     NSString *removeTab = [removeNewLine stringByReplacingOccurrencesOfString:@"\t" withString:@""];
     return removeTab;
@@ -93,13 +96,12 @@
 // Optional UITabBarControllerDelegate method.
 - (void)tabBarController:(UITabBarController *)thistabBarController didSelectViewController:(UIViewController *)viewController
 {
-    if(thistabBarController.interfaceOrientation==UIInterfaceOrientationPortrait ||
-       thistabBarController.interfaceOrientation==UIInterfaceOrientationPortraitUpsideDown)
+    if (thistabBarController.interfaceOrientation == UIInterfaceOrientationPortrait ||
+       thistabBarController.interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown)
         [viewController willRotateToInterfaceOrientation:UIInterfaceOrientationPortrait duration:10];
-    else if(thistabBarController.interfaceOrientation==UIInterfaceOrientationLandscapeRight ||
-            thistabBarController.interfaceOrientation==UIInterfaceOrientationLandscapeLeft)
+    else if (thistabBarController.interfaceOrientation == UIInterfaceOrientationLandscapeRight ||
+            thistabBarController.interfaceOrientation == UIInterfaceOrientationLandscapeLeft)
         [viewController willRotateToInterfaceOrientation:UIInterfaceOrientationLandscapeLeft duration:10];
 }
-
 
 @end

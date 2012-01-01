@@ -2,8 +2,8 @@
 //  CurrentConditionsViewController.m
 //  RaysWeather
 //
-//  Created by Bobby Lunceford on 3/24/11.
-//  Copyright 2011 Appalachian State University. All rights reserved.
+//  Created by Bobby Lunceford and Seth Hobson.
+//  Copyright 2011 Ray's Weather. All rights reserved.
 //
 // http://raysweather.com/mobile/stations
 // http://raysweather.com/mobile/conditions/?station=n
@@ -14,14 +14,49 @@
 
 @implementation CurrentConditionsViewController
 
-@synthesize parser;
-@synthesize stationInfo;
+@synthesize parser, stationInfo;
 
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
-{    
-    [super viewWillAppear:YES];
-    
+{
+    [super viewDidLoad];
+    [self loadData];
+    [[NSNotificationCenter defaultCenter] addObserver: self
+                                             selector: @selector(appActivated:)
+                                                 name: UIApplicationDidBecomeActiveNotification
+                                               object: nil];
+}
+
+- (void)viewDidUnload
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [super viewDidUnload];
+}
+
+/*
+- (void)viewDWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [[NSNotificationCenter defaultCenter] addObserver: self
+                                             selector: @selector(appActivated:)
+                                                 name: UIApplicationDidBecomeActiveNotification
+                                               object: nil];
+}
+ */
+
+- (void)appActivated:(NSNotification *)note
+{
+    NSLog(@"reloading current conditions");
+    [self loadData];
+}
+
+- (void)loadData
+{
     delegate = (RaysWeatherAppDelegate*)[[UIApplication sharedApplication] delegate];
     delegate.currentConditions = self;
     delegate.currentNavController.navigationBar.hidden = YES;
@@ -49,7 +84,8 @@
     [activityIndicator startAnimating];
     
     //No internet connection present or other problem with the xml parser.
-    if(delegate.parser.error == YES){
+    if (delegate.parser.error == YES)
+    {
         activityIndicatorLabel.hidden = YES;
         [activityIndicator stopAnimating];
         activityIndicator.hidden = YES;
@@ -130,7 +166,8 @@
     //Today's Summary
     [[todaysSummary layer] setCornerRadius:10];
     [todaysSummary setClipsToBounds: YES];
-    todaysSummary.text = [self trimWhitespace:[weatherDictionary objectForKey:@"introduction"]];
+    todaysSummary.text = [self stringByStrippingHTML:[weatherDictionary objectForKey:@"introduction"]];
+    
     
     //Today's Summary Title
     todaysSummaryTitle.text = [self trimWhitespace:[weatherDictionary objectForKey:@"title"]];
@@ -169,13 +206,25 @@
 }
 
 
-- (NSString *)trimWhitespace:(NSMutableString *)stringToTrim{
+- (NSString *)trimWhitespace:(NSMutableString *)stringToTrim
+{
     NSString *removeNewLine = [stringToTrim stringByReplacingOccurrencesOfString:@"\n" withString:@""];
     NSString *removeTab = [removeNewLine stringByReplacingOccurrencesOfString:@"\t" withString:@""];
     return removeTab;
 }
 
-- (NSString *)roundAndSnap:(NSString *)stringToRound{
+- (NSString *)stringByStrippingHTML:(NSString *)stringToStrip
+{
+    NSRange range;
+    NSString *string = [stringToStrip copy];
+    while ((range = [string rangeOfString:@"<[^>]+>" options:NSRegularExpressionSearch]).location != NSNotFound)
+        string = [string stringByReplacingCharactersInRange:range withString:@""];
+    NSString *removeNewLine = [string stringByReplacingOccurrencesOfString:@"\n" withString:@" "];
+    return removeNewLine;
+}
+
+- (NSString *)roundAndSnap:(NSString *)stringToRound
+{
     double asDouble = [stringToRound doubleValue];
     int asRoundedInt = round(asDouble);
     return [[NSNumber numberWithInt:asRoundedInt] stringValue];
@@ -189,11 +238,11 @@
 
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
-    if(toInterfaceOrientation==UIInterfaceOrientationLandscapeRight ||
-       toInterfaceOrientation==UIInterfaceOrientationLandscapeLeft)
+    if (toInterfaceOrientation == UIInterfaceOrientationLandscapeRight ||
+       toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft)
         [self rotateToLandscape];
-    else if(toInterfaceOrientation==UIInterfaceOrientationPortrait ||
-            toInterfaceOrientation==UIInterfaceOrientationPortraitUpsideDown)
+    else if (toInterfaceOrientation == UIInterfaceOrientationPortrait ||
+            toInterfaceOrientation == UIInterfaceOrientationPortraitUpsideDown)
         [self rotateToPortrait];
 }
 
@@ -254,16 +303,5 @@
     
     // Release any cached data, images, etc. that aren't in use.
 }
-
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
-
 
 @end

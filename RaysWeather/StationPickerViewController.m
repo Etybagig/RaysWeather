@@ -2,8 +2,8 @@
 //  StationPickerViewController.m
 //  RaysWeather
 //
-//  Created by Bobby Lunceford on 7/5/11.
-//  Copyright 2011 Appalachian State University. All rights reserved.
+//  Created by Bobby Lunceford and Seth Hobson.
+//  Copyright 2011 Ray's Weather. All rights reserved.
 //
 
 #import "StationPickerViewController.h"
@@ -23,7 +23,8 @@
     return [delegate.stations count];
 }
 
-- (NSString *)pickerView:(UIPickerView *)thePickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+- (NSString *)pickerView:(UIPickerView *)thePickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
     NSMutableArray *stations = delegate.stations;
     NSMutableDictionary *stationComponent = [stations objectAtIndex:row];
     NSString *name = [self trimWhitespace:[stationComponent objectForKey:@"station_name"]];

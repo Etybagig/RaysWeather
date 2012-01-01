@@ -2,15 +2,16 @@
 //  WebcamListController.h
 //  RaysWeather
 //
-//  Created by Bobby Lunceford on 4/1/11.
-//  Copyright 2011 Appalachian State University. All rights reserved.
+//  Created by Bobby Lunceford and Seth Hobson.
+//  Copyright 2011 Ray's Weather. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 #import "WebcamViewController.h"
 #import "RaysWeatherAppDelegate.h"
 
-@interface WebcamListController : UITableViewController {
+@interface WebcamListController : UITableViewController
+{
     NSMutableArray *webcams;
     WebcamViewController *webcamView;
 }

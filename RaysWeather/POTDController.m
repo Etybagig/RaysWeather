@@ -2,8 +2,8 @@
 //  POTDController.m
 //  RaysWeather
 //
-//  Created by Bobby Lunceford on 3/31/11.
-//  Copyright 2011 Appalachian State University. All rights reserved.
+//  Created by Bobby Lunceford and Seth Hobson.
+//  Copyright 2011 Ray's Weather. All rights reserved.
 //
 
 #import "POTDController.h"
@@ -34,16 +34,15 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
-    
-    [activityIndicator startAnimating];
+
     [NSThread detachNewThreadSelector:@selector(loadPhoto) toTarget:self withObject:nil];
     [self willRotateToInterfaceOrientation:self.interfaceOrientation duration:10];
 }
 
 - (void)loadPhoto
 {
-    @autoreleasepool {
-    
+    @autoreleasepool
+    {
         MyXMLParser *parser = [[MyXMLParser alloc] init];
         [parser parseXMLFileAtURL:@"http://raysweather.com/mobile/photo/"];
         
@@ -58,7 +57,8 @@
         
         potdView = [[UIImageView alloc] initWithImage:image];
         [potdView setContentMode:UIViewContentModeScaleAspectFit];
-        [potdView setFrame:CGRectMake(0, 0, 320, 367)];
+        //[potdView setFrame:CGRectMake(0, 0, 320, 367)];
+        [potdView setFrame:CGRectMake(0, 0, 320, 320)];
         
         [imageScrollView addSubview:potdView];
         [imageScrollView setContentSize:CGSizeMake(potdView.frame.size.width,
@@ -93,13 +93,14 @@
     [self.view addGestureRecognizer:self.tapGestureRecognizer];
 }
 
--(void)handleTaps:(UITapGestureRecognizer*)paramSender
+- (void)handleTaps:(UITapGestureRecognizer*)paramSender
 {
-    [[UIApplication sharedApplication] setStatusBarHidden:NO animated:YES];
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:YES];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
-- (NSString *)trimWhitespace:(NSMutableString *)stringToTrim{
+- (NSString *)trimWhitespace:(NSMutableString *)stringToTrim
+{
     NSString *removeNewLine = [stringToTrim stringByReplacingOccurrencesOfString:@"\n" withString:@""];
     NSString *removeTab = [removeNewLine stringByReplacingOccurrencesOfString:@"\t" withString:@""];
     return removeTab;
@@ -118,24 +119,24 @@
 
 -(void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
-    if(toInterfaceOrientation == UIInterfaceOrientationLandscapeRight ||
+    if (toInterfaceOrientation == UIInterfaceOrientationLandscapeRight ||
        toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft)
     {
         [imageScrollView setZoomScale:1.0];
-        [potdView setFrame:CGRectMake(0, 0, 480, 320)];
+        [potdView setFrame:CGRectMake(120, 0, 240, 220)];
         [self.navigationController setNavigationBarHidden:YES animated:YES];
-        [[UIApplication sharedApplication] setStatusBarHidden:YES animated:YES];
+        [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:YES];
         UIView *tabBar = [self.tabBarController.view.subviews objectAtIndex:1];
         self.view.frame = CGRectMake(0, 0, 480, 320);
         tabBar.hidden = YES;
     }
-    else if(toInterfaceOrientation == UIInterfaceOrientationPortrait ||
+    else if (toInterfaceOrientation == UIInterfaceOrientationPortrait ||
             toInterfaceOrientation == UIInterfaceOrientationPortraitUpsideDown)
     {
         [imageScrollView setZoomScale:1.0];
-        [potdView setFrame:CGRectMake(0, 0, 320, 367)];
+        [potdView setFrame:CGRectMake(0, 0, 320, 320)];
         [self.navigationController setNavigationBarHidden:NO animated:YES];
-        [[UIApplication sharedApplication] setStatusBarHidden:NO animated:YES];
+        [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:YES];
         UIView *tabBar = [self.tabBarController.view.subviews objectAtIndex:1];
         self.view.frame = CGRectMake(0, 0, 320, 480);
         tabBar.hidden = NO;

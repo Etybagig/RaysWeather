@@ -2,8 +2,8 @@
 //  ForecastViewController.h
 //  RaysWeather
 //
-//  Created by Bobby Lunceford on 3/24/11.
-//  Copyright 2011 Appalachian State University. All rights reserved.
+//  Created by Bobby Lunceford and Seth Hobson.
+//  Copyright 2011 Ray's Weather. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -11,8 +11,8 @@
 #import "MyXMLParser.h"
 #import "RaysWeatherAppDelegate.h"
 
-@interface ForecastViewController : UIViewController {
-    
+@interface ForecastViewController : UIViewController
+{    
     //Dynamic elements
     IBOutlet UILabel *firstDay_hi;
     IBOutlet UILabel *firstDay_lo;
@@ -62,5 +62,6 @@
 - (NSString *)trimWhitespace:(NSMutableString *)stringToTrim;
 - (void)rotateToLandscape;
 - (void)rotateToPortrait;
+- (void)loadData;
 
 @end

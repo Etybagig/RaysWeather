@@ -2,8 +2,8 @@
 //  MoreViewController.m
 //  RaysWeather
 //
-//  Created by Bobby Lunceford on 3/31/11.
-//  Copyright 2011 Appalachian State University. All rights reserved.
+//  Created by Bobby Lunceford and Seth Hobson.
+//  Copyright 2011 Ray's Weather. All rights reserved.
 //
 
 #import "MoreViewController.h"

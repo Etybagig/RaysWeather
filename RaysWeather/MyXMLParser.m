@@ -2,8 +2,8 @@
 //  MyXMLParser.m
 //  RaysWeather
 //
-//  Created by Bobby Lunceford on 3/24/11.
-//  Copyright 2011 Appalachian State University. All rights reserved.
+//  Created by Bobby Lunceford and Seth Hobson.
+//  Copyright 2011 Ray's Weather. All rights reserved.
 //
 
 #import "MyXMLParser.h"
@@ -12,21 +12,24 @@
 @implementation MyXMLParser
 @synthesize parser, weatherData, day1, day2, day3, warningData, alert, error, stationsData, photoOfTheDay;
 
-- (void)parseXMLFileAtURL:(NSString *)URL {
-	NSURL *xmlUrl = [NSURL URLWithString:URL];
-	parser = [[NSXMLParser alloc] initWithContentsOfURL:xmlUrl];
-	[parser setDelegate:self];
-	[parser setShouldProcessNamespaces:NO];
-	[parser setShouldReportNamespacePrefixes:NO];
-	[parser setShouldResolveExternalEntities:NO];
-	[parser parse];
+- (void)parseXMLFileAtURL:(NSString *)URL
+{
+        NSURL *xmlUrl = [NSURL URLWithString:URL];
+        parser = [[NSXMLParser alloc] initWithContentsOfURL:xmlUrl];
+        [parser setDelegate:self];
+        [parser setShouldProcessNamespaces:NO];
+        [parser setShouldReportNamespacePrefixes:NO];
+        [parser setShouldResolveExternalEntities:NO];
+        [parser parse];
 }
 
 
-- (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict{			
+- (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict
+{			
 	//NSLog(@"found this element: %@", elementName);
 	currentElement = [elementName copy];
-	if ([elementName isEqualToString:@"conditions"]) {
+	if ([elementName isEqualToString:@"conditions"])
+    {
 		item = [[NSMutableDictionary alloc] init];
 		currentHumidity = [[NSMutableString alloc] init];
 		currentWindSpeed = [[NSMutableString alloc] init];
@@ -40,13 +43,15 @@
         weatherData = [[NSMutableArray alloc] init];
         currentType = [NSMutableString stringWithString:@"conditions"];
 	}
-    if ([elementName isEqualToString:@"forecast"]){
+    if ([elementName isEqualToString:@"forecast"])
+    {
         item = [[NSMutableDictionary alloc] init];
         currentIntro = [[NSMutableString alloc] init];
         currentIntroTitle = [[NSMutableString alloc] init];
         currentType = [NSMutableString stringWithString:@"forecast"];
     }
-    if ([elementName isEqualToString:@"day1"]){
+    if ([elementName isEqualToString:@"day1"])
+    {
         day1 = [[NSMutableArray alloc] init];
         hi = [[NSMutableString alloc] init];
         lo = [[NSMutableString alloc] init];
@@ -55,7 +60,8 @@
         day_of_week = [[NSMutableString alloc] init];
         currentType = [NSMutableString stringWithString:@"forecast"];
     }
-    if ([elementName isEqualToString:@"day2"]){
+    if ([elementName isEqualToString:@"day2"])
+    {
         day2 = [[NSMutableArray alloc] init];
         hi = [[NSMutableString alloc] init];
         lo = [[NSMutableString alloc] init];
@@ -64,7 +70,8 @@
         day_of_week = [[NSMutableString alloc] init];
         currentType = [NSMutableString stringWithString:@"forecast"];
     }
-    if ([elementName isEqualToString:@"day3"]){
+    if ([elementName isEqualToString:@"day3"])
+    {
         day3 = [[NSMutableArray alloc] init];
         hi = [[NSMutableString alloc] init];
         lo = [[NSMutableString alloc] init];
@@ -73,18 +80,21 @@
         day_of_week = [[NSMutableString alloc] init];
         currentType = [NSMutableString stringWithString:@"forecast"];
     }
-	if ([elementName isEqualToString:@"feed"]){
+	if ([elementName isEqualToString:@"feed"])
+    {
         item = [[NSMutableDictionary alloc] init];
         warningData = [[NSMutableArray alloc] init];
         currentType = [NSMutableString stringWithString:@"feed"];
     }
-    if ([elementName isEqualToString:@"entry"]){
+    if ([elementName isEqualToString:@"entry"])
+    {
         linkToEntry = [[NSMutableString alloc] init];
         title = [[NSMutableString alloc] init];
         summary = [[NSMutableString alloc] init];
         currentType = [NSMutableString stringWithString:@"entry"];
     }
-    if ([elementName isEqualToString:@"alert"]){
+    if ([elementName isEqualToString:@"alert"])
+    {
         item = [[NSMutableDictionary alloc] init];
         alert = [[NSMutableArray alloc] init];
         headline = [[NSMutableString alloc] init];
@@ -93,11 +103,13 @@
         severity = [[NSMutableString alloc] init];
         currentType = [NSMutableString stringWithString:@"alert"];
     }
-    if ([elementName isEqualToString:@"station_info"]){
+    if ([elementName isEqualToString:@"station_info"])
+    {
         stationsData = [[NSMutableArray alloc] init];
         currentType = [NSMutableString stringWithString:@"stations"];
     }
-    if ([elementName isEqualToString:@"station"]){
+    if ([elementName isEqualToString:@"station"])
+    {
         item = [[NSMutableDictionary alloc] init];
         station_id = [[NSMutableString alloc] init];
         city = [[NSMutableString alloc] init];
@@ -109,7 +121,8 @@
         station_name = [[NSMutableString alloc] init];
         closest_radar = [[NSMutableString alloc] init];
     }
-    if ([elementName isEqualToString:@"photo_of_the_day"]){
+    if ([elementName isEqualToString:@"photo_of_the_day"])
+    {
         item = [[NSMutableDictionary alloc] init];
         photoOfTheDay = [[NSMutableArray alloc] init];
         date = [[NSMutableString alloc] init];
@@ -120,9 +133,11 @@
 }
 
 
-- (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName{     
+- (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
+{     
 	
-	if ([elementName isEqualToString:@"conditions"]) {
+	if ([elementName isEqualToString:@"conditions"])
+    {
 		[item setObject:currentHumidity forKey:@"humidity"];
 		[item setObject:currentWindSpeed forKey:@"wind_speed"];
 		[item setObject:currentConditionIcon forKey:@"condition_icon"];
@@ -134,12 +149,14 @@
 		[item setObject:currentLoTemp forKey:@"lo_temp"];
 		[weatherData addObject:[item copy]];
 	}
-    if ([elementName isEqualToString:@"forecast"]){
+    if ([elementName isEqualToString:@"forecast"])
+    {
         [item setObject:currentIntro forKey:@"introduction"];
         [item setObject:currentIntroTitle forKey:@"title"];
         [weatherData addObject:[item copy]];
     }
-    if ([elementName isEqualToString:@"day1"]){
+    if ([elementName isEqualToString:@"day1"])
+    {
         [item setObject:hi forKey:@"hi"];
         [item setObject:lo forKey:@"lo"];
         [item setObject:icon forKey:@"icon"];
@@ -147,7 +164,8 @@
         [item setObject:description forKey:@"descrip"];
         [day1 addObject:[item copy]];
     }
-    if ([elementName isEqualToString:@"day2"]){
+    if ([elementName isEqualToString:@"day2"])
+    {
         [item setObject:hi forKey:@"hi"];
         [item setObject:lo forKey:@"lo"];
         [item setObject:icon forKey:@"icon"];
@@ -155,7 +173,8 @@
         [item setObject:description forKey:@"descrip"];
         [day2 addObject:[item copy]];
     }
-    if ([elementName isEqualToString:@"day3"]){
+    if ([elementName isEqualToString:@"day3"])
+    {
         [item setObject:hi forKey:@"hi"];
         [item setObject:lo forKey:@"lo"];
         [item setObject:icon forKey:@"icon"];
@@ -163,20 +182,23 @@
         [item setObject:description forKey:@"descrip"];
         [day3 addObject:[item copy]];
     }
-    if ([elementName isEqualToString:@"entry"]){
+    if ([elementName isEqualToString:@"entry"])
+    {
         [item setObject:linkToEntry forKey:@"entryLink"];
         [item setObject:title forKey:@"title"];
         [item setObject:summary forKey:@"summary"];
         [warningData addObject:[item copy]];
     }
-    if ([elementName isEqualToString:@"alert"]){
+    if ([elementName isEqualToString:@"alert"])
+    {
         [item setObject:headline forKey:@"headline"];
         [item setObject:alertDescription forKey:@"description"];
         [item setObject:instruction forKey:@"instruction"];
         [item setObject:severity forKey:@"severity"];
         [alert addObject:[item copy]];
     }
-    if ([elementName isEqualToString:@"station"]){
+    if ([elementName isEqualToString:@"station"])
+    {
         [item setObject:station_id forKey:@"stationId"];
         [item setObject:city forKey:@"city"];
         [item setObject:state forKey:@"state"];
@@ -188,7 +210,8 @@
         [item setObject:closest_radar forKey:@"closest_radar"];
         [stationsData addObject:[item copy]];
     }
-    if ([elementName isEqualToString:@"photo_of_the_day"]){
+    if ([elementName isEqualToString:@"photo_of_the_day"])
+    {
         [item setObject:date forKey:@"date"];
         [item setObject:photoURL forKey:@"photoURL"];
         [item setObject:caption forKey:@"caption"];
@@ -196,8 +219,10 @@
     }
 }
 
-- (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
-    if([currentType isEqualToString:@"conditions"]){
+- (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
+{
+    if([currentType isEqualToString:@"conditions"])
+    {
         if([currentElement isEqualToString:@"humidity"]) 
             [currentHumidity appendString:string];
         else if([currentElement isEqualToString:@"wind_speed"]) 
@@ -217,7 +242,8 @@
         else if([currentElement isEqualToString:@"lo_temp"])
             [currentLoTemp appendString:string];
     }
-    else if([currentType isEqualToString:@"forecast"]){
+    else if([currentType isEqualToString:@"forecast"])
+    {
         if([currentElement isEqualToString:@"introduction"])
             [currentIntro appendString:string];
         else if([currentElement isEqualToString:@"high_temperature"])
@@ -233,7 +259,8 @@
         else if([currentElement isEqualToString:@"title"])
             [currentIntroTitle appendString:string];
     }
-    else if([currentType isEqualToString:@"entry"]){
+    else if([currentType isEqualToString:@"entry"])
+    {
         if([currentElement isEqualToString:@"id"])
             [linkToEntry appendString:string];
         else if([currentElement isEqualToString:@"title"])
@@ -241,7 +268,8 @@
         else if([currentElement isEqualToString:@"summary"])
             [summary appendString:string];
     }
-    else if([currentType isEqualToString:@"alert"]){
+    else if([currentType isEqualToString:@"alert"])
+    {
         if([currentElement isEqualToString:@"headline"])
             [headline appendString:string];
         else if([currentElement isEqualToString:@"description"])
@@ -251,7 +279,8 @@
         else if([currentElement isEqualToString:@"severity"])
             [severity appendString:string];
     }
-    else if([currentType isEqualToString:@"stations"]){
+    else if([currentType isEqualToString:@"stations"])
+    {
         if([currentElement isEqualToString:@"station_id"])
             [station_id appendString:string];
         else if([currentElement isEqualToString:@"city"])
@@ -271,7 +300,8 @@
         else if([currentElement isEqualToString:@"closest_radar"])
             [closest_radar appendString:string];
     }
-    else if([currentType isEqualToString:@"photo_of_the_day"]){
+    else if([currentType isEqualToString:@"photo_of_the_day"])
+    {
         if([currentElement isEqualToString:@"date"])
             [date appendString:string];
         else if([currentElement isEqualToString:@"url"])

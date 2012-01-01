@@ -2,8 +2,8 @@
 //  RadarViewController.h
 //  RaysWeather
 //
-//  Created by Bobby Lunceford on 4/12/11.
-//  Copyright 2011 Appalachian State University. All rights reserved.
+//  Created by Bobby Lunceford and Seth Hobson.
+//  Copyright 2011 Ray's Weather. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -18,6 +18,7 @@
 }
 
 - (NSString *)trimWhitespace:(NSMutableString *)stringToTrim;
--(void)timerLoad;
+- (void)timerLoad;
+- (void)loadData;
 
 @end

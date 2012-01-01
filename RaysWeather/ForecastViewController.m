@@ -2,8 +2,8 @@
 //  ForecastViewController.m
 //  RaysWeather
 //
-//  Created by Bobby Lunceford on 3/24/11.
-//  Copyright 2011 Appalachian State University. All rights reserved.
+//  Created by Bobby Lunceford and Seth Hobson.
+//  Copyright 2011 Ray's Weather. All rights reserved.
 //
 
 #import "ForecastViewController.h"
@@ -11,12 +11,48 @@
 @implementation ForecastViewController
 @synthesize dayOneDictionary, dayTwoDictionary, dayThreeDictionary;
 
-
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    [self loadData];
+    [[NSNotificationCenter defaultCenter] addObserver: self
+                                             selector: @selector(appActivated:)
+                                                 name: UIApplicationDidBecomeActiveNotification
+                                               object: nil];
+}
+
+- (void)viewDidUnload
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [super viewDidUnload];
+}
+
+/*
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [[NSNotificationCenter defaultCenter] addObserver: self
+                                             selector: @selector(appActivated:)
+                                                 name: UIApplicationDidBecomeActiveNotification
+                                               object: nil];
+}
+*/
+
+- (void)appActivated:(NSNotification *)note
+{
+    NSLog(@"reloading the forecast");
+    [self loadData];
+}
+
+- (void)loadData
+{
     self.title = @"Forecast";
     
     RaysWeatherAppDelegate *delegate = (RaysWeatherAppDelegate*)[[UIApplication sharedApplication] delegate];
@@ -104,11 +140,10 @@
     [[dayThreeDescript layer] setCornerRadius:10];
     [dayThreeDescript setClipsToBounds: YES];
     dayThreeDescript.text = [self trimWhitespace:[dayThreeDictionary objectForKey:@"descrip"]];
-    
-
 }
 
-- (NSString *)trimWhitespace:(NSMutableString *)stringToTrim{
+- (NSString *)trimWhitespace:(NSMutableString *)stringToTrim
+{
     NSString *removeNewLine = [stringToTrim stringByReplacingOccurrencesOfString:@"\n" withString:@""];
     NSString *removeTab = [removeNewLine stringByReplacingOccurrencesOfString:@"\t" withString:@""];
     return removeTab;
@@ -116,11 +151,11 @@
 
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
-    if(toInterfaceOrientation==UIInterfaceOrientationLandscapeRight ||
-       toInterfaceOrientation==UIInterfaceOrientationLandscapeLeft)
+    if (toInterfaceOrientation == UIInterfaceOrientationLandscapeRight ||
+        toInterfaceOrientation==UIInterfaceOrientationLandscapeLeft)
         [self rotateToLandscape];
-    else if(toInterfaceOrientation==UIInterfaceOrientationPortrait ||
-            toInterfaceOrientation==UIInterfaceOrientationPortraitUpsideDown)
+    else if (toInterfaceOrientation == UIInterfaceOrientationPortrait ||
+             toInterfaceOrientation == UIInterfaceOrientationPortraitUpsideDown)
         [self rotateToPortrait];
 }
 
@@ -207,16 +242,5 @@
     
     // Release any cached data, images, etc. that aren't in use.
 }
-
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
-
 
 @end
